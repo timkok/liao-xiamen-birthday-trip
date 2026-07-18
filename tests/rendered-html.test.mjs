@@ -33,7 +33,8 @@ test("server-renders the literary trip experience", async () => {
   assert.match(html, /借一程山海/);
   assert.match(html, /陪七十岁慢慢生光/);
   assert.match(html, /三家餐厅 · 219 道风味/);
-  assert.match(html, /最后一晚待确认/);
+  assert.match(html, /8\/2 · 慢度假/);
+  assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
   assert.match(html, /id="itinerary"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /id="checklist"/);
