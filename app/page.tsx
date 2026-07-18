@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 type Stop = { time: string; title: string; note?: string; important?: boolean };
 type VisualStep = { icon: string; time: string; title: string };
-type Dish = { name: string; price: number; note?: string };
+type Dish = { name: string; price: number; note?: string; tags?: string[] };
 type Menu = { id: string; name: string; serviceRate: number; dishes: Dish[] };
 type Day = {
   date: string;
@@ -14,6 +14,10 @@ type Day = {
   theme: string;
   hotel: string;
   strength: string;
+  transport: string;
+  mustDo: string;
+  leaveBy: string;
+  leaderTip: string;
   color: string;
   image: string;
   imageAlt: string;
@@ -26,7 +30,7 @@ type Day = {
 
 const days: Day[] = [
   {
-    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", color: "green", image: "/trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶山晨雾 · 温泉初醒", routeImage: "/route-images/route-1.jpg", visualSteps: [{ icon:"🚄", time:"上午", title:"高铁出发" },{ icon:"🚙", time:"12:00", title:"厦门北取车" },{ icon:"♨️", time:"下午", title:"茶山泡温泉" },{ icon:"🍲", time:"晚上", title:"酒店吃晚餐" }],
+    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", transport: "高铁抵厦门北 · 取7座车进山", mustDo: "取车时确认儿童座椅与行李空间", leaveBy: "按高铁时间出发", leaderTip: "到店先让老人休息；泡汤每轮20–30分钟，中间补水，避免空腹泡温泉。", color: "green", image: "/trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶山晨雾 · 温泉初醒", routeImage: "/route-images/route-1.jpg", visualSteps: [{ icon:"🚄", time:"上午", title:"高铁出发" },{ icon:"🚙", time:"12:00", title:"厦门北取车" },{ icon:"♨️", time:"下午", title:"茶山泡温泉" },{ icon:"🍲", time:"晚上", title:"酒店吃晚餐" }],
     stops: [
       { time: "上午", title: "广州东站乘高铁前往厦门北" },
       { time: "约 12:00", title: "厦门北站取车", note: "核对儿童座椅、行李空间和次日还车门店", important: true },
@@ -38,7 +42,7 @@ const days: Day[] = [
     fallback: "如遇高铁延误：取消茶园散步；到店先吃饭再泡汤，避免空腹泡温泉。",
   },
   {
-    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", color: "blue", image: "/trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行", routeImage: "/route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
+    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", transport: "自驾回厦 · 寄存 · 还车 · 轮渡", mustDo: "13:40前到码头 · 14:30上船", leaveBy: "最迟10:15退房", leaderTip: "寄存大箱后拍好行李牌；六人证件由两位成人分开保管，只带一晚过夜包上岛。", color: "blue", image: "/trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行", routeImage: "/route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
     stops: [
       { time: "08:00", title: "早餐、温泉或茶园散步" },
       { time: "最迟 10:15", title: "退房，开车返回厦门", important: true },
@@ -53,7 +57,7 @@ const days: Day[] = [
     fallback: "如遇轮渡延误：缩短私人讲解；如遇停航：联系酒店调整上岛安排，改在市区休息，不冒险赶船。",
   },
   {
-    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", color: "orange", image: "/trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色", routeImage: "/route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
+    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", transport: "轮渡下岛 · 打车到华尔道夫", mustDo: "13:30鲜承午餐 · 两房分别挂账", leaveBy: "10:30前后退房下岛", leaderTip: "午餐后至少完整休息3小时；晚间小吃每站少量分食，老人累了随时打车回酒店。", color: "orange", image: "/trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色", routeImage: "/route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
     stops: [
       { time: "07:30", title: "早餐，岛上轻松散步" },
       { time: "10:30", title: "退房、下岛", note: "酒店协助把行李送到码头" },
@@ -66,7 +70,7 @@ const days: Day[] = [
     fallback: "如遇下雨：改为骑楼下短走；如老人疲劳：吃完花生汤直接回酒店。",
   },
   {
-    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", color: "teal", image: "/trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴", routeImage: "/route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
+    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", transport: "打车换酒店 · 游艇视天气决定", mustDo: "18:50前到餐厅拍照 · 19:00开宴", leaveBy: "13:30前退房前往七尚", leaderTip: "18:00开始换衣和布置检查；先拍空景与全家照，约20:30上长寿面、切蛋糕。", color: "teal", image: "/trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴", routeImage: "/route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
     stops: [
       { time: "08:00", title: "早餐、泳池或房间休息" },
       { time: "上午", title: "不安排景点，午餐从简" },
@@ -80,7 +84,7 @@ const days: Day[] = [
     fallback: "如遇海况不好：取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
   },
   {
-    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "最后一晚待确认", strength: "极低强度", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "/trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
+    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "最后一晚待确认", strength: "极低强度", transport: "原则上不转场 · 如换店只安排入住", mustDo: "完成最后一晚确认 · 保留完整午休", leaveBy: "无固定出发时间", leaderTip: "这一天的价值是恢复体力。若换酒店，只搬行李和入住，不临时添加跨城景点。", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "/trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
     stops: [
       { time: "08:00-10:00", title: "睡到自然醒、早餐", note: "可在酒店园林或五缘湾短走" },
       { time: "10:00-12:00", title: "孩子泳池，老人房间休息", note: "不安排跨城景点" },
@@ -92,7 +96,7 @@ const days: Day[] = [
     fallback: "如遇下雨或高温：留在酒店；如最后一晚更换酒店：当天只保留入住和休息，不再加景点。",
   },
   {
-    date: "8月3日", weekday: "周一", short: "返程", place: "最后一晚酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", color: "rose", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "/route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
+    date: "8月3日", weekday: "周一", short: "返程", place: "最后一晚酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", transport: "酒店打车到厦门北 · 高铁返广州", mustDo: "证件药品逐项检查 · 提前进站", leaveBy: "按车次倒推75–90分钟", leaderTip: "退房前核对两间房账；进站后先让老人坐下，两位成人分别负责取餐和看管行李。", color: "rose", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "/route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
     stops: [
       { time: "08:00-09:30", title: "早餐、最后一次散步或池边坐坐" },
       { time: "09:30-11:00", title: "打包并逐项检查", note: "证件、充电器、药品和儿童用品" },
@@ -109,39 +113,46 @@ const checklist = [
   "已订酒店确认号与相邻房备注", "7/31 13:30 鲜承午餐", "8/1 19:00 七尚生日宴",
   "蛋糕、花瓣、好事发生牌、长寿面", "8/2 最后一晚酒店确认", "8/3 高铁车次与送站时间",
   "常用药、晕船药、防晒和补液用品", "鼓浪屿轻便过夜包",
+  "7座车型、儿童座椅与行李空间确认", "晃岩36行李接送与讲解对接",
+  "华尔道夫两房分账与FHR额度确认", "七尚相邻房、生日布置与房账备注",
+  "游艇天气、海况与取消政策确认",
 ];
 
 const checklistCategories = [
-  { title: "交通与证件", icon: "🚄", items: [0, 1, 2, 8] },
-  { title: "酒店与餐饮", icon: "🏨", items: [3, 4, 5, 7] },
+  { title: "交通与证件", icon: "🚄", items: [0, 1, 2, 8, 11, 15] },
+  { title: "酒店与餐饮", icon: "🏨", items: [3, 4, 5, 7, 12, 13, 14] },
   { title: "生日准备", icon: "🎂", items: [6] },
   { title: "随身用品", icon: "🧳", items: [9, 10] },
 ];
 
 const menus: Menu[] = [
   { id: "anxi", name: "安溪悦泉晚餐", serviceRate: 0, dishes: [
-    { name: "茶香温泉土鸡蛋", price: 38 }, { name: "古法手剥傍林笋", price: 38 },
-    { name: "铁观音茶香虾", price: 128 }, { name: "山茶油小黄姜煎土鸡", price: 158 },
-    { name: "本地光鱼两吃", price: 228 }, { name: "土猪肉焖安溪麻笋煲", price: 88 },
-    { name: "原香小笋芥菜煲", price: 88 }, { name: "幸福炒饭", price: 58 },
-    { name: "湖头咸笋包（6个）", price: 48 },
+    { name: "茶香温泉土鸡蛋", price: 38, note: "一人一份，容易入口", tags: ["老人友好", "孩子友好"] },
+    { name: "古法手剥傍林笋", price: 38, note: "清爽开胃，平衡油腻", tags: ["安溪特色", "清淡"] },
+    { name: "铁观音茶香虾", price: 128, note: "最有安溪辨识度", tags: ["当地特色", "需剥壳"] },
+    { name: "山茶油小黄姜煎土鸡", price: 158, note: "茶油香，建议少油", tags: ["酒店推荐", "少辣"] },
+    { name: "本地光鱼两吃", price: 228, note: "六人分食较合适", tags: ["当地特色", "留意鱼刺"] },
+    { name: "土猪肉焖安溪麻笋煲", price: 88, note: "香软下饭", tags: ["老人友好"] },
+    { name: "原香小笋芥菜煲", price: 88, note: "补一道温和蔬菜", tags: ["清淡", "蔬菜"] },
+    { name: "幸福炒饭", price: 58, note: "照顾老人和孩子的主食", tags: ["孩子友好", "主食"] },
+    { name: "湖头咸笋包（6个）", price: 48, note: "一人一个尝鲜", tags: ["安溪名点"] },
   ]},
   { id: "waldorf", name: "华尔道夫鲜承午餐", serviceRate: 0.15, dishes: [
-    { name: "荠菜煎炒客家牛三宝", price: 298 }, { name: "客家盐酒河田鸡", price: 188 },
-    { name: "白切东山深海手钓大红管", price: 298 }, { name: "鲜承姜母鸭", price: 158 },
-    { name: "鲜承海鲜泡饭", price: 138 }, { name: "泉州卤面", price: 98 },
-    { name: "时令田园蔬菜", price: 58 }, { name: "花生奶（4位）", price: 152 },
+    { name: "荠菜煎炒客家牛三宝", price: 298, tags: ["招牌", "口感丰富"] }, { name: "客家盐酒河田鸡", price: 188, tags: ["温和", "含酒香"] },
+    { name: "白切东山深海手钓大红管", price: 298, tags: ["海鲜", "清淡"] }, { name: "鲜承姜母鸭", price: 158, tags: ["闽南特色", "老人友好"] },
+    { name: "鲜承海鲜泡饭", price: 138, tags: ["孩子友好", "主食"] }, { name: "泉州卤面", price: 98, tags: ["闽南特色", "主食"] },
+    { name: "时令田园蔬菜", price: 58, tags: ["清淡", "蔬菜"] }, { name: "花生奶（4位）", price: 152, tags: ["含花生", "甜品"] },
   ]},
   { id: "lohkah", name: "七尚生日宴", serviceRate: 0.15, dishes: [
-    { name: "贵妃蚌土笋冻（1位）", price: 87 }, { name: "红葱酥南日鲜鲍（4只）", price: 228 },
-    { name: "白切海钓东山大管", price: 247 }, { name: "沙虫双脆鳝鱼羹", price: 87 },
-    { name: "永安黄椒烧青蟹仔年糕", price: 427, note: "请做少辣" }, { name: "陈年萝卜焗竹午鱼", price: 257 },
-    { name: "嫩姜芽炒蛏子皇", price: 257 }, { name: "韭香浸长汀河田鸡", price: 127 },
-    { name: "黑金果木片皮鸭", price: 397 }, { name: "芋泥香酥鸭", price: 77 },
-    { name: "自制腊肉蒸时令鲜笋", price: 127 }, { name: "红菇柴火豆腐", price: 117 },
-    { name: "椒榄菜焗扁豆", price: 57 }, { name: "猫爪菇烧芋仔佐火腿", price: 157 },
-    { name: "梅干菜猪油焖饭", price: 197 }, { name: "冻花生汤（2位）", price: 94 },
-    { name: "生日长寿面（赠送）", price: 0 },
+    { name: "贵妃蚌土笋冻（1位）", price: 87, tags: ["闽南特色", "冷盘"] }, { name: "红葱酥南日鲜鲍（4只）", price: 228, tags: ["海鲜", "4只"] },
+    { name: "白切海钓东山大管", price: 247, tags: ["海鲜", "清淡"] }, { name: "沙虫双脆鳝鱼羹", price: 87, tags: ["羹汤", "老人友好"] },
+    { name: "永安黄椒烧青蟹仔年糕", price: 427, note: "请做少辣", tags: ["海鲜", "少辣"] }, { name: "陈年萝卜焗竹午鱼", price: 257, tags: ["留意鱼刺"] },
+    { name: "嫩姜芽炒蛏子皇", price: 257, tags: ["海鲜"] }, { name: "韭香浸长汀河田鸡", price: 127, tags: ["清淡", "老人友好"] },
+    { name: "黑金果木片皮鸭", price: 397, tags: ["招牌", "分食"] }, { name: "芋泥香酥鸭", price: 77, tags: ["孩子友好", "香酥"] },
+    { name: "自制腊肉蒸时令鲜笋", price: 127, tags: ["咸香"] }, { name: "红菇柴火豆腐", price: 117, tags: ["老人友好", "清淡"] },
+    { name: "椒榄菜焗扁豆", price: 57, tags: ["蔬菜"] }, { name: "猫爪菇烧芋仔佐火腿", price: 157, tags: ["菌菇", "老人友好"] },
+    { name: "梅干菜猪油焖饭", price: 197, tags: ["主食", "六人分食"] }, { name: "冻花生汤（2位）", price: 94, tags: ["含花生", "甜品"] },
+    { name: "生日长寿面（赠送）", price: 0, tags: ["生日仪式", "赠送"] },
   ]},
 ];
 
@@ -218,6 +229,7 @@ export default function Home() {
   const [activeMenuId, setActiveMenuId] = useState(menus[0].id);
   const [menuSelections, setMenuSelections] = useState<Record<string, number[]>>(initialMenuSelections);
   const [elderMode, setElderMode] = useState(false);
+  const [expandedDays, setExpandedDays] = useState<number[]>([]);
 
   useEffect(() => {
     try {
@@ -298,6 +310,10 @@ export default function Home() {
   const menuSubtotal = activeMenu.dishes.reduce((sum, dish, index) => activeMenuSelected.includes(index) ? sum + dish.price : sum, 0);
   const menuService = Math.round(menuSubtotal * activeMenu.serviceRate * 100) / 100;
   const menuTotal = menuSubtotal + menuService;
+  const menuPerPerson = Math.round(menuTotal / 6 * 100) / 100;
+  const dayExpanded = expandedDays.includes(active);
+  const compactStops = day.stops.filter((stop, index) => index < 3 || stop.important);
+  const visibleStops = dayExpanded ? day.stops : compactStops;
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
@@ -363,6 +379,12 @@ export default function Home() {
               {day.visualSteps.map((step, index) => <div key={step.title}><span className="step-icon">{step.icon}</span><span className="step-copy"><small>{step.time}</small><b>{step.title}</b></span>{index < day.visualSteps.length - 1 && <i aria-hidden="true">→</i>}</div>)}
             </div>
           </section>
+          <section className="day-facts" aria-label={`${day.date}关键行动`}>
+            <div><span>🚙</span><small>核心交通</small><b>{day.transport}</b></div>
+            <div className="must"><span>🎯</span><small>今日必达</small><b>{day.mustDo}</b></div>
+            <div><span>⏰</span><small>最迟出发</small><b>{day.leaveBy}</b></div>
+            <div><span>🔋</span><small>体力强度</small><b>{day.strength}</b></div>
+          </section>
           <div className="day-summary">
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
@@ -371,14 +393,18 @@ export default function Home() {
             <span className="intensity">☀ {day.strength}</span>
           </div>
           <div className="timeline">
-            <h4 className="detail-title">详细时间表</h4>
-            {day.stops.map((stop) => (
+            <h4 className="detail-title">今日时间表</h4>
+            {visibleStops.map((stop) => (
               <div className={`stop ${stop.important ? "important" : ""}`} key={`${stop.time}-${stop.title}`}>
                 <time>{stop.time}</time>
                 <div><b>{stop.title}</b>{stop.note && <p>{stop.note}</p>}</div>
               </div>
             ))}
+            <button className="expand-schedule" onClick={() => setExpandedDays((current) => current.includes(active) ? current.filter((index) => index !== active) : [...current, active])} aria-expanded={dayExpanded}>
+              {dayExpanded ? "收起完整安排 ↑" : `展开完整安排（共 ${day.stops.length} 项）↓`}
+            </button>
             <div className="fallback"><span>天气 / 体力备选</span><p>{day.fallback}</p></div>
+            <div className="leader-tip"><span>💡</span><div><b>带队人提醒</b><p>{day.leaderTip}</p></div></div>
           </div>
         </article>
       </section>
@@ -464,7 +490,7 @@ export default function Home() {
               return <label className={selected ? "selected" : ""} key={dish.name}>
                 <input type="checkbox" checked={selected} onChange={() => toggleDish(activeMenu.id, index)} />
                 <span className="dish-check">{selected ? "✓" : ""}</span>
-                <span className="dish-name"><b>{dish.name}</b>{dish.note && <small>{dish.note}</small>}</span>
+                <span className="dish-name"><b>{dish.name}</b>{dish.note && <small>{dish.note}</small>}{dish.tags && <span className="dish-tags">{dish.tags.map((tag) => <i key={tag}>{tag}</i>)}</span>}</span>
                 <strong>{money(dish.price)}</strong>
               </label>;
             })}
@@ -473,6 +499,7 @@ export default function Home() {
             <div><span>已选菜品小计</span><b>{money(menuSubtotal)}</b></div>
             <div className={activeMenu.serviceRate ? "" : "muted-total"}><span>服务费{activeMenu.serviceRate ? "（15%）" : "（无）"}</span><b>{money(menuService)}</b></div>
             <div className="grand-total"><span>预计总消费</span><b>{money(menuTotal)}</b></div>
+            <div className="per-person"><span>6人预计人均</span><b>{money(menuPerPerson)}</b></div>
           </div>
           <p className="menu-save-note">菜品勾选状态也会保存在这台设备上。</p>
         </article>
@@ -513,6 +540,10 @@ export default function Home() {
         <div className="tip-card"><span>👟</span><div><b>鼓浪屿最费脚</b><p>坡路与石板路约 8,000-12,000 步，穿防滑步行鞋，不登日光岩顶。</p></div></div>
         <div className="tip-card"><span>🌦️</span><div><b>夏季炎热潮湿</b><p>户外尽量放在早晨或 17:00 以后，随身带防晒、雨具和补液用品。</p></div></div>
         <div className="tip-card"><span>💊</span><div><b>随身药品</b><p>常用药、晕船药、证件与儿童用品放过夜包，不进入寄存大箱。</p></div></div>
+      </section>
+
+      <section className="birthday-wish" aria-label="生日祝福">
+        <div><p>山海为伴 · 家人同席</p><h2>愿这一程，<br />岁岁常欢愉。</h2><span>祝七十岁生日快乐，松鹤长春。愿六位家人平安出发，带着笑声与照片，从容归家。</span><a href="#top">再看一遍旅程 ↑</a></div>
       </section>
 
       <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
