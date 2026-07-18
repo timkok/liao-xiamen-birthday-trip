@@ -78,22 +78,35 @@ const days: Day[] = [
     fallback: "海况不好就取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
   },
   {
-    date: "8月2日", weekday: "周日", short: "返程", place: "七尚 → 厦门北 → 广州", theme: "把度假感留到最后", hotel: "温暖返程", strength: "低强度", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "最后一晨 · 从容归家", routeImage: "/route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与泳池" },{ icon:"🧳", time:"10:00", title:"整理行李" },{ icon:"🚙", time:"返程前", title:"前往厦门北" },{ icon:"🚄", time:"下午", title:"高铁回广州" }],
+    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "最后一晚待确认", strength: "极低强度", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "/trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
     stops: [
-      { time: "08:00", title: "早餐、泳池或五缘湾短走" },
-      { time: "10:00", title: "房间休息、整理行李" },
-      { time: "中午", title: "酒店内简餐或到车站后简餐" },
-      { time: "返程前", title: "七尚前往厦门北", note: "车程预留 45-60 分钟，暑假至少提前 60 分钟进站", important: true },
-      { time: "下午", title: "高铁返回广州，平安到家" },
+      { time: "08:00-10:00", title: "睡到自然醒、早餐", note: "可在酒店园林或五缘湾短走" },
+      { time: "10:00-12:00", title: "孩子泳池，老人房间休息", note: "不安排跨城景点" },
+      { time: "12:00-14:30", title: "酒店轻午餐与完整午休", important: true },
+      { time: "15:00-17:00", title: "泳池、Spa、房间静坐或整理照片" },
+      { time: "17:00-18:30", title: "天气好再去海湾短走", note: "8/1 游艇如因天气取消，可视状态挪到此时" },
+      { time: "18:30 后", title: "轻松晚餐，提前整理部分行李" },
     ],
-    fallback: "返程较早就取消散步；返程较晚可利用延迟退房，但仍提前整理行李。",
+    fallback: "下雨或太热就留在酒店；如果最后一晚更换酒店，当天只保留入住和休息，不再加景点。",
+  },
+  {
+    date: "8月3日", weekday: "周一", short: "返程", place: "最后一晚酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", color: "rose", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "/route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
+    stops: [
+      { time: "08:00-09:30", title: "早餐、最后一次散步或池边坐坐" },
+      { time: "09:30-11:00", title: "打包并逐项检查", note: "证件、充电器、药品和儿童用品" },
+      { time: "按车次", title: "退房或寄存行李", note: "如车次较晚，可先寄存再简餐" },
+      { time: "发车前", title: "前往厦门北站", note: "交通与进站合计预留 75-90 分钟", important: true },
+      { time: "当天", title: "高铁返回广州东，平安到家", note: "尽量安排相邻座位，车上备简餐和水" },
+    ],
+    fallback: "车次较早就取消散步；车次较晚也不再加景点，把体力留给返程。",
   },
 ];
 
 const checklist = [
   "高铁票与 6 人实名信息", "租车确认及还车门店地址", "7/30 14:30 船票与证件分工",
-  "四家酒店确认号与相邻房备注", "7/31 13:30 鲜承午餐", "8/1 19:00 七尚生日宴",
-  "蛋糕、花瓣、好事发生牌、长寿面", "常用药、晕船药、防晒和补液用品", "鼓浪屿轻便过夜包",
+  "已订酒店确认号与相邻房备注", "7/31 13:30 鲜承午餐", "8/1 19:00 七尚生日宴",
+  "蛋糕、花瓣、好事发生牌、长寿面", "8/2 最后一晚酒店确认", "8/3 高铁车次与送站时间",
+  "常用药、晕船药、防晒和补液用品", "鼓浪屿轻便过夜包",
 ];
 
 const menus = [
@@ -127,10 +140,10 @@ export default function Home() {
           <a className="map-link" href="/trip-overview.png" target="_blank">查看原行程图 ↗</a>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">2026 · 6 位家人 · 5 天 4 晚</p>
+          <p className="eyebrow">2026 · 6 位家人 · 6 天 5 晚</p>
           <h1>为 70 岁生日，<br /><em>慢慢走一趟厦门。</em></h1>
           <p className="hero-copy">山里泡汤、鼓浪屿散步、鹭江夜色与一场海边家宴。每天留足午休，让老人和孩子都舒服。</p>
-          <div className="hero-tags"><span>🚄 全程高铁</span><span>🏨 四晚四酒店</span><span>🎂 8 月 1 日生日宴</span></div>
+          <div className="hero-tags"><span>🚄 全程高铁</span><span>🏨 最后一晚待确认</span><span>🎂 8 月 1 日生日宴</span></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -140,6 +153,21 @@ export default function Home() {
         <div><b>7/30 · 14:30</b><span>东渡 → 三丘田</span></div>
         <div><b>7/31 · 13:30</b><span>鲜承午餐</span></div>
         <div><b>8/1 · 19:00</b><span>七尚生日宴</span></div>
+        <div className="pending"><b>8/2 · 待确认</b><span>最后一晚住宿</span></div>
+        <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
+      </section>
+
+      <section className="section last-night" id="last-night">
+        <div className="decision-head">
+          <div><p className="kicker">最后一晚住宿</p><h2>先保留选择，舒适优先</h2></div>
+          <span className="decision-status">待确认</span>
+        </div>
+        <p className="decision-intro">最终版 PDF 以“七尚续住”为参考方案；目前尚未决定，因此下面只做比较，不把任何选项写成已预订。</p>
+        <div className="decision-grid">
+          <article className="recommended"><span className="choice-label">参考方案 A</span><h3>七尚续住一晚</h3><p>不用搬行李，8 月 2 日可完整休息，对老人和孩子最轻松。</p><ul><li>生日宴后原地休息</li><li>泳池、园林与五缘湾慢走</li><li>现金券价格与适用条件需再核对</li></ul></article>
+          <article><span className="choice-label">候选方案 B</span><h3>更换其他酒店</h3><p>若积分、免房券或返程位置明显更合适，可以作为备选。</p><ul><li>需要再次打包与转场</li><li>8 月 2 日不再安排额外景点</li><li>“厦门游”聊天中的候选酒店待补充</li></ul></article>
+        </div>
+        <div className="decision-rule"><b>建议判断方式</b><span>若价差不大，优先“不换酒店”；只有新酒店的价值或位置明显更好时，再考虑转场。</span></div>
       </section>
 
       <section className="itinerary section" id="itinerary">
@@ -188,10 +216,10 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅途画卷">
-        <div className="visual-title"><p className="kicker">旅途画卷</p><h2>从茶山，到海湾</h2><span>五天，五种厦门的颜色</span></div>
+        <div className="visual-title"><p className="kicker">旅途画卷</p><h2>从茶山，到海湾</h2><span>六天，一路慢慢走</span></div>
         <div className="photo-mosaic">
           {days.map((item, index) => (
-            <button key={item.image} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}${item.short}行程`}>
+            <button key={item.date} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}${item.short}行程`}>
               <img src={item.image} alt={item.imageAlt} loading="lazy" />
               <span><small>{item.date}</small><b>{item.imageCaption}</b></span>
             </button>
@@ -230,8 +258,8 @@ export default function Home() {
         <div className="tip-card"><span>💊</span><div><b>随身药品</b><p>常用药、晕船药、证件与儿童用品放过夜包，不进入寄存大箱。</p></div></div>
       </section>
 
-      <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 2 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
-      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#dining">餐饮</a><a href="#checklist">清单</a></nav>
+      <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
+      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#last-night">住宿</a><a href="#dining">餐饮</a><a href="#checklist">清单</a></nav>
     </main>
   );
 }
