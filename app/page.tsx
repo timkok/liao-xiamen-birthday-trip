@@ -185,7 +185,7 @@ export default function Home() {
       <header className="hero">
         <nav className="topbar">
           <a className="brand" href="#top" aria-label="返回顶部"><span>屿</span> 厦门家宴之旅</a>
-          <a className="map-link" href="/trip-overview.png" target="_blank">查看原行程图 ↗</a>
+          <div className="nav-actions"><a className="pdf-link" href="/xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="/trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
           <p className="eyebrow">2026 · 6 位家人 · 6 天 5 晚</p>
