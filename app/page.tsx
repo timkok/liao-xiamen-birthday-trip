@@ -145,6 +145,14 @@ const pictureGuide = [
   { date: "8月3日", title: "从容坐高铁回家", note: "早餐 · 行李 · 厦门北 · 广州", image: "/route-images/route-5.jpg", alt: "早餐后整理行李，前往厦门北乘高铁返程的路线插画" },
 ];
 
+const hotelGallery = [
+  { image: "/gallery/huangyan-exterior.jpg", title: "晃岩36 · 南洋别墅", note: "鼓浪屿上的百年建筑外观", alt: "鼓浪屿晃岩36酒店南洋风格外观", source: "https://slh.com/hotels/huang-yan-36-hotel" },
+  { image: "/gallery/huangyan-room.jpg", title: "晃岩36 · 客房", note: "复古细节与安静休息空间", alt: "鼓浪屿晃岩36酒店复古风格客房", source: "https://slh.com/hotels/huang-yan-36-hotel" },
+  { image: "/gallery/qishang-courtyard.webp", title: "七尚 · 庭院", note: "水、石材与绿意交织", alt: "厦门七尚酒店庭院景观", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
+  { image: "/gallery/qishang-restaurant.webp", title: "七尚 · 餐厅", note: "生日晚宴环境参考", alt: "厦门七尚酒店餐厅环境", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
+  { image: "/gallery/qishang-pool.webp", title: "七尚 · 泳池", note: "8月2日完整度假日", alt: "厦门七尚酒店户外泳池", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
+];
+
 export default function Home() {
   const [active, setActive] = useState(0);
   const [checked, setChecked] = useState<number[]>([]);
@@ -290,6 +298,18 @@ export default function Home() {
               <img src={item.image} alt={item.imageAlt} loading="lazy" />
               <span><small>{item.date}</small><b>{item.imageCaption}</b></span>
             </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="section hotel-gallery" aria-label="酒店实景图片">
+        <div className="section-heading"><div><p className="kicker">酒店实景参考</p><h2>住进旅途的风景里</h2></div><p>增加晃岩36和七尚的真实环境图片；实际房型、布置和天气以入住当天为准。</p></div>
+        <div className="hotel-photo-grid">
+          {hotelGallery.map((photo, index) => (
+            <figure key={photo.image} className={index === 0 ? "featured" : ""}>
+              <img src={photo.image} alt={photo.alt} loading="lazy" />
+              <figcaption><div><b>{photo.title}</b><span>{photo.note}</span></div><a href={photo.source} target="_blank" rel="noreferrer">图片来源 ↗</a></figcaption>
+            </figure>
           ))}
         </div>
       </section>
