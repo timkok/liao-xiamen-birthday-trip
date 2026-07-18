@@ -30,7 +30,7 @@ type Day = {
 
 const days: Day[] = [
   {
-    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", transport: "高铁抵厦门北 · 取7座车进山", mustDo: "取车时确认儿童座椅与行李空间", leaveBy: "按高铁时间出发", leaderTip: "到店先让老人休息；泡汤每轮20–30分钟，中间补水，避免空腹泡温泉。", color: "green", image: "/trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶山晨雾 · 温泉初醒", routeImage: "/route-images/route-1.jpg", visualSteps: [{ icon:"🚄", time:"上午", title:"高铁出发" },{ icon:"🚙", time:"12:00", title:"厦门北取车" },{ icon:"♨️", time:"下午", title:"茶山泡温泉" },{ icon:"🍲", time:"晚上", title:"酒店吃晚餐" }],
+    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", transport: "高铁抵厦门北 · 取7座车进山", mustDo: "取车时确认儿童座椅与行李空间", leaveBy: "按高铁时间出发", leaderTip: "到店先让老人休息；泡汤每轮20–30分钟，中间补水，避免空腹泡温泉。", color: "green", image: "trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶山晨雾 · 温泉初醒", routeImage: "route-images/route-1.jpg", visualSteps: [{ icon:"🚄", time:"上午", title:"高铁出发" },{ icon:"🚙", time:"12:00", title:"厦门北取车" },{ icon:"♨️", time:"下午", title:"茶山泡温泉" },{ icon:"🍲", time:"晚上", title:"酒店吃晚餐" }],
     stops: [
       { time: "上午", title: "广州东站乘高铁前往厦门北" },
       { time: "约 12:00", title: "厦门北站取车", note: "核对儿童座椅、行李空间和次日还车门店", important: true },
@@ -42,7 +42,7 @@ const days: Day[] = [
     fallback: "如遇高铁延误：取消茶园散步；到店先吃饭再泡汤，避免空腹泡温泉。",
   },
   {
-    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", transport: "自驾回厦 · 寄存 · 还车 · 轮渡", mustDo: "13:40前到码头 · 14:30上船", leaveBy: "最迟10:15退房", leaderTip: "寄存大箱后拍好行李牌；六人证件由两位成人分开保管，只带一晚过夜包上岛。", color: "blue", image: "/trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行", routeImage: "/route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
+    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", transport: "自驾回厦 · 寄存 · 还车 · 轮渡", mustDo: "13:40前到码头 · 14:30上船", leaveBy: "最迟10:15退房", leaderTip: "寄存大箱后拍好行李牌；六人证件由两位成人分开保管，只带一晚过夜包上岛。", color: "blue", image: "trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行", routeImage: "route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
     stops: [
       { time: "08:00", title: "早餐、温泉或茶园散步" },
       { time: "最迟 10:15", title: "退房，开车返回厦门", important: true },
@@ -57,7 +57,7 @@ const days: Day[] = [
     fallback: "如遇轮渡延误：缩短私人讲解；如遇停航：联系酒店调整上岛安排，改在市区休息，不冒险赶船。",
   },
   {
-    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", transport: "轮渡下岛 · 打车到华尔道夫", mustDo: "13:30鲜承午餐 · 两房分别挂账", leaveBy: "10:30前后退房下岛", leaderTip: "午餐后至少完整休息3小时；晚间小吃每站少量分食，老人累了随时打车回酒店。", color: "orange", image: "/trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色", routeImage: "/route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
+    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", transport: "轮渡下岛 · 打车到华尔道夫", mustDo: "13:30鲜承午餐 · 两房分别挂账", leaveBy: "10:30前后退房下岛", leaderTip: "午餐后至少完整休息3小时；晚间小吃每站少量分食，老人累了随时打车回酒店。", color: "orange", image: "trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色", routeImage: "route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
     stops: [
       { time: "07:30", title: "早餐，岛上轻松散步" },
       { time: "10:30", title: "退房、下岛", note: "酒店协助把行李送到码头" },
@@ -70,7 +70,7 @@ const days: Day[] = [
     fallback: "如遇下雨：改为骑楼下短走；如老人疲劳：吃完花生汤直接回酒店。",
   },
   {
-    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", transport: "打车换酒店 · 游艇视天气决定", mustDo: "18:50前到餐厅拍照 · 19:00开宴", leaveBy: "13:30前退房前往七尚", leaderTip: "18:00开始换衣和布置检查；先拍空景与全家照，约20:30上长寿面、切蛋糕。", color: "teal", image: "/trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴", routeImage: "/route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
+    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", transport: "打车换酒店 · 游艇视天气决定", mustDo: "18:50前到餐厅拍照 · 19:00开宴", leaveBy: "13:30前退房前往七尚", leaderTip: "18:00开始换衣和布置检查；先拍空景与全家照，约20:30上长寿面、切蛋糕。", color: "teal", image: "trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴", routeImage: "route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
     stops: [
       { time: "08:00", title: "早餐、泳池或房间休息" },
       { time: "上午", title: "不安排景点，午餐从简" },
@@ -84,7 +84,7 @@ const days: Day[] = [
     fallback: "如遇海况不好：取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
   },
   {
-    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "最后一晚待确认", strength: "极低强度", transport: "原则上不转场 · 如换店只安排入住", mustDo: "完成最后一晚确认 · 保留完整午休", leaveBy: "无固定出发时间", leaderTip: "这一天的价值是恢复体力。若换酒店，只搬行李和入住，不临时添加跨城景点。", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "/trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
+    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "最后一晚待确认", strength: "极低强度", transport: "原则上不转场 · 如换店只安排入住", mustDo: "完成最后一晚确认 · 保留完整午休", leaveBy: "无固定出发时间", leaderTip: "这一天的价值是恢复体力。若换酒店，只搬行李和入住，不临时添加跨城景点。", color: "violet", image: "trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
     stops: [
       { time: "08:00-10:00", title: "睡到自然醒、早餐", note: "可在酒店园林或五缘湾短走" },
       { time: "10:00-12:00", title: "孩子泳池，老人房间休息", note: "不安排跨城景点" },
@@ -96,7 +96,7 @@ const days: Day[] = [
     fallback: "如遇下雨或高温：留在酒店；如最后一晚更换酒店：当天只保留入住和休息，不再加景点。",
   },
   {
-    date: "8月3日", weekday: "周一", short: "返程", place: "最后一晚酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", transport: "酒店打车到厦门北 · 高铁返广州", mustDo: "证件药品逐项检查 · 提前进站", leaveBy: "按车次倒推75–90分钟", leaderTip: "退房前核对两间房账；进站后先让老人坐下，两位成人分别负责取餐和看管行李。", color: "rose", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "/route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
+    date: "8月3日", weekday: "周一", short: "返程", place: "最后一晚酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", transport: "酒店打车到厦门北 · 高铁返广州", mustDo: "证件药品逐项检查 · 提前进站", leaveBy: "按车次倒推75–90分钟", leaderTip: "退房前核对两间房账；进站后先让老人坐下，两位成人分别负责取餐和看管行李。", color: "rose", image: "trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
     stops: [
       { time: "08:00-09:30", title: "早餐、最后一次散步或池边坐坐" },
       { time: "09:30-11:00", title: "打包并逐项检查", note: "证件、充电器、药品和儿童用品" },
@@ -182,34 +182,34 @@ const hotelMessages = [
 ];
 
 const pictureGuide = [
-  { date: "7月29日", title: "茶山与温泉", note: "高铁 · 取车 · 安溪慢下来", image: "/route-images/route-1.jpg", alt: "广州乘高铁到厦门北，再前往安溪茶山温泉的路线插画" },
-  { date: "7月30日", title: "轻装上鼓浪屿", note: "寄存行李 · 轮渡 · 老别墅", image: "/route-images/route-2.jpg", alt: "安溪返回厦门、寄存行李、乘轮渡上鼓浪屿的路线插画" },
-  { date: "7月31日", title: "骑楼与鹭江夜色", note: "下岛 · 鲜承 · 中山路", image: "/route-images/route-3.jpg", alt: "鼓浪屿下岛、华尔道夫午餐和中山路夜游的路线插画" },
-  { date: "8月1日", title: "海湾生日家宴", note: "午休 · 游艇可选 · 生日宴", image: "/route-images/route-4.jpg", alt: "入住七尚、五缘湾游艇和七十岁生日晚宴的路线插画" },
-  { date: "8月2日", title: "完整度假日", note: "早餐 · 泳池 · 午睡 · 慢走", image: "/trip-images/day-5.jpg", alt: "海湾度假酒店泳池与悠闲休息场景" },
-  { date: "8月3日", title: "从容坐高铁回家", note: "早餐 · 行李 · 厦门北 · 广州", image: "/route-images/route-5.jpg", alt: "早餐后整理行李，前往厦门北乘高铁返程的路线插画" },
+  { date: "7月29日", title: "茶山与温泉", note: "高铁 · 取车 · 安溪慢下来", image: "route-images/route-1.jpg", alt: "广州乘高铁到厦门北，再前往安溪茶山温泉的路线插画" },
+  { date: "7月30日", title: "轻装上鼓浪屿", note: "寄存行李 · 轮渡 · 老别墅", image: "route-images/route-2.jpg", alt: "安溪返回厦门、寄存行李、乘轮渡上鼓浪屿的路线插画" },
+  { date: "7月31日", title: "骑楼与鹭江夜色", note: "下岛 · 鲜承 · 中山路", image: "route-images/route-3.jpg", alt: "鼓浪屿下岛、华尔道夫午餐和中山路夜游的路线插画" },
+  { date: "8月1日", title: "海湾生日家宴", note: "午休 · 游艇可选 · 生日宴", image: "route-images/route-4.jpg", alt: "入住七尚、五缘湾游艇和七十岁生日晚宴的路线插画" },
+  { date: "8月2日", title: "完整度假日", note: "早餐 · 泳池 · 午睡 · 慢走", image: "trip-images/day-5.jpg", alt: "海湾度假酒店泳池与悠闲休息场景" },
+  { date: "8月3日", title: "从容坐高铁回家", note: "早餐 · 行李 · 厦门北 · 广州", image: "route-images/route-5.jpg", alt: "早餐后整理行李，前往厦门北乘高铁返程的路线插画" },
 ];
 
 const hotelGallery = [
-  { image: "/gallery/huangyan-exterior.jpg", title: "晃岩36 · 南洋别墅", note: "鼓浪屿上的百年建筑外观", alt: "鼓浪屿晃岩36酒店南洋风格外观", source: "https://slh.com/hotels/huang-yan-36-hotel" },
-  { image: "/gallery/huangyan-room.jpg", title: "晃岩36 · 客房", note: "复古细节与安静休息空间", alt: "鼓浪屿晃岩36酒店复古风格客房", source: "https://slh.com/hotels/huang-yan-36-hotel" },
-  { image: "/gallery/qishang-courtyard.webp", title: "七尚 · 庭院", note: "水、石材与绿意交织", alt: "厦门七尚酒店庭院景观", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
-  { image: "/gallery/qishang-restaurant.webp", title: "七尚 · 餐厅", note: "生日晚宴环境参考", alt: "厦门七尚酒店餐厅环境", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
-  { image: "/gallery/qishang-pool.webp", title: "七尚 · 泳池", note: "8月2日完整度假日", alt: "厦门七尚酒店户外泳池", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
+  { image: "gallery/huangyan-exterior.jpg", title: "晃岩36 · 南洋别墅", note: "鼓浪屿上的百年建筑外观", alt: "鼓浪屿晃岩36酒店南洋风格外观", source: "https://slh.com/hotels/huang-yan-36-hotel" },
+  { image: "gallery/huangyan-room.jpg", title: "晃岩36 · 客房", note: "复古细节与安静休息空间", alt: "鼓浪屿晃岩36酒店复古风格客房", source: "https://slh.com/hotels/huang-yan-36-hotel" },
+  { image: "gallery/qishang-courtyard.webp", title: "七尚 · 庭院", note: "水、石材与绿意交织", alt: "厦门七尚酒店庭院景观", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
+  { image: "gallery/qishang-restaurant.webp", title: "七尚 · 餐厅", note: "生日晚宴环境参考", alt: "厦门七尚酒店餐厅环境", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
+  { image: "gallery/qishang-pool.webp", title: "七尚 · 泳池", note: "8月2日完整度假日", alt: "厦门七尚酒店户外泳池", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
 ];
 
 const journeyMoments = [
-  { image: "/trip-images/day-1.jpg", date: "7月29日", title: "茶山初见 · 温泉醒旅", alt: "安溪茶山和温泉度假风景", day: 0, shape: "tall" },
-  { image: "/route-images/route-1.jpg", date: "第一程", title: "高铁穿山，向海而行", alt: "从广州乘高铁前往厦门和安溪的插画", day: 0 },
-  { image: "/trip-images/day-2.jpg", date: "7月30日", title: "红瓦绿荫 · 海岛慢行", alt: "鼓浪屿红瓦别墅和海岸", day: 1, shape: "wide" },
-  { image: "/gallery/huangyan-exterior.jpg", date: "鼓浪屿", title: "住进百年南洋别墅", alt: "晃岩36南洋别墅外观", day: 1 },
-  { image: "/gallery/huangyan-room.jpg", date: "岛上一夜", title: "推门，是旧时光", alt: "晃岩36复古客房", day: 1 },
-  { image: "/trip-images/day-3.jpg", date: "7月31日", title: "骑楼灯火 · 鹭江夜色", alt: "鹭江道蓝调时刻与鼓浪屿夜景", day: 2, shape: "wide" },
-  { image: "/trip-images/day-4.jpg", date: "8月1日", title: "海湾夕照 · 七十家宴", alt: "海湾夕阳下的七十岁生日家宴", day: 3, shape: "wide" },
-  { image: "/gallery/qishang-courtyard.webp", date: "七尚", title: "水院微风，慢慢入席", alt: "七尚酒店水景庭院", day: 3 },
-  { image: "/gallery/qishang-restaurant.webp", date: "生日之夜", title: "灯亮起来，家人围坐", alt: "七尚酒店餐厅环境", day: 3 },
-  { image: "/gallery/qishang-pool.webp", date: "8月2日", title: "不赶景点，只享受海湾", alt: "七尚酒店户外泳池", day: 4, shape: "tall" },
-  { image: "/route-images/route-5.jpg", date: "8月3日", title: "带着照片，从容回家", alt: "从厦门北坐高铁返回广州的插画", day: 5 },
+  { image: "trip-images/day-1.jpg", date: "7月29日", title: "茶山初见 · 温泉醒旅", alt: "安溪茶山和温泉度假风景", day: 0, shape: "tall" },
+  { image: "route-images/route-1.jpg", date: "第一程", title: "高铁穿山，向海而行", alt: "从广州乘高铁前往厦门和安溪的插画", day: 0 },
+  { image: "trip-images/day-2.jpg", date: "7月30日", title: "红瓦绿荫 · 海岛慢行", alt: "鼓浪屿红瓦别墅和海岸", day: 1, shape: "wide" },
+  { image: "gallery/huangyan-exterior.jpg", date: "鼓浪屿", title: "住进百年南洋别墅", alt: "晃岩36南洋别墅外观", day: 1 },
+  { image: "gallery/huangyan-room.jpg", date: "岛上一夜", title: "推门，是旧时光", alt: "晃岩36复古客房", day: 1 },
+  { image: "trip-images/day-3.jpg", date: "7月31日", title: "骑楼灯火 · 鹭江夜色", alt: "鹭江道蓝调时刻与鼓浪屿夜景", day: 2, shape: "wide" },
+  { image: "trip-images/day-4.jpg", date: "8月1日", title: "海湾夕照 · 七十家宴", alt: "海湾夕阳下的七十岁生日家宴", day: 3, shape: "wide" },
+  { image: "gallery/qishang-courtyard.webp", date: "七尚", title: "水院微风，慢慢入席", alt: "七尚酒店水景庭院", day: 3 },
+  { image: "gallery/qishang-restaurant.webp", date: "生日之夜", title: "灯亮起来，家人围坐", alt: "七尚酒店餐厅环境", day: 3 },
+  { image: "gallery/qishang-pool.webp", date: "8月2日", title: "不赶景点，只享受海湾", alt: "七尚酒店户外泳池", day: 4, shape: "tall" },
+  { image: "route-images/route-5.jpg", date: "8月3日", title: "带着照片，从容回家", alt: "从厦门北坐高铁返回广州的插画", day: 5 },
 ];
 
 const mapStops = [
@@ -321,7 +321,7 @@ export default function Home() {
       <header className="hero">
         <nav className="topbar">
           <a className="brand" href="#top" aria-label="返回顶部"><span>屿</span> 厦门家宴之旅</a>
-          <div className="nav-actions"><a className="pdf-link" href="/xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="/trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
+          <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
           <p className="eyebrow">2026 · 6 位家人 · 6 天 5 晚</p>
@@ -433,9 +433,9 @@ export default function Home() {
             </figure>
           ))}
         </div>
-        <a className="overview-poster" href="/trip-overview.png" target="_blank" rel="noreferrer">
+        <a className="overview-poster" href="trip-overview.png" target="_blank" rel="noreferrer">
           <div><span>一张图看完整行程</span><b>点开后可以放大查看</b></div>
-          <img src="/trip-overview.webp" alt="厦门七十岁生日家庭行程一张图总览" loading="lazy" decoding="async" />
+          <img src="trip-overview.webp" alt="厦门七十岁生日家庭行程一张图总览" loading="lazy" decoding="async" />
         </a>
       </section>
 
