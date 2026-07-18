@@ -115,6 +115,15 @@ const menus = [
   { name: "七尚生日宴", total: "约 ¥2,940", items: "土笋冻 · 鲜鲍 · 白切大管 · 鳝鱼羹 · 青蟹年糕 · 竹午鱼 · 蛏子皇 · 河田鸡 · 片皮鸭 · 芋泥香酥鸭 · 时蔬 · 焖饭 · 花生汤 · 长寿面" },
 ];
 
+const pictureGuide = [
+  { date: "7月29日", title: "茶山与温泉", note: "高铁 · 取车 · 安溪慢下来", image: "/route-images/route-1.jpg", alt: "广州乘高铁到厦门北，再前往安溪茶山温泉的路线插画" },
+  { date: "7月30日", title: "轻装上鼓浪屿", note: "寄存行李 · 轮渡 · 老别墅", image: "/route-images/route-2.jpg", alt: "安溪返回厦门、寄存行李、乘轮渡上鼓浪屿的路线插画" },
+  { date: "7月31日", title: "骑楼与鹭江夜色", note: "下岛 · 鲜承 · 中山路", image: "/route-images/route-3.jpg", alt: "鼓浪屿下岛、华尔道夫午餐和中山路夜游的路线插画" },
+  { date: "8月1日", title: "海湾生日家宴", note: "午休 · 游艇可选 · 生日宴", image: "/route-images/route-4.jpg", alt: "入住七尚、五缘湾游艇和七十岁生日晚宴的路线插画" },
+  { date: "8月2日", title: "完整度假日", note: "早餐 · 泳池 · 午睡 · 慢走", image: "/trip-images/day-5.jpg", alt: "海湾度假酒店泳池与悠闲休息场景" },
+  { date: "8月3日", title: "从容坐高铁回家", note: "早餐 · 行李 · 厦门北 · 广州", image: "/route-images/route-5.jpg", alt: "早餐后整理行李，前往厦门北乘高铁返程的路线插画" },
+];
+
 export default function Home() {
   const [active, setActive] = useState(0);
   const [checked, setChecked] = useState<number[]>([]);
@@ -215,6 +224,25 @@ export default function Home() {
         </article>
       </section>
 
+      <section className="section picture-guide" id="pictures">
+        <div className="section-heading">
+          <div><p className="kicker">六日看图路线</p><h2>先看图片，再看时间</h2></div>
+          <p>每张图代表一天。家里老人只要按日期从左到右看，就能知道当天的大致安排。</p>
+        </div>
+        <div className="picture-grid">
+          {pictureGuide.map((item) => (
+            <figure key={item.date}>
+              <img src={item.image} alt={item.alt} loading="lazy" />
+              <figcaption><span>{item.date}</span><b>{item.title}</b><small>{item.note}</small></figcaption>
+            </figure>
+          ))}
+        </div>
+        <a className="overview-poster" href="/trip-overview.png" target="_blank" rel="noreferrer">
+          <div><span>一张图看完整行程</span><b>点开后可以放大查看</b></div>
+          <img src="/trip-overview.png" alt="厦门七十岁生日家庭行程一张图总览" loading="lazy" />
+        </a>
+      </section>
+
       <section className="visual-journey" aria-label="旅途画卷">
         <div className="visual-title"><p className="kicker">旅途画卷</p><h2>从茶山，到海湾</h2><span>六天，一路慢慢走</span></div>
         <div className="photo-mosaic">
@@ -259,7 +287,7 @@ export default function Home() {
       </section>
 
       <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
-      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#last-night">住宿</a><a href="#dining">餐饮</a><a href="#checklist">清单</a></nav>
+      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#last-night">住宿</a><a href="#checklist">清单</a></nav>
     </main>
   );
 }
