@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import restaurantMenuData from "./restaurant-menus.json";
 
 type Stop = { time: string; title: string; note?: string; important?: boolean };
 type VisualStep = { icon: string; time: string; title: string };
 type Dish = { name: string; price: number; note?: string; tags?: string[] };
 type Menu = { id: string; name: string; serviceRate: number; dishes: Dish[] };
+type CatalogDish = { id: number; restaurant: string; section: string; name: string; price: number; unit: string; notes: string; spicy: boolean; preorder: boolean };
 type Day = {
   date: string;
   weekday: string;
@@ -125,6 +127,14 @@ const checklistCategories = [
   { title: "随身用品", icon: "🧳", items: [9, 10] },
 ];
 
+const restaurantMeta = [
+  { id: "幸福味道", label: "安溪 · 幸福味道", serviceRate: 0 },
+  { id: "鲜承 (HOKKLO)", label: "华尔道夫 · 鲜承", serviceRate: 0.15 },
+  { id: "七尚酒店 (LOHKAH)", label: "七尚酒店", serviceRate: 0.15 },
+];
+
+const restaurantMenus = restaurantMenuData as CatalogDish[];
+
 const menus: Menu[] = [
   { id: "anxi", name: "安溪悦泉晚餐", serviceRate: 0, dishes: [
     { name: "茶香温泉土鸡蛋", price: 38, note: "一人一份，容易入口", tags: ["老人友好", "孩子友好"] },
@@ -138,20 +148,20 @@ const menus: Menu[] = [
     { name: "湖头咸笋包（6个）", price: 48, note: "一人一个尝鲜", tags: ["安溪名点"] },
   ]},
   { id: "waldorf", name: "华尔道夫鲜承午餐", serviceRate: 0.15, dishes: [
-    { name: "荠菜煎炒客家牛三宝", price: 298, tags: ["招牌", "口感丰富"] }, { name: "客家盐酒河田鸡", price: 188, tags: ["温和", "含酒香"] },
+    { name: "荞葱煎炒客家牛三宝", price: 298, tags: ["招牌", "口感丰富"] }, { name: "客家盐酒煮河田鸡", price: 188, tags: ["温和", "含酒香"] },
     { name: "白切东山深海手钓大红管", price: 298, tags: ["海鲜", "清淡"] }, { name: "鲜承姜母鸭", price: 158, tags: ["闽南特色", "老人友好"] },
     { name: "鲜承海鲜泡饭", price: 138, tags: ["孩子友好", "主食"] }, { name: "泉州卤面", price: 98, tags: ["闽南特色", "主食"] },
-    { name: "时令田园蔬菜", price: 58, tags: ["清淡", "蔬菜"] }, { name: "花生奶（4位）", price: 152, tags: ["含花生", "甜品"] },
+    { name: "时令田园蔬菜", price: 58, tags: ["清淡", "蔬菜"] }, { name: "鹭岛香芋花生汤（4位）", price: 152, tags: ["含花生", "甜品"] },
   ]},
   { id: "lohkah", name: "七尚生日宴", serviceRate: 0.15, dishes: [
     { name: "贵妃蚌土笋冻（1位）", price: 87, tags: ["闽南特色", "冷盘"] }, { name: "红葱酥南日鲜鲍（4只）", price: 228, tags: ["海鲜", "4只"] },
-    { name: "白切海钓东山大管", price: 247, tags: ["海鲜", "清淡"] }, { name: "沙虫双脆鳝鱼羹", price: 87, tags: ["羹汤", "老人友好"] },
-    { name: "永安黄椒烧青蟹仔年糕", price: 427, note: "请做少辣", tags: ["海鲜", "少辣"] }, { name: "陈年萝卜焗竹午鱼", price: 257, tags: ["留意鱼刺"] },
+    { name: "白切海钓东山大管", price: 247, tags: ["海鲜", "少辣"] }, { name: "沙虫双脆鳕鱼盏", price: 87, tags: ["海鲜", "少辣"] },
+    { name: "永安黄椒烧角蟹佐年糕", price: 427, note: "请做少辣", tags: ["海鲜", "少辣"] }, { name: "陈年老萝卜焗竹午鱼", price: 257, tags: ["留意鱼刺"] },
     { name: "嫩姜芽炒蛏子皇", price: 257, tags: ["海鲜"] }, { name: "韭香浸长汀河田鸡", price: 127, tags: ["清淡", "老人友好"] },
     { name: "黑金果木片皮鸭", price: 397, tags: ["招牌", "分食"] }, { name: "芋泥香酥鸭", price: 77, tags: ["孩子友好", "香酥"] },
-    { name: "自制腊肉蒸时令鲜笋", price: 127, tags: ["咸香"] }, { name: "红菇柴火豆腐", price: 117, tags: ["老人友好", "清淡"] },
-    { name: "椒榄菜焗扁豆", price: 57, tags: ["蔬菜"] }, { name: "猫爪菇烧芋仔佐火腿", price: 157, tags: ["菌菇", "老人友好"] },
-    { name: "梅干菜猪油焖饭", price: 197, tags: ["主食", "六人分食"] }, { name: "冻花生汤（2位）", price: 94, tags: ["含花生", "甜品"] },
+    { name: "自制腊肉蒸时令鲜笋", price: 127, tags: ["咸香"] }, { name: "红菇柴火豆腐", price: 117, note: "宴席沟通菜，待酒店确认", tags: ["老人友好", "待确认"] },
+    { name: "橄榄菜焗扁豆", price: 57, tags: ["蔬菜"] }, { name: "猎爪菇烧芋仔佐火腿", price: 157, tags: ["菌菇", "少辣"] },
+    { name: "梅干菜猪油粕捞饭", price: 197, tags: ["主食", "六人分食"] }, { name: "冻花生汤（2位）", price: 94, note: "宴席甜品，待酒店确认", tags: ["含花生", "待确认"] },
     { name: "生日长寿面（赠送）", price: 0, tags: ["生日仪式", "赠送"] },
   ]},
 ];
@@ -230,6 +240,11 @@ export default function Home() {
   const [menuSelections, setMenuSelections] = useState<Record<string, number[]>>(initialMenuSelections);
   const [elderMode, setElderMode] = useState(false);
   const [expandedDays, setExpandedDays] = useState<number[]>([]);
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const [catalogRestaurant, setCatalogRestaurant] = useState(restaurantMeta[0].id);
+  const [catalogSection, setCatalogSection] = useState("全部分类");
+  const [catalogQuery, setCatalogQuery] = useState("");
+  const [catalogSelections, setCatalogSelections] = useState<number[]>([]);
 
   useEffect(() => {
     try {
@@ -251,6 +266,15 @@ export default function Home() {
       window.localStorage.removeItem("xiamen-trip-menu-selections");
     }
     setElderMode(window.localStorage.getItem("xiamen-trip-elder-mode") === "true");
+    try {
+      const savedCatalog = window.localStorage.getItem("xiamen-trip-full-menu-selections");
+      if (savedCatalog) {
+        const parsedCatalog = JSON.parse(savedCatalog);
+        if (Array.isArray(parsedCatalog)) setCatalogSelections(parsedCatalog.filter((value) => Number.isInteger(value) && value >= 0 && value < restaurantMenus.length));
+      }
+    } catch {
+      window.localStorage.removeItem("xiamen-trip-full-menu-selections");
+    }
   }, []);
 
   const toggle = (index: number) => {
@@ -287,6 +311,14 @@ export default function Home() {
     });
   };
 
+  const toggleCatalogDish = (dishId: number) => {
+    setCatalogSelections((current) => {
+      const next = current.includes(dishId) ? current.filter((id) => id !== dishId) : [...current, dishId].sort((a, b) => a - b);
+      window.localStorage.setItem("xiamen-trip-full-menu-selections", JSON.stringify(next));
+      return next;
+    });
+  };
+
   const copyMessage = async (id: string, message: string) => {
     try {
       await navigator.clipboard.writeText(message);
@@ -314,6 +346,16 @@ export default function Home() {
   const dayExpanded = expandedDays.includes(active);
   const compactStops = day.stops.filter((stop, index) => index < 3 || stop.important);
   const visibleStops = dayExpanded ? day.stops : compactStops;
+  const activeRestaurant = restaurantMeta.find((restaurant) => restaurant.id === catalogRestaurant) || restaurantMeta[0];
+  const catalogSections = useMemo(() => ["全部分类", ...Array.from(new Set(restaurantMenus.filter((dish) => dish.restaurant === catalogRestaurant).map((dish) => dish.section)))], [catalogRestaurant]);
+  const filteredCatalog = useMemo(() => {
+    const query = catalogQuery.trim().toLowerCase();
+    return restaurantMenus.filter((dish) => dish.restaurant === catalogRestaurant && (catalogSection === "全部分类" || dish.section === catalogSection) && (!query || `${dish.name}${dish.notes}${dish.section}`.toLowerCase().includes(query)));
+  }, [catalogQuery, catalogRestaurant, catalogSection]);
+  const activeCatalogSelections = restaurantMenus.filter((dish) => dish.restaurant === catalogRestaurant && catalogSelections.includes(dish.id));
+  const catalogSubtotal = activeCatalogSelections.reduce((sum, dish) => sum + dish.price, 0);
+  const catalogService = Math.round(catalogSubtotal * activeRestaurant.serviceRate * 100) / 100;
+  const catalogTotal = catalogSubtotal + catalogService;
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
@@ -503,6 +545,44 @@ export default function Home() {
           </div>
           <p className="menu-save-note">菜品勾选状态也会保存在这台设备上。</p>
         </article>
+        <section className="full-menu-catalog" aria-label="三家餐厅完整菜单">
+          <div className="catalog-intro">
+            <div><span>219 道完整菜单</span><h3>想换菜时，再打开慢慢选</h3><p>保留餐厅原菜单的分类、价格、单位和备注。价格及供应情况以餐厅当天为准。</p></div>
+            <button onClick={() => setCatalogOpen((current) => !current)} aria-expanded={catalogOpen}>{catalogOpen ? "收起全部菜单 ↑" : "查看全部菜单 ↓"}</button>
+          </div>
+          {catalogOpen && <div className="catalog-body">
+            <div className="catalog-restaurant-tabs" role="tablist" aria-label="选择完整菜单餐厅">
+              {restaurantMeta.map((restaurant) => {
+                const count = restaurantMenus.filter((dish) => dish.restaurant === restaurant.id).length;
+                return <button key={restaurant.id} role="tab" aria-selected={catalogRestaurant === restaurant.id} className={catalogRestaurant === restaurant.id ? "active" : ""} onClick={() => { setCatalogRestaurant(restaurant.id); setCatalogSection("全部分类"); }}><b>{restaurant.label}</b><span>{count} 道</span></button>;
+              })}
+            </div>
+            <div className="catalog-tools">
+              <label><span>搜索菜名</span><input type="search" value={catalogQuery} onChange={(event) => setCatalogQuery(event.target.value)} placeholder="例如：黄鱼、花生汤、少辣" /></label>
+              <label><span>菜品分类</span><select value={catalogSection} onChange={(event) => setCatalogSection(event.target.value)}>{catalogSections.map((section) => <option value={section} key={section}>{section}</option>)}</select></label>
+            </div>
+            <div className="catalog-result-head"><span>找到 <b>{filteredCatalog.length}</b> 道</span><small>点击菜品即可加入试选</small></div>
+            <div className="catalog-dish-grid">
+              {filteredCatalog.map((dish) => {
+                const selected = catalogSelections.includes(dish.id);
+                return <label key={dish.id} className={selected ? "selected" : ""}>
+                  <input type="checkbox" checked={selected} onChange={() => toggleCatalogDish(dish.id)} />
+                  <span className="catalog-check">{selected ? "✓" : "+"}</span>
+                  <span className="catalog-dish-copy"><small>{dish.section}</small><b>{dish.name}</b>{dish.notes && <em>{dish.notes}</em>}<span>{dish.spicy && <i>🌶️ 辣</i>}{dish.preorder && <i>需提前预订</i>}</span></span>
+                  <strong>{money(dish.price)}<small>/{dish.unit}</small></strong>
+                </label>;
+              })}
+            </div>
+            <div className="catalog-selection-summary" aria-live="polite">
+              <div><span>{activeRestaurant.label}</span><b>已试选 {activeCatalogSelections.length} 道</b></div>
+              <div><small>菜品小计</small><b>{money(catalogSubtotal)}</b></div>
+              <div><small>服务费{activeRestaurant.serviceRate ? " 15%" : " 无"}</small><b>{money(catalogService)}</b></div>
+              <div className="catalog-grand"><small>预计总消费</small><b>{money(catalogTotal)}</b></div>
+              <button onClick={() => setCatalogSelections((current) => { const currentRestaurantIds = new Set(restaurantMenus.filter((dish) => dish.restaurant === catalogRestaurant).map((dish) => dish.id)); const next = current.filter((id) => !currentRestaurantIds.has(id)); window.localStorage.setItem("xiamen-trip-full-menu-selections", JSON.stringify(next)); return next; })}>清空本餐厅试选</button>
+            </div>
+            <p className="catalog-footnote">生猛海鲜按“50g”等单位计价时，这里只按一个菜单单位估算；实际重量、时价、服务费及供应情况请以餐厅确认为准。</p>
+          </div>}
+        </section>
         <div className="birthday-callout"><div><span>8月1日 · 19:00</span><h3>厦餐厅 · 70 岁生日晚宴</h3><p>18:50 前到包房拍照，约 20:30 上长寿面、切蛋糕、全家合照。两间 FHR 客房分别挂账，退房前逐张核对。</p></div><strong>好事<br />发生</strong></div>
       </section>
 
