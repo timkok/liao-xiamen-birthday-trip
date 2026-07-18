@@ -2,25 +2,30 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://liao-xiamen-birthday-trip-4.pages.dev"),
-  title: "Grandma at 70 · Our Little Xiamen Story",
-  description: "A bright, breezy family story for Dudu and Chuchu—six slow days of tea hills, island air, and Grandma's 70th birthday.",
+  metadataBase: new URL("https://liao-xiamen-birthday-trip-5.pages.dev"),
+  title: "山海入画 · 奶奶七秩家宴行笺",
+  description: "奶奶病愈初安，一家四口自美归穗，三代六人同赴鹭岛。茶烟作引，海风为伴，把久别写成团圆。",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "Grandma at 70 · Our Little Xiamen Story",
-    description: "Tea-green hills, sea-blue skies, and the happiest family hug.",
-    images: [{ url: "fresh-family-hero-v4.jpg", width: 1536, height: 1024, alt: "Our family of six between Xiamen's tea hills and the sea" }],
+    title: "山海入画 · 奶奶七秩家宴行笺",
+    description: "山海入画，七秩生辉；三代同游，共贺团圆。",
     type: "website",
-    locale: "en_US",
+    locale: "zh_CN",
+    images: [{
+      url: "ancient-family-hero-v5.jpg",
+      width: 1536,
+      height: 1024,
+      alt: "三代六人行于安溪茶山与厦门海湾之间的青绿山水画",
+    }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Grandma at 70 · Our Little Xiamen Story",
-    description: "Tea-green hills, sea-blue skies, and the happiest family hug.",
-    images: ["fresh-family-hero-v4.jpg"],
+    title: "山海入画 · 奶奶七秩家宴行笺",
+    description: "山海入画，七秩生辉；三代同游，共贺团圆。",
+    images: ["ancient-family-hero-v5.jpg"],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="zh-CN"><body>{children}</body></html>;
 }

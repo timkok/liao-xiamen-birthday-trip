@@ -23,20 +23,21 @@ async function render() {
   );
 }
 
-test("server-renders the literary trip experience", async () => {
+test("server-renders the ancient-style trip experience", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Grandma at 70 · Our Little Xiamen Story<\/title>/i);
-  assert.match(html, /Tea Hills, Island Breezes/);
-  assert.match(html, /Grandma at 70/);
-  assert.match(html, /Dudu and Chuchu have waited a whole year/);
-  assert.match(html, /we fly home from America/);
-  assert.match(html, /3 RESTAURANTS · 219 ORIGINAL DISHES/);
-  assert.match(html, /Aug 2 · Slow Day/);
-  assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿|final night/i);
+  assert.match(html, /<title>山海入画 · 奶奶七秩家宴行笺<\/title>/i);
+  assert.match(html, /山海入画/);
+  assert.match(html, /七秩生辉/);
+  assert.match(html, /奶奶病愈初安/);
+  assert.match(html, /嘟嘟与楚楚亦已整整一年未曾相见/);
+  assert.match(html, /一家四口自美归穗/);
+  assert.match(html, /三家餐厅 · 219 道风味/);
+  assert.match(html, /8\/2 · 慢度假/);
+  assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
   assert.match(html, /id="itinerary"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /id="checklist"/);
@@ -53,13 +54,13 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /xiamen-trip-checklist/);
   assert.match(page, /xiamen-trip-menu-selections/);
   assert.match(page, /xiamen-trip-full-menu-selections/);
-  assert.match(page, /✓ Copied/);
+  assert.match(page, /✓ 已复制/);
   assert.match(page, /loading="lazy"/);
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(layout, /Grandma at 70/);
-  assert.match(css, /--gold:#c79a55/);
-  assert.match(css, /fresh-family-hero-v4\.jpg/);
+  assert.match(layout, /山海入画 · 奶奶七秩家宴行笺/);
+  assert.match(layout, /ancient-family-hero-v5\.jpg/);
+  assert.match(css, /ancient-family-hero-v5\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
