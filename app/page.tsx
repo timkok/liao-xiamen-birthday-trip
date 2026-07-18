@@ -111,12 +111,12 @@ const days: Day[] = [
 ];
 
 const poetryChapters = [
-  { date: "七月廿九", title: "茶山初见", lines: ["一程云水入茶乡，", "风洗归人草木香。"] },
-  { date: "七月三十", title: "渡海听琴", lines: ["轻舟载笑过晴湾，", "红瓦琴声候客还。"] },
-  { date: "七月卅一", title: "鹭江灯火", lines: ["骑楼晚照浮灯影，", "六人同看一江星。"] },
-  { date: "八月初一", title: "七秩家宴", lines: ["海风入席花添盏，", "七秩春晖照满堂。"] },
-  { date: "八月初二", title: "水院清欢", lines: ["水光半日闲中过，", "树影轻摇梦亦甜。"] },
-  { date: "八月初三", title: "满载归家", lines: ["山海都收相册里，", "归途仍有笑声长。"] },
+  { date: "七月廿九", title: "东方欲晓", quote: "东方欲晓，莫道君行早。", work: "清平乐·会昌", source: "https://www.12371.gov.cn/web/article/1438671217310003200/web/content_1438671217310003200.html" },
+  { date: "七月三十", title: "风吹浪打", quote: "不管风吹浪打，胜似闲庭信步。", work: "水调歌头·游泳", source: "https://dangshi.people.com.cn/n1/2019/0322/c85037-30989353.html" },
+  { date: "七月卅一", title: "万类自由", quote: "鹰击长空，鱼翔浅底，万类霜天竞自由。", work: "沁园春·长沙", source: "https://theory.people.com.cn/n1/2024/0729/c40764-40288014.html" },
+  { date: "八月初一", title: "山花烂漫", quote: "待到山花烂漫时，她在丛中笑。", work: "卜算子·咏梅", source: "https://theory.people.com.cn/n1/2023/0816/c40764-40057764.html" },
+  { date: "八月初二", title: "风景独好", quote: "踏遍青山人未老，风景这边独好。", work: "清平乐·会昌", source: "https://www.12371.gov.cn/web/article/1438671217310003200/web/content_1438671217310003200.html" },
+  { date: "八月初三", title: "迈步从头", quote: "雄关漫道真如铁，而今迈步从头越。", work: "忆秦娥·娄山关", source: "https://www.lxjj.gov.cn/contents/10/1260.html" },
 ];
 
 const checklist = [
@@ -368,16 +368,16 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`poetry-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`mao-poetry-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>诗</span> 鹭岛家宴诗笺</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>山</span> 鹭岛今朝 · 家宴诗程</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">丙午夏日 · 鹭岛六章 · 为奶奶七秩而作</p>
-          <h1>茶烟入袖，<br /><em>海月盈杯。</em></h1>
-          <p className="hero-copy">奶奶病愈初安，嘟嘟与楚楚已一年未见。七月廿七，一家四口自美归穗；越二日，三代六人循茶山、渡琴岛、赴海湾。愿六日风物写成六阕小诗，句句是久别，行行皆团圆。</p>
+          <p className="eyebrow">读主席诗词 · 看山海今朝 · 贺奶奶七秩</p>
+          <h1>长风浩荡，<br /><em>团圆今朝。</em></h1>
+          <p className="hero-copy">奶奶病愈初安，嘟嘟与楚楚已一年未见。七月廿七，一家四口自美归穗；越二日，三代六人循茶山、渡琴岛、赴海湾。借主席诗词中的红日、长风、青山与沧海，为久别重逢写一卷昂扬而温暖的家书。</p>
           <div className="hero-tags"><span>✈️ 七月廿七 · 自美归穗</span><span>👨‍👩‍👧‍👦 三代六人 · 久别重逢</span><span>🌿 六日徐行</span><span>🎂 八月初一 · 奶奶寿宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -393,20 +393,21 @@ export default function Home() {
       </section>
 
       <section className="poetry-scroll section" aria-labelledby="poetry-title">
-        <div className="section-heading"><div><p className="kicker">六日六阕</p><h2 id="poetry-title">一程一景，一日一诗</h2></div><p>诗不必远寻。茶烟、潮声、灯火与家人围坐，都是此行的平仄。</p></div>
+        <div className="section-heading"><div><p className="kicker">主席诗词 · 六日诗引</p><h2 id="poetry-title">以壮阔山河，照见此行风景</h2></div><p>每天选取一句与景致、心境相契的诗词原句；只作短引，并注明篇名与出处。</p></div>
         <div className="poetry-grid">
           {poetryChapters.map((chapter, index) => (
             <button key={chapter.date} className={active === index ? "active" : ""} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView({ behavior: "smooth" }); }} aria-label={`查看${days[index].date}${chapter.title}行程`}>
-              <span>第{["一", "二", "三", "四", "五", "六"][index]}阕</span><small>{chapter.date}</small><h3>{chapter.title}</h3><p>{chapter.lines[0]}<br />{chapter.lines[1]}</p>
+              <span>第{["一", "二", "三", "四", "五", "六"][index]}章</span><small>{chapter.date}</small><h3>{chapter.title}</h3><p>{chapter.quote}</p><em>— 毛泽东《{chapter.work}》</em>
             </button>
           ))}
         </div>
+        <div className="quote-sources" aria-label="诗词出处">{poetryChapters.map((chapter) => <a key={`${chapter.date}-source`} href={chapter.source} target="_blank" rel="noreferrer">《{chapter.work}》出处 ↗</a>)}</div>
       </section>
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">逐日展笺</p><h2>循山入海，按韵而行</h2></div>
-          <p>轻点日期，先读一阕，再看行程；诗意留给山海，清楚留给时间。</p>
+          <div><p className="kicker">山河六章</p><h2>长风作伴，逐日向前</h2></div>
+          <p>轻点日期，先读诗引，再看行程；胸中有山河，脚下有分寸。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -438,7 +439,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <blockquote className="day-poem" aria-label={`${day.date}旅中小诗`}><small>旅中小诗 · {poetryChapters[active].title}</small><p>{poetryChapters[active].lines[0]}<br />{poetryChapters[active].lines[1]}</p></blockquote>
+            <blockquote className="day-poem" aria-label={`${day.date}毛主席诗词引句`}><small>今日诗引 · 毛泽东《{poetryChapters[active].work}》</small><p>{poetryChapters[active].quote}</p><cite>与今日景致相照，不作全文转载</cite></blockquote>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -460,7 +461,7 @@ export default function Home() {
       </section>
 
       <section className="section map-guide" id="maps">
-        <div className="section-heading"><div><p className="kicker">诗行有路</p><h2>一点坐标，便是下一句</h2></div><p>诸处方位皆已收妥。轻点启图，山海自脚下铺陈。</p></div>
+        <div className="section-heading"><div><p className="kicker">胸有山河 · 路在脚下</p><h2>坐标在握，从容向前</h2></div><p>诸处方位皆已收妥。轻点启图，山海自脚下铺陈。</p></div>
         <div className="map-stop-grid">
           {mapStops.map((stop) => (
             <a key={stop.name} href={`https://uri.amap.com/search?keyword=${encodeURIComponent(stop.query)}&city=厦门&view=map&src=xiamen-family-trip`} target="_blank" rel="noreferrer">
@@ -472,7 +473,7 @@ export default function Home() {
 
       <section className="section picture-guide" id="pictures">
         <div className="section-heading">
-          <div><p className="kicker">山海诗图</p><h2>未启程，先读风景</h2></div>
+          <div><p className="kicker">江山如画</p><h2>未启程，先看万里风光</h2></div>
           <p>一图藏一日行止；依日期徐徐观之，来路归途皆清楚可见。</p>
         </div>
         <div className="picture-grid">
@@ -489,8 +490,8 @@ export default function Home() {
         </a>
       </section>
 
-      <section className="visual-journey" aria-label="山海诗卷">
-        <div className="visual-title"><p className="kicker">山海诗卷</p><h2>茶烟起，海风来</h2><span>六日风物，逐帧成诗</span></div>
+      <section className="visual-journey" aria-label="江山今朝画卷">
+        <div className="visual-title"><p className="kicker">江山多娇</p><h2>茶山起，海风来</h2><span>六日风物，万千气象</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -502,7 +503,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">枕山栖海</p><h2>一窗一院，亦是诗行</h2></div><p>晃岩旧墅，七尚水院；窗前光影与庭下清风，自会续写新章。</p></div>
+        <div className="section-heading"><div><p className="kicker">枕山栖海</p><h2>一窗一院，自有新天</h2></div><p>晃岩旧墅，七尚水院；窗前光影与庭下清风，自会续写新章。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -514,7 +515,7 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">诗有留白</p><h2>不逐繁景，只守相伴</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">张弛有度</p><h2>不逐繁景，胜似闲庭信步</h2></div></div>
         <div className="principle-grid">
           <article><span>01</span><h3>把午后留白</h3><p>日头最盛时回酒店，让孩子亲水，让老人安睡。</p></article>
           <article><span>02</span><h3>轻装去听海</h3><p>大件寄存华尔道夫，只带一只过夜包登上鼓浪屿。</p></article>
@@ -523,7 +524,7 @@ export default function Home() {
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">三席风物 · 人间烟火</p><h2>山海入馔，团圆成席</h2></div><p>心仪之味轻轻勾选，预算随之更新；诗在远方，也在一蔬一饭。</p></div>
+        <div className="section-heading"><div><p className="kicker">三席风物 · 人间烟火</p><h2>山海入馔，六人同席</h2></div><p>心仪之味轻轻勾选，预算随之更新；壮阔在山海，温暖在一蔬一饭。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -610,7 +611,7 @@ export default function Home() {
       </section>
 
       <section className="section checklist" id="checklist">
-        <div className="section-heading"><div><p className="kicker">诗外功课</p><h2>诸事妥帖，方可从容</h2><span className="check-count">{checked.length} / {checklist.length} 项已妥帖</span></div><p>每添一勾，便多一分安心；好诗需留白，出行要周全。</p></div>
+        <div className="section-heading"><div><p className="kicker">行前有备</p><h2>诸事妥帖，而今从容出发</h2><span className="check-count">{checked.length} / {checklist.length} 项已妥帖</span></div><p>每添一勾，便多一分安心；心怀万里，细处仍要周全。</p></div>
         <div className="progress"><i style={{ width: `${checked.length / checklist.length * 100}%` }} /></div>
         <div className="check-category-grid">
           {checklistCategories.map((category) => (
@@ -631,10 +632,10 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>以山海为韵 · 以团圆收笔</p><h2>愿岁岁有清欢，<br />年年皆团圆。</h2><span>此行最好的诗句，是奶奶安然坐在家人中央。阔别一年，嘟嘟与楚楚终于又能牵起奶奶的手。愿七秩之后，晨有茶香，夜有海风，四时皆有儿孙笑语相随。</span><a href="#top">重读这卷山海诗 ↑</a></div>
+        <div><p>风景这边独好 · 团圆正是今朝</p><h2>愿踏遍青山人未老，<br />看尽山海笑常开。</h2><span>此行最动人的风景，是奶奶安然坐在家人中央。阔别一年，嘟嘟与楚楚终于又能牵起奶奶的手。愿七秩之后，晨有茶香，夜有海风，四时皆有儿孙笑语相随。</span><a href="#top">再看一回江山今朝 ↑</a></div>
       </section>
 
-      <footer><p>山海有诗 · 奶奶七秩家宴诗笺</p><span>爷爷奶奶 · 爸爸妈妈 · 嘟嘟楚楚</span><a href="#top">回到诗卷开篇 ↑</a></footer>
+      <footer><p>江山多娇 · 奶奶七秩家宴诗程</p><span>爷爷奶奶 · 爸爸妈妈 · 嘟嘟楚楚</span><a href="#top">回到今朝开篇 ↑</a></footer>
       <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#maps">导航</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
