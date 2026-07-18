@@ -32,7 +32,7 @@ type Day = {
 
 const days: Day[] = [
   {
-    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", transport: "高铁抵厦门北 · 取7座车进山", mustDo: "取车时确认儿童座椅与行李空间", leaveBy: "按高铁时间出发", leaderTip: "到店先让老人休息；泡汤每轮20–30分钟，中间补水，避免空腹泡温泉。", color: "green", image: "trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶山晨雾 · 温泉初醒", routeImage: "route-images/route-1.jpg", visualSteps: [{ icon:"🚄", time:"上午", title:"高铁出发" },{ icon:"🚙", time:"12:00", title:"厦门北取车" },{ icon:"♨️", time:"下午", title:"茶山泡温泉" },{ icon:"🍲", time:"晚上", title:"酒店吃晚餐" }],
+    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "先让茶山接住一路风尘", hotel: "安溪悦泉行馆", strength: "低强度", transport: "高铁抵厦门北 · 取7座车进山", mustDo: "取车时确认儿童座椅与行李空间", leaveBy: "按高铁时间出发", leaderTip: "到店先让老人休息；泡汤每轮20–30分钟，中间补水，避免空腹泡温泉。", color: "green", image: "trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶雾初醒 · 温泉洗尘", routeImage: "route-images/route-1.jpg", visualSteps: [{ icon:"🚄", time:"上午", title:"高铁出发" },{ icon:"🚙", time:"12:00", title:"厦门北取车" },{ icon:"♨️", time:"下午", title:"茶山泡温泉" },{ icon:"🍲", time:"晚上", title:"酒店吃晚餐" }],
     stops: [
       { time: "上午", title: "广州东站乘高铁前往厦门北" },
       { time: "约 12:00", title: "厦门北站取车", note: "核对儿童座椅、行李空间和次日还车门店", important: true },
@@ -44,7 +44,7 @@ const days: Day[] = [
     fallback: "如遇高铁延误：取消茶园散步；到店先吃饭再泡汤，避免空腹泡温泉。",
   },
   {
-    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", transport: "自驾回厦 · 寄存 · 还车 · 轮渡", mustDo: "13:40前到码头 · 14:30上船", leaveBy: "最迟10:15退房", leaderTip: "寄存大箱后拍好行李牌；六人证件由两位成人分开保管，只带一晚过夜包上岛。", color: "blue", image: "trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行", routeImage: "route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
+    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "渡一程海，走进红瓦与琴声", hotel: "鼓浪屿晃岩 36", strength: "中强度", transport: "自驾回厦 · 寄存 · 还车 · 轮渡", mustDo: "13:40前到码头 · 14:30上船", leaveBy: "最迟10:15退房", leaderTip: "寄存大箱后拍好行李牌；六人证件由两位成人分开保管，只带一晚过夜包上岛。", color: "blue", image: "trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "潮声引路 · 红瓦入梦", routeImage: "route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
     stops: [
       { time: "08:00", title: "早餐、温泉或茶园散步" },
       { time: "最迟 10:15", title: "退房，开车返回厦门", important: true },
@@ -59,7 +59,7 @@ const days: Day[] = [
     fallback: "如遇轮渡延误：缩短私人讲解；如遇停航：联系酒店调整上岛安排，改在市区休息，不冒险赶船。",
   },
   {
-    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", transport: "轮渡下岛 · 打车到华尔道夫", mustDo: "13:30鲜承午餐 · 两房分别挂账", leaveBy: "10:30前后退房下岛", leaderTip: "午餐后至少完整休息3小时；晚间小吃每站少量分食，老人累了随时打车回酒店。", color: "orange", image: "trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色", routeImage: "route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
+    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从岛上晨光，走进鹭江灯火", hotel: "厦门华尔道夫", strength: "中低强度", transport: "轮渡下岛 · 打车到华尔道夫", mustDo: "13:30鲜承午餐 · 两房分别挂账", leaveBy: "10:30前后退房下岛", leaderTip: "午餐后至少完整休息3小时；晚间小吃每站少量分食，老人累了随时打车回酒店。", color: "orange", image: "trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼留香 · 鹭江浮灯", routeImage: "route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
     stops: [
       { time: "07:30", title: "早餐，岛上轻松散步" },
       { time: "10:30", title: "退房、下岛", note: "酒店协助把行李送到码头" },
@@ -72,7 +72,7 @@ const days: Day[] = [
     fallback: "如遇下雨：改为骑楼下短走；如老人疲劳：吃完花生汤直接回酒店。",
   },
   {
-    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", transport: "打车换酒店 · 游艇视天气决定", mustDo: "18:50前到餐厅拍照 · 19:00开宴", leaveBy: "13:30前退房前往七尚", leaderTip: "18:00开始换衣和布置检查；先拍空景与全家照，约20:30上长寿面、切蛋糕。", color: "teal", image: "trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴", routeImage: "route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
+    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "海风为席，家人为七十岁举杯", hotel: "厦门七尚酒店", strength: "低强度", transport: "打车换酒店 · 游艇视天气决定", mustDo: "18:50前到餐厅拍照 · 19:00开宴", leaveBy: "13:30前退房前往七尚", leaderTip: "18:00开始换衣和布置检查；先拍空景与全家照，约20:30上长寿面、切蛋糕。", color: "teal", image: "trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾落金 · 家宴生光", routeImage: "route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
     stops: [
       { time: "08:00", title: "早餐、泳池或房间休息" },
       { time: "上午", title: "不安排景点，午餐从简" },
@@ -86,7 +86,7 @@ const days: Day[] = [
     fallback: "如遇海况不好：取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
   },
   {
-    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "厦门海湾度假", strength: "极低强度", transport: "以酒店休息与步行为主", mustDo: "保留完整午休 · 轻松整理照片", leaveBy: "无固定出发时间", leaderTip: "这一天的价值是恢复体力。跟着天气和心情走，不临时添加跨城景点。", color: "violet", image: "trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
+    date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "把一天交给水光、树影与午睡", hotel: "厦门海湾度假", strength: "极低强度", transport: "以酒店休息与步行为主", mustDo: "保留完整午休 · 轻松整理照片", leaveBy: "无固定出发时间", leaderTip: "这一天的价值是恢复体力。跟着天气和心情走，不临时添加跨城景点。", color: "violet", image: "trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "水光缓缓 · 一日无事", routeImage: "trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
     stops: [
       { time: "08:00-10:00", title: "睡到自然醒、早餐", note: "可在酒店园林或五缘湾短走" },
       { time: "10:00-12:00", title: "孩子泳池，老人房间休息", note: "不安排跨城景点" },
@@ -98,7 +98,7 @@ const days: Day[] = [
     fallback: "如遇下雨或高温：留在室内休息、喝茶或整理照片，不再加景点。",
   },
   {
-    date: "8月3日", weekday: "周一", short: "返程", place: "酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", transport: "酒店打车到厦门北 · 高铁返广州", mustDo: "证件药品逐项检查 · 提前进站", leaveBy: "按车次倒推75–90分钟", leaderTip: "退房前核对两间房账；进站后先让老人坐下，两位成人分别负责取餐和看管行李。", color: "rose", image: "trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
+    date: "8月3日", weekday: "周一", short: "返程", place: "酒店 → 厦门北 → 广州", theme: "带着照片与笑声，沿铁轨归家", hotel: "温暖到家", strength: "低强度", transport: "酒店打车到厦门北 · 高铁返广州", mustDo: "证件药品逐项检查 · 提前进站", leaveBy: "按车次倒推75–90分钟", leaderTip: "退房前核对两间房账；进站后先让老人坐下，两位成人分别负责取餐和看管行李。", color: "rose", image: "trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "海风作别 · 满载而归", routeImage: "route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
     stops: [
       { time: "08:00-09:30", title: "早餐、最后一次散步或池边坐坐" },
       { time: "09:30-11:00", title: "打包并逐项检查", note: "证件、充电器、药品和儿童用品" },
@@ -368,7 +368,7 @@ export default function Home() {
         <div className="hero-content" id="top">
           <p className="eyebrow">一席山海 · 六人同行 · 2026</p>
           <h1>借一程山海，<br /><em>陪七十岁慢慢生光。</em></h1>
-          <p className="hero-copy">从安溪茶雾，到鼓浪屿晚风；从鹭江灯火，到海湾家宴。六位家人不赶路，只把时光留给彼此。</p>
+          <p className="hero-copy">茶雾在安溪醒来，晚风从鼓浪屿吹过；鹭江点亮灯火，海湾摆好家宴。六个人不赶路，只沿着山海，把时光慢慢还给彼此。</p>
           <div className="hero-tags"><span>🚄 全程高铁</span><span>🌿 六日慢行</span><span>🎂 8 月 1 日生日宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "已开启大字版" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -385,8 +385,8 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">六日徐行</p><h2>让每一天，缓缓铺开</h2></div>
-          <p>点选日期，翻开当天的一页。红点仍是不可错过的确定时刻。</p>
+          <div><p className="kicker">六日徐行</p><h2>六页光阴，依山傍海展开</h2></div>
+          <p>轻点日期，翻开当天的一页；风景可以慢慢看，红点记着不能错过的时刻。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -439,7 +439,7 @@ export default function Home() {
       </section>
 
       <section className="section map-guide" id="maps">
-        <div className="section-heading"><div><p className="kicker">山海有路</p><h2>下一站，轻轻一点便启程</h2></div><p>地点已收好。点击便可打开高德地图，临出发时不必再匆忙寻找。</p></div>
+        <div className="section-heading"><div><p className="kicker">山海有路</p><h2>循着这一点，去见下一处风景</h2></div><p>每一处坐标都已收好。轻轻一点，路便从脚下展开。</p></div>
         <div className="map-stop-grid">
           {mapStops.map((stop) => (
             <a key={stop.name} href={`https://uri.amap.com/search?keyword=${encodeURIComponent(stop.query)}&city=厦门&view=map&src=xiamen-family-trip`} target="_blank" rel="noreferrer">
@@ -451,8 +451,8 @@ export default function Home() {
 
       <section className="section picture-guide" id="pictures">
         <div className="section-heading">
-          <div><p className="kicker">六日看图</p><h2>先遇见风景，再走进时间</h2></div>
-          <p>一张图，是一天的方向。按日期慢慢看，老人也能轻松读懂这一程。</p>
+          <div><p className="kicker">六日看图</p><h2>让风景先来，再让脚步抵达</h2></div>
+          <p>一张图，藏着一天的方向；沿日期慢慢看，山海与归途都清清楚楚。</p>
         </div>
         <div className="picture-grid">
           {pictureGuide.map((item) => (
@@ -469,7 +469,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅途画卷">
-        <div className="visual-title"><p className="kicker">旅途画卷</p><h2>茶雾起，海风来</h2><span>六天，把山海收进记忆</span></div>
+        <div className="visual-title"><p className="kicker">旅途画卷</p><h2>茶雾起处，海风正来</h2><span>六天，把山海与笑声收进记忆</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -481,7 +481,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">枕山听海</p><h2>把旅途，也住成一处风景</h2></div><p>晃岩36与七尚的实景参考。真正抵达时，房间、光影与天气自会写下新的模样。</p></div>
+        <div className="section-heading"><div><p className="kicker">枕山听海</p><h2>今夜，也睡在风景里面</h2></div><p>先看一眼晃岩36与七尚。真正抵达时，窗外的光、庭院的风，会写下自己的篇章。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -495,14 +495,14 @@ export default function Home() {
       <section className="principles section">
         <div className="section-heading light"><div><p className="kicker">这一程的分寸</p><h2>不追打卡，只与家人同行</h2></div></div>
         <div className="principle-grid">
-          <article><span>01</span><h3>每天午休</h3><p>午后最热时回酒店，孩子游泳，老人午睡。</p></article>
-          <article><span>02</span><h3>轻装上岛</h3><p>大件寄存华尔道夫，只带一晚过夜包去鼓浪屿。</p></article>
-          <article><span>03</span><h3>天气优先</h3><p>台风或强对流时，以酒店活动替代轮渡、游艇和长走。</p></article>
+          <article><span>01</span><h3>把午后留白</h3><p>日头最盛时回酒店，让孩子亲水，让老人安睡。</p></article>
+          <article><span>02</span><h3>轻装去听海</h3><p>大件寄存华尔道夫，只带一只过夜包登上鼓浪屿。</p></article>
+          <article><span>03</span><h3>跟着天光走</h3><p>风雨来时便停步，让一杯茶、一场午睡替代赶路。</p></article>
         </div>
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">三桌风物 · 一席家宴</p><h2>把山海滋味，围坐成团圆</h2></div><p>喜欢的菜轻轻勾上，金额、服务费与人均预算都会随心意更新。</p></div>
+        <div className="section-heading"><div><p className="kicker">三桌风物 · 一席家宴</p><h2>山海入味，家人围坐便是团圆</h2></div><p>喜欢的滋味轻轻勾上，预算随之更新；这一桌，慢慢选给最亲的人。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -534,7 +534,7 @@ export default function Home() {
         </article>
         <section className="full-menu-catalog" aria-label="三家餐厅完整菜单">
           <div className="catalog-intro">
-            <div><span>三家餐厅 · 219 道风味</span><h3>翻开菜单，慢慢挑一桌喜欢</h3><p>原菜单的分类、价格、单位与备注都收在这里。真正上桌的滋味，以餐厅当天为准。</p></div>
+            <div><span>三家餐厅 · 219 道风味</span><h3>从一纸菜单，挑出满桌欢喜</h3><p>山珍、海味与闽南烟火都收在这里；真正上桌的滋味，以餐厅当天为准。</p></div>
             <button onClick={() => setCatalogOpen((current) => !current)} aria-expanded={catalogOpen}>{catalogOpen ? "收起全部菜单 ↑" : "查看全部菜单 ↓"}</button>
           </div>
           {catalogOpen && <div className="catalog-body">
@@ -574,7 +574,7 @@ export default function Home() {
       </section>
 
       <section className="section contact-helper" id="contact">
-        <div className="section-heading"><div><p className="kicker">把心意说清楚</p><h2>写给酒店的三封小笺</h2></div><p>老人、孩子与生日安排都已妥帖写好，需要时一键复制，微信里直接发送。</p></div>
+        <div className="section-heading"><div><p className="kicker">把心意说清楚</p><h2>写给旅途的三封小笺</h2></div><p>长辈的从容、孩子的舒适与生日的心意，都已仔细写进字里行间。</p></div>
         <div className="message-grid">
           {hotelMessages.map((message) => (
             <article key={message.id}>
@@ -589,7 +589,7 @@ export default function Home() {
       </section>
 
       <section className="section checklist" id="checklist">
-        <div className="section-heading"><div><p className="kicker">行前拾光</p><h2>把牵挂，一件件准备好</h2><span className="check-count">{checked.length} / {checklist.length} 项已妥帖</span></div><p>每一次勾选都会留在这台设备上，下一次打开仍记得。</p></div>
+        <div className="section-heading"><div><p className="kicker">行前拾光</p><h2>把牵挂收好，便可安心出发</h2><span className="check-count">{checked.length} / {checklist.length} 项已妥帖</span></div><p>每一个勾，都是一份放心；这台设备会替你记得。</p></div>
         <div className="progress"><i style={{ width: `${checked.length / checklist.length * 100}%` }} /></div>
         <div className="check-category-grid">
           {checklistCategories.map((category) => (
@@ -610,7 +610,7 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>山海作序 · 家人同席</p><h2>愿七十岁后的每一程，<br />都有爱在身旁。</h2><span>愿茶雾清晨常安，海风夜色常暖。六位家人平安出发，带着笑声、故事与照片，从容归家。</span><a href="#top">再翻一遍这程山海 ↑</a></div>
+        <div><p>山海作序 · 家人同席</p><h2>愿七十岁后的每一程，<br />都有爱在身旁。</h2><span>愿往后的清晨，仍有茶雾般的安宁；往后的夜色，常有海风一样的温柔。六个人携手出发，也把笑声、故事与团圆，一起带回家。</span><a href="#top">再翻一遍这程山海 ↑</a></div>
       </section>
 
       <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
