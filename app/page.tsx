@@ -181,13 +181,13 @@ const hotelMessages = [
     id: "waldorf",
     icon: "🏨",
     title: "厦门华尔道夫",
-    text: "您好，我们预订了7月31日入住的两间房，此行是为长辈庆祝70岁生日。烦请关联两间订单，并尽量安排连通房或相邻房。我们已预约当日13:30鲜承午餐，结账时需要协助拆分挂账。感谢！",
+    text: "您好，我们预订了7月31日入住的两间房，此行是为母亲庆祝70岁生日。她刚刚康复，同行还有两个孩子，烦请关联两间订单，并尽量安排连通房或相邻房。我们已预约当日13:30鲜承午餐，结账时需要协助拆分挂账。感谢！",
   },
   {
     id: "lohkah",
     icon: "🎂",
     title: "七尚生日晚宴",
-    text: "您好，我们已预约8月1日19:00厦餐厅生日晚宴，共6位，为长辈庆祝70岁生日。烦请安排相对安静的位置，菜品少油、少盐、少辣，并确认长寿面、简单花瓣布置和“好事发生”立牌。结账时请协助将合规消费分别挂到两间客房。谢谢！",
+    text: "您好，我们已预约8月1日19:00厦餐厅生日晚宴，共6位，为母亲庆祝70岁生日。她刚刚康复，烦请安排相对安静的位置，菜品少油、少盐、少辣，并确认长寿面、简单花瓣布置和“好事发生”立牌。结账时请协助将合规消费分别挂到两间客房。谢谢！",
   },
 ];
 
@@ -366,10 +366,10 @@ export default function Home() {
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">六人同行 · 七旬家宴 · 2026</p>
+          <p className="eyebrow">久别重逢 · 六人同行 · 2026</p>
           <h1>山海之间，<br /><em>悠然七旬。</em></h1>
-          <p className="hero-copy">茶雾岛风，笑语相伴。7 月 27 日，一家四口从美国回到广州，与父母相聚；两天后，六个人沿着山海缓缓前行，把跨越重洋的团圆，写进这一程晨光与晚风。</p>
-          <div className="hero-tags"><span>✈️ 7/27 美国 → 广州</span><span>🚄 六人同行</span><span>🌿 六日慢行</span><span>🎂 8 月 1 日生日宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "已开启大字版" : "老人阅读模式"}</button></div>
+          <p className="hero-copy">奶奶大病初愈，12 岁的嘟嘟和 9 岁的楚楚，也已整整一年没有见她。7 月 27 日，我们一家四口从美国回到广州；两天后，六个人一起去厦门——跨过重洋来祝寿，也把这一年的想念，交给茶雾、岛风与团圆。</p>
+          <div className="hero-tags"><span>✈️ 7/27 美国 → 广州</span><span>🧒 嘟嘟 12 · 楚楚 9</span><span>🌿 六日慢行</span><span>🎂 8 月 1 日奶奶寿宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "已开启大字版" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -570,11 +570,11 @@ export default function Home() {
             <p className="catalog-footnote">生猛海鲜按“50g”等单位计价时，这里只按一个菜单单位估算；实际重量、时价、服务费及供应情况请以餐厅确认为准。</p>
           </div>}
         </section>
-        <div className="birthday-callout"><div><span>8月1日 · 19:00</span><h3>厦餐厅 · 70 岁生日晚宴</h3><p>18:50 前到包房拍照，约 20:30 上长寿面、切蛋糕、全家合照。两间 FHR 客房分别挂账，退房前逐张核对。</p></div><strong>好事<br />发生</strong></div>
+        <div className="birthday-callout"><div><span>8月1日 · 19:00</span><h3>厦餐厅 · 奶奶的 70 岁寿宴</h3><p>18:50 前到包房拍照，约 20:30 上长寿面、切蛋糕、全家合照。两间 FHR 客房分别挂账，退房前逐张核对。</p></div><strong>好事<br />发生</strong></div>
       </section>
 
       <section className="section contact-helper" id="contact">
-        <div className="section-heading"><div><p className="kicker">把心意说清楚</p><h2>写给旅途的三封小笺</h2></div><p>长辈的从容、孩子的舒适与生日的心意，都已仔细写进字里行间。</p></div>
+        <div className="section-heading"><div><p className="kicker">把心意说清楚</p><h2>写给旅途的三封小笺</h2></div><p>奶奶的从容、孩子的舒适与寿宴的心意，都已仔细写进字里行间。</p></div>
         <div className="message-grid">
           {hotelMessages.map((message) => (
             <article key={message.id}>
@@ -610,10 +610,10 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>茶雾岛风 · 笑语相伴</p><h2>愿七十岁后的每一程，<br />都有爱在身旁。</h2><span>跨过重洋，是为了回到最亲的人身旁。愿往后的清晨，仍有茶雾般的安宁；往后的夜色，常有岛风一样的温柔。六个人携手出发，也把笑声、故事与团圆，一起带回家。</span><a href="#top">再翻一遍这程山海 ↑</a></div>
+        <div><p>茶雾岛风 · 笑语相伴</p><h2>奶奶，愿七十岁后的每一程，<br />都有爱在身旁。</h2><span>这一程最珍贵的风景，是奶奶平安坐在家人中间。隔了一年，嘟嘟和楚楚终于又能牵着奶奶的手。愿病痛留在身后，愿往后的日子有茶香、有海风，也总有孩子们的笑声在身旁。</span><a href="#top">再翻一遍这程山海 ↑</a></div>
       </section>
 
-      <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
+      <footer><p>奶奶 70 岁生日 · 厦门家庭之旅</p><span>爷爷奶奶 · 爸爸妈妈 · 嘟嘟楚楚</span><a href="#top">回到顶部 ↑</a></footer>
       <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#maps">导航</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
