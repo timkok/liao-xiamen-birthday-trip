@@ -3,18 +3,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "厦门 70 岁生日家庭行程",
-  description: "7 月 29 日至 8 月 3 日，六人厦门山海生日之旅。",
+  description: "从安溪茶雾到厦门海风，六位家人的七十岁生日山海之旅。",
   icons: { icon: "favicon.svg" },
   openGraph: {
     title: "厦门 70 岁生日家庭行程",
-    description: "山海之旅 · 6 天 5 晚 · 两老两大两小",
+    description: "借一程山海，陪七十岁慢慢生光 · 六位家人的厦门生日之旅",
     type: "website",
     locale: "zh_CN",
   },
   twitter: {
     card: "summary_large_image",
     title: "厦门 70 岁生日家庭行程",
-    description: "山海之旅 · 6 天 5 晚",
+    description: "借一程山海，陪七十岁慢慢生光",
   },
 };
 
