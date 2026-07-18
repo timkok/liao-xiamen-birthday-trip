@@ -23,22 +23,22 @@ async function render() {
   );
 }
 
-test("server-renders the modern Chinese trip experience", async () => {
+test("server-renders the youthful Chinese trip experience", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>一起去厦门 · 奶奶七十岁家庭旅行<\/title>/i);
-  assert.match(html, /久别一年/);
-  assert.match(html, /这次一起看海/);
-  assert.match(html, /六天，六个值得记住的画面/);
-  assert.match(html, /茶山重逢/);
-  assert.match(html, /生日主场/);
-  assert.match(html, /风景很好/);
+  assert.match(html, /<title>厦门开玩！· 奶奶七十岁家庭旅行<\/title>/i);
+  assert.match(html, /厦门开玩/);
+  assert.match(html, /奶奶 C 位/);
+  assert.match(html, /这趟怎么玩？六张卡说清楚/);
+  assert.match(html, /茶山回血/);
+  assert.match(html, /全员放空/);
+  assert.match(html, /这一趟的顶流/);
   assert.match(html, /奶奶病愈初安/);
   assert.match(html, /嘟嘟十二岁，楚楚九岁/);
-  assert.match(html, /一家四口从美国回到广州/);
+  assert.match(html, /一家四口从美国落地广州/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
@@ -63,9 +63,9 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(layout, /一起去厦门 · 奶奶七十岁家庭旅行/);
-  assert.match(layout, /liao-xiamen-birthday-trip-8\.pages\.dev/);
+  assert.match(layout, /厦门开玩！· 奶奶七十岁家庭旅行/);
+  assert.match(layout, /liao-xiamen-birthday-trip-9\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /modern-family-hero-v8\.jpg/);
+  assert.match(css, /youth-family-hero-v9\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
