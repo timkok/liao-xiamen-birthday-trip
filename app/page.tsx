@@ -115,6 +115,27 @@ const menus = [
   { name: "七尚生日宴", total: "约 ¥2,940", items: "土笋冻 · 鲜鲍 · 白切大管 · 鳝鱼羹 · 青蟹年糕 · 竹午鱼 · 蛏子皇 · 河田鸡 · 片皮鸭 · 芋泥香酥鸭 · 时蔬 · 焖饭 · 花生汤 · 长寿面" },
 ];
 
+const hotelMessages = [
+  {
+    id: "huangyan",
+    icon: "🏡",
+    title: "鼓浪屿晃岩 36",
+    text: "您好，我们预订了7月30日入住晃岩36号，一行6人，包含两位老人和两个小孩。请问能否协助安排三丘田码头到酒店的行李接送？下午希望安排约2小时的轻松人文讲解，以老别墅和外围平路为主，不登日光岩顶。谢谢！",
+  },
+  {
+    id: "waldorf",
+    icon: "🏨",
+    title: "厦门华尔道夫",
+    text: "您好，我们预订了7月31日入住的两间房，此行是为长辈庆祝70岁生日。烦请关联两间订单，并尽量安排连通房或相邻房。我们已预约当日13:30鲜承午餐，结账时需要协助拆分挂账。感谢！",
+  },
+  {
+    id: "lohkah",
+    icon: "🎂",
+    title: "七尚生日晚宴",
+    text: "您好，我们已预约8月1日19:00厦餐厅生日晚宴，共6位，为长辈庆祝70岁生日。烦请安排相对安静的位置，菜品少油、少盐、少辣，并确认长寿面、简单花瓣布置和“好事发生”立牌。结账时请协助将合规消费分别挂到两间客房。谢谢！",
+  },
+];
+
 const pictureGuide = [
   { date: "7月29日", title: "茶山与温泉", note: "高铁 · 取车 · 安溪慢下来", image: "/route-images/route-1.jpg", alt: "广州乘高铁到厦门北，再前往安溪茶山温泉的路线插画" },
   { date: "7月30日", title: "轻装上鼓浪屿", note: "寄存行李 · 轮渡 · 老别墅", image: "/route-images/route-2.jpg", alt: "安溪返回厦门、寄存行李、乘轮渡上鼓浪屿的路线插画" },
@@ -127,6 +148,7 @@ const pictureGuide = [
 export default function Home() {
   const [active, setActive] = useState(0);
   const [checked, setChecked] = useState<number[]>([]);
+  const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("xiamen-trip-checklist");
@@ -137,6 +159,23 @@ export default function Home() {
     const next = checked.includes(index) ? checked.filter((item) => item !== index) : [...checked, index];
     setChecked(next);
     window.localStorage.setItem("xiamen-trip-checklist", JSON.stringify(next));
+  };
+
+  const copyMessage = async (id: string, message: string) => {
+    try {
+      await navigator.clipboard.writeText(message);
+    } catch {
+      const field = document.createElement("textarea");
+      field.value = message;
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      document.execCommand("copy");
+      field.remove();
+    }
+    setCopied(id);
+    window.setTimeout(() => setCopied(null), 1800);
   };
 
   const day = days[active];
@@ -272,6 +311,21 @@ export default function Home() {
         <div className="birthday-callout"><div><span>8月1日 · 19:00</span><h3>厦餐厅 · 70 岁生日晚宴</h3><p>18:50 前到包房拍照，约 20:30 上长寿面、切蛋糕、全家合照。两间 FHR 客房分别挂账，退房前逐张核对。</p></div><strong>好事<br />发生</strong></div>
       </section>
 
+      <section className="section contact-helper" id="contact">
+        <div className="section-heading"><div><p className="kicker">酒店沟通助手</p><h2>需要时，一键复制</h2></div><p>已把老人、孩子、生日安排和挂账需求写好，微信里直接复制给酒店即可。</p></div>
+        <div className="message-grid">
+          {hotelMessages.map((message) => (
+            <article key={message.id}>
+              <div className="message-head"><span>{message.icon}</span><h3>{message.title}</h3></div>
+              <p>{message.text}</p>
+              <button onClick={() => copyMessage(message.id, message.text)} className={copied === message.id ? "copied" : ""}>
+                {copied === message.id ? "✓ 已复制" : "复制给酒店"}
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section checklist" id="checklist">
         <div className="section-heading"><div><p className="kicker">出发前清单</p><h2>{checked.length} / {checklist.length} 项已准备</h2></div><p>勾选状态会保存在这台设备上。</p></div>
         <div className="progress"><i style={{ width: `${checked.length / checklist.length * 100}%` }} /></div>
@@ -287,7 +341,7 @@ export default function Home() {
       </section>
 
       <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
-      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#last-night">住宿</a><a href="#checklist">清单</a></nav>
+      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
 }
