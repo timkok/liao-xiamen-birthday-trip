@@ -359,16 +359,16 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("en-US", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={elderMode ? "elder-mode" : ""}>
+    <main className={`fresh-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="Back to top"><span>屿</span> Grandma's Xiamen Adventure</a>
+          <a className="brand" href="#top" aria-label="Back to top"><span>屿</span> Our Little Xiamen Story</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>Chinese Trip PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">Original Trip Poster ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">A LONG-AWAITED REUNION · SIX OF US · 2026</p>
-          <h1>Between Mountains & Sea,<br /><em>Grandma Turns 70.</em></h1>
-          <p className="hero-copy">Grandma is getting stronger after a serious illness, and Dudu, 12, and Chuchu, 9, have not seen her for a whole year. On July 27, our family of four flies home from America. Two days later, all six of us set off for Xiamen—to celebrate Grandma, hold her hand again, and turn a year of missing her into tea mist, island breezes, and laughter.</p>
+          <p className="eyebrow">A SUNNY LITTLE REUNION · SIX OF US · 2026</p>
+          <h1>Tea Hills, Island Breezes,<br /><em>and Grandma at 70.</em></h1>
+          <p className="hero-copy">Dudu and Chuchu have waited a whole year for this hug. On July 27, we fly home from America; two days later, all six of us follow tea-green hills and sea-blue skies to Xiamen for Grandma's 70th birthday.</p>
           <div className="hero-tags"><span>✈️ Jul 27 · USA → Guangzhou</span><span>🧒 Dudu 12 · Chuchu 9</span><span>🌿 Six Slow Days</span><span>🎂 Aug 1 · Grandma's Dinner</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "Large Text On" : "Large Text"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -385,7 +385,7 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">SIX DAYS, SLOWLY</p><h2>Six chapters between the hills and the sea</h2></div>
+          <div><p className="kicker">SIX DAYS, SOFTLY</p><h2>Six little chapters by the hills and sea</h2></div>
           <p>Tap a date to open the day. The red dots mark the times we cannot miss.</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="Choose a day">
@@ -439,7 +439,7 @@ export default function Home() {
       </section>
 
       <section className="section map-guide" id="maps">
-        <div className="section-heading"><div><p className="kicker">THE WAY AHEAD</p><h2>One tap to our next adventure</h2></div><p>Every place is saved here. Tap to open it in Amap.</p></div>
+        <div className="section-heading"><div><p className="kicker">OUR TINY MAP</p><h2>Little pins for one big family memory</h2></div><p>Every place is saved here. Tap to open it in Amap.</p></div>
         <div className="map-stop-grid">
           {mapStops.map((stop) => (
             <a key={stop.name} href={`https://uri.amap.com/search?keyword=${encodeURIComponent(stop.query)}&city=厦门&view=map&src=xiamen-family-trip`} target="_blank" rel="noreferrer">
@@ -451,7 +451,7 @@ export default function Home() {
 
       <section className="section picture-guide" id="pictures">
         <div className="section-heading">
-          <div><p className="kicker">SIX DAYS IN PICTURES</p><h2>See the adventure before we step into it</h2></div>
+          <div><p className="kicker">POSTCARDS BEFORE WE GO</p><h2>A peek at every lovely day ahead</h2></div>
           <p>Each picture holds one day. Follow the dates to see our whole story.</p>
         </div>
         <div className="picture-grid">
@@ -469,7 +469,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="Our journey in pictures">
-        <div className="visual-title"><p className="kicker">OUR STORYBOOK</p><h2>Tea mist rises, island breezes follow</h2><span>Six days of mountains, sea, and laughter</span></div>
+        <div className="visual-title"><p className="kicker">OUR STORYBOOK</p><h2>A pocketful of tea mist and sea breeze</h2><span>Six days of small wonders and big smiles</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`See the ${item.date} plan`}>
@@ -481,7 +481,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="Hotel photos">
-        <div className="section-heading"><div><p className="kicker">SLEEP INSIDE THE SCENERY</p><h2>Our rooms are part of the adventure</h2></div><p>Old island walls, water courtyards, and a pool by the bay.</p></div>
+        <div className="section-heading"><div><p className="kicker">SLEEP SOMEWHERE LOVELY</p><h2>Soft beds, old villas, and water gardens</h2></div><p>Each room is a quiet little chapter of the trip.</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -493,7 +493,7 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">OUR FAMILY RULES</p><h2>No rushing—being together is the point</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">OUR GENTLE TRAVEL RULES</p><h2>Go slowly. Rest often. Stay together.</h2></div></div>
         <div className="principle-grid">
           <article><span>01</span><h3>Protect the Nap</h3><p>When the sun is strongest, the kids can swim while Grandma and Grandpa rest.</p></article>
           <article><span>02</span><h3>Pack Light for the Island</h3><p>Store the big bags and carry only one little overnight bag to Gulangyu.</p></article>
@@ -502,7 +502,7 @@ export default function Home() {
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">THREE MEALS · ONE BIRTHDAY TABLE</p><h2>The best flavor is everyone together</h2></div><p>Check the dishes we like and watch the family total update.</p></div>
+        <div className="section-heading"><div><p className="kicker">LITTLE BITES · BIG CELEBRATION</p><h2>The sweetest table is the one we share</h2></div><p>Check the dishes we like and watch the family total update.</p></div>
         <div className="menu-tabs" role="tablist" aria-label="Choose a meal">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -589,7 +589,7 @@ export default function Home() {
       </section>
 
       <section className="section checklist" id="checklist">
-        <div className="section-heading"><div><p className="kicker">READY TO GO</p><h2>Pack the little things, then enjoy the big adventure</h2><span className="check-count">{checked.length} / {checklist.length} ready</span></div><p>Every checkmark stays saved on this device.</p></div>
+        <div className="section-heading"><div><p className="kicker">PACK LIGHT · HUG TIGHT</p><h2>A few little checks before our big adventure</h2><span className="check-count">{checked.length} / {checklist.length} ready</span></div><p>Every checkmark stays saved on this device.</p></div>
         <div className="progress"><i style={{ width: `${checked.length / checklist.length * 100}%` }} /></div>
         <div className="check-category-grid">
           {checklistCategories.map((category) => (
@@ -610,7 +610,7 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="A birthday wish for Grandma">
-        <div><p>TEA MIST · ISLAND BREEZES · LAUGHTER TOGETHER</p><h2>Grandma, may every journey after 70<br />be filled with love.</h2><span>The most beautiful view on this trip is Grandma, safe and smiling in the middle of our family. After a whole year, Dudu and Chuchu can finally hold her hands again. May illness stay behind us, and may the years ahead bring tea, sea breezes, and the children's laughter close by.</span><a href="#top">Read Our Adventure Again ↑</a></div>
+        <div><p>TEA MIST · ISLAND BREEZES · LAUGHTER TOGETHER</p><h2>Grandma, the loveliest view<br />is you smiling with us.</h2><span>After a whole year, Dudu and Chuchu can finally hold your hands again. May illness stay behind us, and may every year ahead bring soft mornings, sea breezes, birthday cake, and the children's laughter close by.</span><a href="#top">Read Our Little Story Again ↑</a></div>
       </section>
 
       <footer><p>Grandma's 70th Birthday · Our Xiamen Adventure</p><span>Grandma & Grandpa · Mom & Dad · Dudu & Chuchu</span><a href="#top">Back to Top ↑</a></footer>

@@ -29,12 +29,11 @@ test("server-renders the literary trip experience", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Grandma&#x27;s 70th Birthday · Our Xiamen Adventure<\/title>/i);
-  assert.match(html, /Between Mountains &amp; Sea/);
-  assert.match(html, /Grandma Turns 70/);
-  assert.match(html, /Dudu, 12, and Chuchu, 9/);
-  assert.match(html, /have not seen her for a whole year/);
-  assert.match(html, /our family of four flies home from America/);
+  assert.match(html, /<title>Grandma at 70 · Our Little Xiamen Story<\/title>/i);
+  assert.match(html, /Tea Hills, Island Breezes/);
+  assert.match(html, /Grandma at 70/);
+  assert.match(html, /Dudu and Chuchu have waited a whole year/);
+  assert.match(html, /we fly home from America/);
   assert.match(html, /3 RESTAURANTS · 219 ORIGINAL DISHES/);
   assert.match(html, /Aug 2 · Slow Day/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿|final night/i);
@@ -59,7 +58,8 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(layout, /Grandma's 70th Birthday/);
+  assert.match(layout, /Grandma at 70/);
   assert.match(css, /--gold:#c79a55/);
+  assert.match(css, /fresh-family-hero-v4\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
