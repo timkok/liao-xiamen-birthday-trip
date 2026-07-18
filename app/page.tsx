@@ -12,13 +12,16 @@ type Day = {
   hotel: string;
   strength: string;
   color: string;
+  image: string;
+  imageAlt: string;
+  imageCaption: string;
   stops: Stop[];
   fallback: string;
 };
 
 const days: Day[] = [
   {
-    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", color: "green",
+    date: "7月29日", weekday: "周三", short: "安溪", place: "广州 → 厦门北 → 安溪", theme: "山里放松，恢复体力", hotel: "安溪悦泉行馆", strength: "低强度", color: "green", image: "/trip-images/day-1.jpg", imageAlt: "安溪茶山与温泉", imageCaption: "茶山晨雾 · 温泉初醒",
     stops: [
       { time: "上午", title: "广州东站乘高铁前往厦门北" },
       { time: "约 12:00", title: "厦门北站取车", note: "核对儿童座椅、行李空间和次日还车门店", important: true },
@@ -30,7 +33,7 @@ const days: Day[] = [
     fallback: "高铁延误就取消茶园散步；到店先吃饭再泡汤，避免空腹泡温泉。",
   },
   {
-    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", color: "blue",
+    date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", color: "blue", image: "/trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行",
     stops: [
       { time: "08:00", title: "早餐、温泉或茶园散步" },
       { time: "最迟 10:15", title: "退房，开车返回厦门", important: true },
@@ -45,7 +48,7 @@ const days: Day[] = [
     fallback: "如 10:30 后才离开安溪，午餐改为路上简餐并直接去码头；轮渡延误则缩短私导。",
   },
   {
-    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", color: "orange",
+    date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", color: "orange", image: "/trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色",
     stops: [
       { time: "07:30", title: "早餐，岛上轻松散步" },
       { time: "10:30", title: "退房、下岛", note: "酒店协助把行李送到码头" },
@@ -58,7 +61,7 @@ const days: Day[] = [
     fallback: "下雨就改为骑楼下短走；老人累时吃完花生汤直接回酒店。",
   },
   {
-    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", color: "teal",
+    date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", color: "teal", image: "/trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴",
     stops: [
       { time: "08:00", title: "早餐、泳池或房间休息" },
       { time: "上午", title: "不安排景点，午餐从简" },
@@ -72,7 +75,7 @@ const days: Day[] = [
     fallback: "海况不好就取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
   },
   {
-    date: "8月2日", weekday: "周日", short: "返程", place: "七尚 → 厦门北 → 广州", theme: "把度假感留到最后", hotel: "温暖返程", strength: "低强度", color: "violet",
+    date: "8月2日", weekday: "周日", short: "返程", place: "七尚 → 厦门北 → 广州", theme: "把度假感留到最后", hotel: "温暖返程", strength: "低强度", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "最后一晨 · 从容归家",
     stops: [
       { time: "08:00", title: "早餐、泳池或五缘湾短走" },
       { time: "10:00", title: "房间休息、整理行李" },
@@ -150,6 +153,10 @@ export default function Home() {
         </div>
 
         <article className={`day-card ${day.color}`}>
+          <figure className="day-photo">
+            <img src={day.image} alt={day.imageAlt} />
+            <figcaption><span>0{active + 1}</span>{day.imageCaption}</figcaption>
+          </figure>
           <div className="day-summary">
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
@@ -167,6 +174,18 @@ export default function Home() {
             <div className="fallback"><span>天气 / 体力备选</span><p>{day.fallback}</p></div>
           </div>
         </article>
+      </section>
+
+      <section className="visual-journey" aria-label="旅途画卷">
+        <div className="visual-title"><p className="kicker">旅途画卷</p><h2>从茶山，到海湾</h2><span>五天，五种厦门的颜色</span></div>
+        <div className="photo-mosaic">
+          {days.map((item, index) => (
+            <button key={item.image} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}${item.short}行程`}>
+              <img src={item.image} alt={item.imageAlt} loading="lazy" />
+              <span><small>{item.date}</small><b>{item.imageCaption}</b></span>
+            </button>
+          ))}
+        </div>
       </section>
 
       <section className="principles section">
