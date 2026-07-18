@@ -366,9 +366,9 @@ export default function Home() {
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">一席山海 · 六人同行 · 2026</p>
-          <h1>借一程山海，<br /><em>陪七十岁慢慢生光。</em></h1>
-          <p className="hero-copy">茶雾在安溪醒来，晚风从鼓浪屿吹过；鹭江点亮灯火，海湾摆好家宴。六个人不赶路，只沿着山海，把时光慢慢还给彼此。</p>
+          <p className="eyebrow">六人同行 · 七旬家宴 · 2026</p>
+          <h1>山海之间，<br /><em>悠然七旬。</em></h1>
+          <p className="hero-copy">茶雾岛风，笑语相伴。晨光在安溪醒来，晚风从鼓浪屿吹过；六个人沿着山海缓缓前行，把每一程都走成团圆。</p>
           <div className="hero-tags"><span>🚄 全程高铁</span><span>🌿 六日慢行</span><span>🎂 8 月 1 日生日宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "已开启大字版" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -610,7 +610,7 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>山海作序 · 家人同席</p><h2>愿七十岁后的每一程，<br />都有爱在身旁。</h2><span>愿往后的清晨，仍有茶雾般的安宁；往后的夜色，常有海风一样的温柔。六个人携手出发，也把笑声、故事与团圆，一起带回家。</span><a href="#top">再翻一遍这程山海 ↑</a></div>
+        <div><p>茶雾岛风 · 笑语相伴</p><h2>愿七十岁后的每一程，<br />都有爱在身旁。</h2><span>愿往后的清晨，仍有茶雾般的安宁；往后的夜色，常有岛风一样的温柔。六个人携手出发，也把笑声、故事与团圆，一起带回家。</span><a href="#top">再翻一遍这程山海 ↑</a></div>
       </section>
 
       <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>

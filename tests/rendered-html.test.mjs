@@ -30,8 +30,9 @@ test("server-renders the literary trip experience", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>厦门 70 岁生日家庭行程<\/title>/i);
-  assert.match(html, /借一程山海/);
-  assert.match(html, /陪七十岁慢慢生光/);
+  assert.match(html, /山海之间/);
+  assert.match(html, /悠然七旬/);
+  assert.match(html, /茶雾岛风，笑语相伴/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
@@ -56,7 +57,7 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(layout, /从安溪茶雾到厦门海风/);
+  assert.match(layout, /山海之间，悠然七旬/);
   assert.match(css, /--gold:#c79a55/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
