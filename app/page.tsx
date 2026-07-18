@@ -111,6 +111,13 @@ const checklist = [
   "常用药、晕船药、防晒和补液用品", "鼓浪屿轻便过夜包",
 ];
 
+const checklistCategories = [
+  { title: "交通与证件", icon: "🚄", items: [0, 1, 2, 8] },
+  { title: "酒店与餐饮", icon: "🏨", items: [3, 4, 5, 7] },
+  { title: "生日准备", icon: "🎂", items: [6] },
+  { title: "随身用品", icon: "🧳", items: [9, 10] },
+];
+
 const menus: Menu[] = [
   { id: "anxi", name: "安溪悦泉晚餐", serviceRate: 0, dishes: [
     { name: "茶香温泉土鸡蛋", price: 38 }, { name: "古法手剥傍林笋", price: 38 },
@@ -180,12 +187,37 @@ const hotelGallery = [
   { image: "/gallery/qishang-pool.webp", title: "七尚 · 泳池", note: "8月2日完整度假日", alt: "厦门七尚酒店户外泳池", source: "https://www.klook.com/activity/70377-staycation-lohkah-hotel-spa-xia-men/" },
 ];
 
+const journeyMoments = [
+  { image: "/trip-images/day-1.jpg", date: "7月29日", title: "茶山初见 · 温泉醒旅", alt: "安溪茶山和温泉度假风景", day: 0, shape: "tall" },
+  { image: "/route-images/route-1.jpg", date: "第一程", title: "高铁穿山，向海而行", alt: "从广州乘高铁前往厦门和安溪的插画", day: 0 },
+  { image: "/trip-images/day-2.jpg", date: "7月30日", title: "红瓦绿荫 · 海岛慢行", alt: "鼓浪屿红瓦别墅和海岸", day: 1, shape: "wide" },
+  { image: "/gallery/huangyan-exterior.jpg", date: "鼓浪屿", title: "住进百年南洋别墅", alt: "晃岩36南洋别墅外观", day: 1 },
+  { image: "/gallery/huangyan-room.jpg", date: "岛上一夜", title: "推门，是旧时光", alt: "晃岩36复古客房", day: 1 },
+  { image: "/trip-images/day-3.jpg", date: "7月31日", title: "骑楼灯火 · 鹭江夜色", alt: "鹭江道蓝调时刻与鼓浪屿夜景", day: 2, shape: "wide" },
+  { image: "/trip-images/day-4.jpg", date: "8月1日", title: "海湾夕照 · 七十家宴", alt: "海湾夕阳下的七十岁生日家宴", day: 3, shape: "wide" },
+  { image: "/gallery/qishang-courtyard.webp", date: "七尚", title: "水院微风，慢慢入席", alt: "七尚酒店水景庭院", day: 3 },
+  { image: "/gallery/qishang-restaurant.webp", date: "生日之夜", title: "灯亮起来，家人围坐", alt: "七尚酒店餐厅环境", day: 3 },
+  { image: "/gallery/qishang-pool.webp", date: "8月2日", title: "不赶景点，只享受海湾", alt: "七尚酒店户外泳池", day: 4, shape: "tall" },
+  { image: "/route-images/route-5.jpg", date: "8月3日", title: "带着照片，从容回家", alt: "从厦门北坐高铁返回广州的插画", day: 5 },
+];
+
+const mapStops = [
+  { icon: "🚄", name: "厦门北站", note: "取车与返程进站", query: "厦门北站" },
+  { icon: "♨️", name: "安溪悦泉行馆", note: "第一晚茶山温泉", query: "安溪悦泉行馆" },
+  { icon: "⛴️", name: "厦鼓码头", note: "东渡客运码头候船", query: "厦门邮轮中心厦鼓码头" },
+  { icon: "🏡", name: "鼓浪屿晃岩36", note: "三丘田码头上岛入住", query: "鼓浪屿晃岩36酒店" },
+  { icon: "🏨", name: "厦门华尔道夫", note: "寄存、午餐与住宿", query: "厦门华尔道夫酒店" },
+  { icon: "🌃", name: "中山路步行街", note: "晚餐小吃与骑楼", query: "厦门中山路步行街" },
+  { icon: "🎂", name: "厦门七尚酒店", note: "生日宴与海湾度假", query: "厦门七尚酒店" },
+];
+
 export default function Home() {
   const [active, setActive] = useState(0);
   const [checked, setChecked] = useState<number[]>([]);
   const [copied, setCopied] = useState<string | null>(null);
   const [activeMenuId, setActiveMenuId] = useState(menus[0].id);
   const [menuSelections, setMenuSelections] = useState<Record<string, number[]>>(initialMenuSelections);
+  const [elderMode, setElderMode] = useState(false);
 
   useEffect(() => {
     try {
@@ -206,6 +238,7 @@ export default function Home() {
     } catch {
       window.localStorage.removeItem("xiamen-trip-menu-selections");
     }
+    setElderMode(window.localStorage.getItem("xiamen-trip-elder-mode") === "true");
   }, []);
 
   const toggle = (index: number) => {
@@ -222,6 +255,22 @@ export default function Home() {
       const nextForMenu = selected.includes(dishIndex) ? selected.filter((item) => item !== dishIndex) : [...selected, dishIndex].sort((a, b) => a - b);
       const next = { ...current, [menuId]: nextForMenu };
       window.localStorage.setItem("xiamen-trip-menu-selections", JSON.stringify(next));
+      return next;
+    });
+  };
+
+  const setDishes = (menuId: string, indices: number[]) => {
+    setMenuSelections((current) => {
+      const next = { ...current, [menuId]: indices };
+      window.localStorage.setItem("xiamen-trip-menu-selections", JSON.stringify(next));
+      return next;
+    });
+  };
+
+  const toggleElderMode = () => {
+    setElderMode((current) => {
+      const next = !current;
+      window.localStorage.setItem("xiamen-trip-elder-mode", String(next));
       return next;
     });
   };
@@ -252,7 +301,7 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main>
+    <main className={elderMode ? "elder-mode" : ""}>
       <header className="hero">
         <nav className="topbar">
           <a className="brand" href="#top" aria-label="返回顶部"><span>屿</span> 厦门家宴之旅</a>
@@ -262,7 +311,7 @@ export default function Home() {
           <p className="eyebrow">2026 · 6 位家人 · 6 天 5 晚</p>
           <h1>为 70 岁生日，<br /><em>慢慢走一趟厦门。</em></h1>
           <p className="hero-copy">山里泡汤、鼓浪屿散步、鹭江夜色与一场海边家宴。每天留足午休，让老人和孩子都舒服。</p>
-          <div className="hero-tags"><span>🚄 全程高铁</span><span>🏨 最后一晚待确认</span><span>🎂 8 月 1 日生日宴</span></div>
+          <div className="hero-tags"><span>🚄 全程高铁</span><span>🏨 最后一晚待确认</span><span>🎂 8 月 1 日生日宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "已开启大字版" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -334,6 +383,17 @@ export default function Home() {
         </article>
       </section>
 
+      <section className="section map-guide" id="maps">
+        <div className="section-heading"><div><p className="kicker">一键导航</p><h2>到哪里，点哪里</h2></div><p>点击后打开高德地图搜索地点，适合在微信里临出发时使用。</p></div>
+        <div className="map-stop-grid">
+          {mapStops.map((stop) => (
+            <a key={stop.name} href={`https://uri.amap.com/search?keyword=${encodeURIComponent(stop.query)}&city=厦门&view=map&src=xiamen-family-trip`} target="_blank" rel="noreferrer">
+              <span>{stop.icon}</span><div><b>{stop.name}</b><small>{stop.note}</small></div><i>导航 ↗</i>
+            </a>
+          ))}
+        </div>
+      </section>
+
       <section className="section picture-guide" id="pictures">
         <div className="section-heading">
           <div><p className="kicker">六日看图路线</p><h2>先看图片，再看时间</h2></div>
@@ -356,10 +416,10 @@ export default function Home() {
       <section className="visual-journey" aria-label="旅途画卷">
         <div className="visual-title"><p className="kicker">旅途画卷</p><h2>从茶山，到海湾</h2><span>六天，一路慢慢走</span></div>
         <div className="photo-mosaic">
-          {days.map((item, index) => (
-            <button key={item.date} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}${item.short}行程`}>
-              <img src={item.image} alt={item.imageAlt} loading="lazy" decoding="async" />
-              <span><small>{item.date}</small><b>{item.imageCaption}</b></span>
+          {journeyMoments.map((item) => (
+            <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
+              <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+              <span><small>{item.date}</small><b>{item.title}</b></span>
             </button>
           ))}
         </div>
@@ -393,6 +453,11 @@ export default function Home() {
         </div>
         <article className="menu-calculator">
           <div className="menu-calculator-head"><div><span>当前菜单</span><h3>{activeMenu.name}</h3></div><b>{activeMenuSelected.length} / {activeMenu.dishes.length} 道已选</b></div>
+          <div className="menu-actions" aria-label="菜单快捷选择">
+            <button onClick={() => setDishes(activeMenu.id, activeMenu.dishes.map((_, index) => index))}>全部勾选</button>
+            <button onClick={() => setDishes(activeMenu.id, [])}>全部清空</button>
+            <button className="recommended" onClick={() => setDishes(activeMenu.id, initialMenuSelections[activeMenu.id])}>恢复推荐</button>
+          </div>
           <div className="dish-grid">
             {activeMenu.dishes.map((dish, index) => {
               const selected = activeMenuSelected.includes(index);
@@ -432,8 +497,15 @@ export default function Home() {
       <section className="section checklist" id="checklist">
         <div className="section-heading"><div><p className="kicker">出发前清单</p><h2>{checked.length} / {checklist.length} 项已准备</h2></div><p>勾选状态会保存在这台设备上。</p></div>
         <div className="progress"><i style={{ width: `${checked.length / checklist.length * 100}%` }} /></div>
-        <div className="check-grid">
-          {checklist.map((item, index) => <label className={checked.includes(index) ? "done" : ""} key={item}><input type="checkbox" checked={checked.includes(index)} onChange={() => toggle(index)} /><span>{checked.includes(index) ? "✓" : ""}</span>{item}</label>)}
+        <div className="check-category-grid">
+          {checklistCategories.map((category) => (
+            <article key={category.title}>
+              <h3><span>{category.icon}</span>{category.title}<small>{category.items.filter((index) => checked.includes(index)).length}/{category.items.length}</small></h3>
+              <div className="check-grid">
+                {category.items.map((index) => <label className={checked.includes(index) ? "done" : ""} key={checklist[index]}><input type="checkbox" checked={checked.includes(index)} onChange={() => toggle(index)} /><span>{checked.includes(index) ? "✓" : ""}</span>{checklist[index]}</label>)}
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -444,7 +516,7 @@ export default function Home() {
       </section>
 
       <footer><p>厦门 70 岁生日家庭行程</p><span>7 月 29 日 - 8 月 3 日 · 两老两大两小</span><a href="#top">回到顶部 ↑</a></footer>
-      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
+      <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#maps">导航</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
 }
