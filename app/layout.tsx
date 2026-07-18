@@ -2,27 +2,27 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://liao-xiamen-birthday-trip-5.pages.dev"),
-  title: "山海入画 · 奶奶七秩家宴行笺",
-  description: "奶奶病愈初安，一家四口自美归穗，三代六人同赴鹭岛。茶烟作引，海风为伴，把久别写成团圆。",
+  metadataBase: new URL("https://liao-xiamen-birthday-trip-6.pages.dev"),
+  title: "山海有诗 · 奶奶七秩家宴诗笺",
+  description: "奶奶病愈初安，一家四口自美归穗，三代六人同赴鹭岛。六日六阕，以山海为韵，以团圆收笔。",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "山海入画 · 奶奶七秩家宴行笺",
-    description: "山海入画，七秩生辉；三代同游，共贺团圆。",
+    title: "山海有诗 · 奶奶七秩家宴诗笺",
+    description: "六日风物写成六阕小诗，句句是久别，行行皆团圆。",
     type: "website",
     locale: "zh_CN",
     images: [{
-      url: "ancient-family-hero-v5.jpg",
+      url: "og.png",
       width: 1536,
       height: 1024,
-      alt: "三代六人行于安溪茶山与厦门海湾之间的青绿山水画",
+      alt: "山海有诗团圆成章的三代六人厦门家庭旅行诗画",
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "山海入画 · 奶奶七秩家宴行笺",
-    description: "山海入画，七秩生辉；三代同游，共贺团圆。",
-    images: ["ancient-family-hero-v5.jpg"],
+    title: "山海有诗 · 奶奶七秩家宴诗笺",
+    description: "六日风物写成六阕小诗，句句是久别，行行皆团圆。",
+    images: ["og.png"],
   },
 };
 

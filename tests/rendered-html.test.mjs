@@ -23,17 +23,20 @@ async function render() {
   );
 }
 
-test("server-renders the ancient-style trip experience", async () => {
+test("server-renders the Chinese poetry trip experience", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>山海入画 · 奶奶七秩家宴行笺<\/title>/i);
-  assert.match(html, /山海入画/);
-  assert.match(html, /七秩生辉/);
+  assert.match(html, /<title>山海有诗 · 奶奶七秩家宴诗笺<\/title>/i);
+  assert.match(html, /茶烟入袖/);
+  assert.match(html, /海月盈杯/);
+  assert.match(html, /六日六阕/);
+  assert.match(html, /一程云水入茶乡/);
+  assert.match(html, /七秩春晖照满堂/);
   assert.match(html, /奶奶病愈初安/);
-  assert.match(html, /嘟嘟与楚楚亦已整整一年未曾相见/);
+  assert.match(html, /嘟嘟与楚楚已一年未见/);
   assert.match(html, /一家四口自美归穗/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
@@ -59,8 +62,9 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(layout, /山海入画 · 奶奶七秩家宴行笺/);
-  assert.match(layout, /ancient-family-hero-v5\.jpg/);
-  assert.match(css, /ancient-family-hero-v5\.jpg/);
+  assert.match(layout, /山海有诗 · 奶奶七秩家宴诗笺/);
+  assert.match(layout, /liao-xiamen-birthday-trip-6\.pages\.dev/);
+  assert.match(layout, /og\.png/);
+  assert.match(css, /poetry-family-hero-v6\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
