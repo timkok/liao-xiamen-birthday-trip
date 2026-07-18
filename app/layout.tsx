@@ -2,26 +2,26 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://liao-xiamen-birthday-trip-7.pages.dev"),
-  title: "江山多娇 · 奶奶七秩家宴诗程",
-  description: "借毛主席诗词中的红日、长风、青山与沧海，记录三代六人的厦门团圆之旅。",
+  metadataBase: new URL("https://liao-xiamen-birthday-trip-8.pages.dev"),
+  title: "一起去厦门 · 奶奶七十岁家庭旅行",
+  description: "久别一年，一家四口从美国回到广州，与爷爷奶奶一起去厦门。六天、三代、一次好好团圆。",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "江山多娇 · 奶奶七秩家宴诗程",
-    description: "读主席诗词，看山海今朝，贺奶奶七秩。",
+    title: "一起去厦门 · 奶奶七十岁家庭旅行",
+    description: "六天、三代、一次好好团圆。风景很好，一家人在一起更好。",
     type: "website",
     locale: "zh_CN",
     images: [{
       url: "og.png",
       width: 1536,
       height: 1024,
-      alt: "江山如此多娇题字下的三代六人厦门家庭旅行画卷",
+      alt: "一起去厦门题字下的三代六人现代家庭旅行照片",
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "江山多娇 · 奶奶七秩家宴诗程",
-    description: "读主席诗词，看山海今朝，贺奶奶七秩。",
+    title: "一起去厦门 · 奶奶七十岁家庭旅行",
+    description: "六天、三代、一次好好团圆。风景很好，一家人在一起更好。",
     images: ["og.png"],
   },
 };
