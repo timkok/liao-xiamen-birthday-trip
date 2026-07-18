@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 type Stop = { time: string; title: string; note?: string; important?: boolean };
 type VisualStep = { icon: string; time: string; title: string };
+type Dish = { name: string; price: number; note?: string };
+type Menu = { id: string; name: string; serviceRate: number; dishes: Dish[] };
 type Day = {
   date: string;
   weekday: string;
@@ -33,7 +35,7 @@ const days: Day[] = [
       { time: "傍晚", title: "酒店园林拍全家照" },
       { time: "晚上", title: "酒店中餐厅晚餐，早点休息" },
     ],
-    fallback: "高铁延误就取消茶园散步；到店先吃饭再泡汤，避免空腹泡温泉。",
+    fallback: "如遇高铁延误：取消茶园散步；到店先吃饭再泡汤，避免空腹泡温泉。",
   },
   {
     date: "7月30日", weekday: "周四", short: "鼓浪屿", place: "安溪 → 华尔道夫 → 鼓浪屿", theme: "转换场景最多的一天", hotel: "鼓浪屿晃岩 36", strength: "中强度", color: "blue", image: "/trip-images/day-2.jpg", imageAlt: "鼓浪屿红瓦别墅与海岸", imageCaption: "红瓦绿荫 · 海岛慢行", routeImage: "/route-images/route-2.jpg", visualSteps: [{ icon:"🚙", time:"10:15", title:"驾车返回厦门" },{ icon:"🧳", time:"11:45", title:"寄存大件行李" },{ icon:"⛴️", time:"14:30", title:"坐船上岛" },{ icon:"👟", time:"17:00", title:"鼓浪屿慢走" }],
@@ -48,7 +50,7 @@ const days: Day[] = [
       { time: "17:00", title: "2 小时轻松私人讲解", note: "晃岩路老别墅、港仔后、菽庄花园外围；不登日光岩顶" },
       { time: "晚上", title: "岛上简单闽南菜" },
     ],
-    fallback: "如 10:30 后才离开安溪，午餐改为路上简餐并直接去码头；轮渡延误则缩短私导。",
+    fallback: "如遇轮渡延误：缩短私人讲解；如遇停航：联系酒店调整上岛安排，改在市区休息，不冒险赶船。",
   },
   {
     date: "7月31日", weekday: "周五", short: "厦门城", place: "鼓浪屿 → 华尔道夫 → 中山路", theme: "从人文岛屿回到城市", hotel: "厦门华尔道夫", strength: "中低强度", color: "orange", image: "/trip-images/day-3.jpg", imageAlt: "鹭江道蓝调时刻与鼓浪屿夜景", imageCaption: "骑楼灯火 · 鹭江夜色", routeImage: "/route-images/route-3.jpg", visualSteps: [{ icon:"🏡", time:"上午", title:"岛上早餐散步" },{ icon:"⛴️", time:"10:30", title:"坐船下岛" },{ icon:"🍽️", time:"13:30", title:"鲜承午餐" },{ icon:"🌃", time:"19:00", title:"中山路夜游" }],
@@ -61,7 +63,7 @@ const days: Day[] = [
       { time: "19:00", title: "中山路平民小吃", note: "沙茶面、海蛎煎、五香卷、烧肉粽、花生汤" },
       { time: "约 21:00", title: "鹭江道看鼓浪屿夜景", note: "平路约 30 分钟，累了直接打车" },
     ],
-    fallback: "下雨就改为骑楼下短走；老人累时吃完花生汤直接回酒店。",
+    fallback: "如遇下雨：改为骑楼下短走；如老人疲劳：吃完花生汤直接回酒店。",
   },
   {
     date: "8月1日", weekday: "周六", short: "生日", place: "华尔道夫 → 七尚 → 五缘湾", theme: "70 岁生日正日", hotel: "厦门七尚酒店", strength: "低强度", color: "teal", image: "/trip-images/day-4.jpg", imageAlt: "海湾夕阳下的七十岁生日家宴", imageCaption: "海湾夕照 · 七十家宴", routeImage: "/route-images/route-4.jpg", visualSteps: [{ icon:"🚙", time:"13:30", title:"前往七尚" },{ icon:"🏨", time:"下午", title:"入住午休" },{ icon:"🛥️", time:"17:00", title:"可选游艇" },{ icon:"🎂", time:"19:00", title:"生日晚宴" }],
@@ -75,7 +77,7 @@ const days: Day[] = [
       { time: "19:00", title: "厦餐厅生日晚宴", note: "简单花瓣、“好事发生”牌、赠送长寿面", important: true },
       { time: "约 20:30", title: "长寿面、切蛋糕、全家合照" },
     ],
-    fallback: "海况不好就取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
+    fallback: "如遇海况不好：取消游艇，改为酒店泳池、园林和五缘湾短走；生日宴时间不变。",
   },
   {
     date: "8月2日", weekday: "周日", short: "度假", place: "完整度假日 · 不赶景点", theme: "给老人和孩子留一整天慢下来", hotel: "最后一晚待确认", strength: "极低强度", color: "violet", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾度假酒店无边泳池", imageCaption: "海湾闲日 · 慢慢享受", routeImage: "/trip-images/day-5.jpg", visualSteps: [{ icon:"☕", time:"上午", title:"早餐与散步" },{ icon:"🏊", time:"午前", title:"泳池或休息" },{ icon:"😴", time:"午后", title:"午餐与午睡" },{ icon:"🌅", time:"傍晚", title:"海湾慢走" }],
@@ -87,7 +89,7 @@ const days: Day[] = [
       { time: "17:00-18:30", title: "天气好再去海湾短走", note: "8/1 游艇如因天气取消，可视状态挪到此时" },
       { time: "18:30 后", title: "轻松晚餐，提前整理部分行李" },
     ],
-    fallback: "下雨或太热就留在酒店；如果最后一晚更换酒店，当天只保留入住和休息，不再加景点。",
+    fallback: "如遇下雨或高温：留在酒店；如最后一晚更换酒店：当天只保留入住和休息，不再加景点。",
   },
   {
     date: "8月3日", weekday: "周一", short: "返程", place: "最后一晚酒店 → 厦门北 → 广州", theme: "不加景点，从容回家", hotel: "温暖到家", strength: "低强度", color: "rose", image: "/trip-images/day-5.jpg", imageAlt: "厦门海湾与悠闲度假时光", imageCaption: "最后一晨 · 从容归家", routeImage: "/route-images/route-5.jpg", visualSteps: [{ icon:"☕", time:"08:00", title:"早餐与短走" },{ icon:"🧳", time:"09:30", title:"检查行李" },{ icon:"🚙", time:"退房后", title:"前往厦门北" },{ icon:"🚄", time:"当天", title:"高铁回广州" }],
@@ -98,7 +100,7 @@ const days: Day[] = [
       { time: "发车前", title: "前往厦门北站", note: "交通与进站合计预留 75-90 分钟", important: true },
       { time: "当天", title: "高铁返回广州东，平安到家", note: "尽量安排相邻座位，车上备简餐和水" },
     ],
-    fallback: "车次较早就取消散步；车次较晚也不再加景点，把体力留给返程。",
+    fallback: "如车次较早：取消散步；如车次较晚：也不再加景点，把体力留给返程。",
   },
 ];
 
@@ -109,11 +111,36 @@ const checklist = [
   "常用药、晕船药、防晒和补液用品", "鼓浪屿轻便过夜包",
 ];
 
-const menus = [
-  { name: "安溪悦泉晚餐", total: "约 ¥872", items: "茶香温泉土鸡蛋 · 手剥傍林笋 · 铁观音茶香虾 · 山茶油土鸡 · 本地光鱼两吃 · 麻笋煲 · 小笋芥菜煲 · 幸福炒饭 · 湖头咸笋包" },
-  { name: "华尔道夫鲜承午餐", total: "菜品 ¥1,388 + 服务费", items: "客家牛三宝 · 盐酒河田鸡 · 白切大红管 · 姜母鸭 · 海鲜泡饭 · 泉州卤面 · 时蔬 · 花生奶" },
-  { name: "七尚生日宴", total: "约 ¥2,940", items: "土笋冻 · 鲜鲍 · 白切大管 · 鳝鱼羹 · 青蟹年糕 · 竹午鱼 · 蛏子皇 · 河田鸡 · 片皮鸭 · 芋泥香酥鸭 · 时蔬 · 焖饭 · 花生汤 · 长寿面" },
+const menus: Menu[] = [
+  { id: "anxi", name: "安溪悦泉晚餐", serviceRate: 0, dishes: [
+    { name: "茶香温泉土鸡蛋", price: 38 }, { name: "古法手剥傍林笋", price: 38 },
+    { name: "铁观音茶香虾", price: 128 }, { name: "山茶油小黄姜煎土鸡", price: 158 },
+    { name: "本地光鱼两吃", price: 228 }, { name: "土猪肉焖安溪麻笋煲", price: 88 },
+    { name: "原香小笋芥菜煲", price: 88 }, { name: "幸福炒饭", price: 58 },
+    { name: "湖头咸笋包（6个）", price: 48 },
+  ]},
+  { id: "waldorf", name: "华尔道夫鲜承午餐", serviceRate: 0.15, dishes: [
+    { name: "荠菜煎炒客家牛三宝", price: 298 }, { name: "客家盐酒河田鸡", price: 188 },
+    { name: "白切东山深海手钓大红管", price: 298 }, { name: "鲜承姜母鸭", price: 158 },
+    { name: "鲜承海鲜泡饭", price: 138 }, { name: "泉州卤面", price: 98 },
+    { name: "时令田园蔬菜", price: 58 }, { name: "花生奶（4位）", price: 152 },
+  ]},
+  { id: "lohkah", name: "七尚生日宴", serviceRate: 0.15, dishes: [
+    { name: "贵妃蚌土笋冻（1位）", price: 87 }, { name: "红葱酥南日鲜鲍（4只）", price: 228 },
+    { name: "白切海钓东山大管", price: 247 }, { name: "沙虫双脆鳝鱼羹", price: 87 },
+    { name: "永安黄椒烧青蟹仔年糕", price: 427, note: "请做少辣" }, { name: "陈年萝卜焗竹午鱼", price: 257 },
+    { name: "嫩姜芽炒蛏子皇", price: 257 }, { name: "韭香浸长汀河田鸡", price: 127 },
+    { name: "黑金果木片皮鸭", price: 397 }, { name: "芋泥香酥鸭", price: 77 },
+    { name: "自制腊肉蒸时令鲜笋", price: 127 }, { name: "红菇柴火豆腐", price: 117 },
+    { name: "椒榄菜焗扁豆", price: 57 }, { name: "猫爪菇烧芋仔佐火腿", price: 157 },
+    { name: "梅干菜猪油焖饭", price: 197 }, { name: "冻花生汤（2位）", price: 94 },
+    { name: "生日长寿面（赠送）", price: 0 },
+  ]},
 ];
+
+const initialMenuSelections = Object.fromEntries(
+  menus.map((menu) => [menu.id, menu.dishes.map((_, index) => index)])
+) as Record<string, number[]>;
 
 const hotelMessages = [
   {
@@ -157,16 +184,46 @@ export default function Home() {
   const [active, setActive] = useState(0);
   const [checked, setChecked] = useState<number[]>([]);
   const [copied, setCopied] = useState<string | null>(null);
+  const [activeMenuId, setActiveMenuId] = useState(menus[0].id);
+  const [menuSelections, setMenuSelections] = useState<Record<string, number[]>>(initialMenuSelections);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("xiamen-trip-checklist");
-    if (saved) setChecked(JSON.parse(saved));
+    try {
+      const saved = window.localStorage.getItem("xiamen-trip-checklist");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) setChecked(parsed.filter((value) => Number.isInteger(value) && value >= 0 && value < checklist.length));
+      }
+    } catch {
+      window.localStorage.removeItem("xiamen-trip-checklist");
+    }
+    try {
+      const savedMenus = window.localStorage.getItem("xiamen-trip-menu-selections");
+      if (savedMenus) {
+        const parsedMenus = JSON.parse(savedMenus) as Record<string, number[]>;
+        setMenuSelections((current) => ({ ...current, ...parsedMenus }));
+      }
+    } catch {
+      window.localStorage.removeItem("xiamen-trip-menu-selections");
+    }
   }, []);
 
   const toggle = (index: number) => {
-    const next = checked.includes(index) ? checked.filter((item) => item !== index) : [...checked, index];
-    setChecked(next);
-    window.localStorage.setItem("xiamen-trip-checklist", JSON.stringify(next));
+    setChecked((current) => {
+      const next = current.includes(index) ? current.filter((item) => item !== index) : [...current, index].sort((a, b) => a - b);
+      window.localStorage.setItem("xiamen-trip-checklist", JSON.stringify(next));
+      return next;
+    });
+  };
+
+  const toggleDish = (menuId: string, dishIndex: number) => {
+    setMenuSelections((current) => {
+      const selected = current[menuId] || [];
+      const nextForMenu = selected.includes(dishIndex) ? selected.filter((item) => item !== dishIndex) : [...selected, dishIndex].sort((a, b) => a - b);
+      const next = { ...current, [menuId]: nextForMenu };
+      window.localStorage.setItem("xiamen-trip-menu-selections", JSON.stringify(next));
+      return next;
+    });
   };
 
   const copyMessage = async (id: string, message: string) => {
@@ -187,6 +244,12 @@ export default function Home() {
   };
 
   const day = days[active];
+  const activeMenu = menus.find((menu) => menu.id === activeMenuId) || menus[0];
+  const activeMenuSelected = menuSelections[activeMenu.id] || [];
+  const menuSubtotal = activeMenu.dishes.reduce((sum, dish, index) => activeMenuSelected.includes(index) ? sum + dish.price : sum, 0);
+  const menuService = Math.round(menuSubtotal * activeMenu.serviceRate * 100) / 100;
+  const menuTotal = menuSubtotal + menuService;
+  const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
     <main>
@@ -241,12 +304,12 @@ export default function Home() {
 
         <article className={`day-card ${day.color}`}>
           <figure className="day-photo">
-            <img src={day.image} alt={day.imageAlt} />
+            <img src={day.image} alt={day.imageAlt} loading="lazy" decoding="async" />
             <figcaption><span>0{active + 1}</span>{day.imageCaption}</figcaption>
           </figure>
           <section className="easy-route" aria-label={`${day.date}老人看图版行程`}>
             <div className="easy-route-heading"><span>看图版 · 今日四步</span><b>沿着箭头走，一眼看懂今天</b></div>
-            <img className="route-illustration" src={day.routeImage} alt={`${day.date}路线示意：${day.visualSteps.map(step => step.title).join("、")}`} />
+            <img className="route-illustration" src={day.routeImage} alt={`${day.date}路线示意：${day.visualSteps.map(step => step.title).join("、")}`} loading="lazy" decoding="async" />
             <div className="visual-steps">
               {day.visualSteps.map((step, index) => <div key={step.title}><span className="step-icon">{step.icon}</span><span className="step-copy"><small>{step.time}</small><b>{step.title}</b></span>{index < day.visualSteps.length - 1 && <i aria-hidden="true">→</i>}</div>)}
             </div>
@@ -279,14 +342,14 @@ export default function Home() {
         <div className="picture-grid">
           {pictureGuide.map((item) => (
             <figure key={item.date}>
-              <img src={item.image} alt={item.alt} loading="lazy" />
+              <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
               <figcaption><span>{item.date}</span><b>{item.title}</b><small>{item.note}</small></figcaption>
             </figure>
           ))}
         </div>
         <a className="overview-poster" href="/trip-overview.png" target="_blank" rel="noreferrer">
           <div><span>一张图看完整行程</span><b>点开后可以放大查看</b></div>
-          <img src="/trip-overview.png" alt="厦门七十岁生日家庭行程一张图总览" loading="lazy" />
+          <img src="/trip-overview.webp" alt="厦门七十岁生日家庭行程一张图总览" loading="lazy" decoding="async" />
         </a>
       </section>
 
@@ -295,7 +358,7 @@ export default function Home() {
         <div className="photo-mosaic">
           {days.map((item, index) => (
             <button key={item.date} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}${item.short}行程`}>
-              <img src={item.image} alt={item.imageAlt} loading="lazy" />
+              <img src={item.image} alt={item.imageAlt} loading="lazy" decoding="async" />
               <span><small>{item.date}</small><b>{item.imageCaption}</b></span>
             </button>
           ))}
@@ -307,7 +370,7 @@ export default function Home() {
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
-              <img src={photo.image} alt={photo.alt} loading="lazy" />
+              <img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" />
               <figcaption><div><b>{photo.title}</b><span>{photo.note}</span></div><a href={photo.source} target="_blank" rel="noreferrer">图片来源 ↗</a></figcaption>
             </figure>
           ))}
@@ -324,10 +387,30 @@ export default function Home() {
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">三顿重点</p><h2>山海风味与生日家宴</h2></div><p>整体少辣、少油、少咸；照顾老人和孩子。</p></div>
-        <div className="menu-grid">
-          {menus.map((menu, index) => <article key={menu.name}><div className="menu-index">0{index + 1}</div><h3>{menu.name}</h3><b>{menu.total}</b><p>{menu.items}</p></article>)}
+        <div className="section-heading"><div><p className="kicker">三顿重点 · 可勾选</p><h2>山海风味与生日家宴</h2></div><p>点菜时勾选或取消，菜品小计、服务费和预计总消费会实时更新。</p></div>
+        <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
+          {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
+        <article className="menu-calculator">
+          <div className="menu-calculator-head"><div><span>当前菜单</span><h3>{activeMenu.name}</h3></div><b>{activeMenuSelected.length} / {activeMenu.dishes.length} 道已选</b></div>
+          <div className="dish-grid">
+            {activeMenu.dishes.map((dish, index) => {
+              const selected = activeMenuSelected.includes(index);
+              return <label className={selected ? "selected" : ""} key={dish.name}>
+                <input type="checkbox" checked={selected} onChange={() => toggleDish(activeMenu.id, index)} />
+                <span className="dish-check">{selected ? "✓" : ""}</span>
+                <span className="dish-name"><b>{dish.name}</b>{dish.note && <small>{dish.note}</small>}</span>
+                <strong>{money(dish.price)}</strong>
+              </label>;
+            })}
+          </div>
+          <div className="menu-totals" aria-live="polite">
+            <div><span>已选菜品小计</span><b>{money(menuSubtotal)}</b></div>
+            <div className={activeMenu.serviceRate ? "" : "muted-total"}><span>服务费{activeMenu.serviceRate ? "（15%）" : "（无）"}</span><b>{money(menuService)}</b></div>
+            <div className="grand-total"><span>预计总消费</span><b>{money(menuTotal)}</b></div>
+          </div>
+          <p className="menu-save-note">菜品勾选状态也会保存在这台设备上。</p>
+        </article>
         <div className="birthday-callout"><div><span>8月1日 · 19:00</span><h3>厦餐厅 · 70 岁生日晚宴</h3><p>18:50 前到包房拍照，约 20:30 上长寿面、切蛋糕、全家合照。两间 FHR 客房分别挂账，退房前逐张核对。</p></div><strong>好事<br />发生</strong></div>
       </section>
 
