@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "奶奶 70 岁生日 · 厦门家庭之旅",
-  description: "奶奶大病初愈，一家四口跨越重洋回来祝寿。山海之间，悠然七旬；茶雾岛风，笑语相伴。",
+  title: "Grandma's 70th Birthday · Our Xiamen Adventure",
+  description: "After a year apart, Dudu and Chuchu fly home to celebrate Grandma's 70th birthday between Xiamen's tea hills and island breezes.",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "奶奶 70 岁生日 · 厦门家庭之旅",
-    description: "久别一年，跨越重洋回来祝寿。山海之间，悠然七旬；茶雾岛风，笑语相伴。",
+    title: "Grandma's 70th Birthday · Our Xiamen Adventure",
+    description: "A year apart. A journey home. Six days of tea mist, island breezes, and family laughter.",
     type: "website",
-    locale: "zh_CN",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "奶奶 70 岁生日 · 厦门家庭之旅",
-    description: "久别一年，跨越重洋回来祝寿。山海之间，悠然七旬；茶雾岛风，笑语相伴。",
+    title: "Grandma's 70th Birthday · Our Xiamen Adventure",
+    description: "A year apart. A journey home. Six days of tea mist, island breezes, and family laughter.",
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body>{children}</body></html>;
+  return <html lang="en"><body>{children}</body></html>;
 }
