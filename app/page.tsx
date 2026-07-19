@@ -110,22 +110,22 @@ const days: Day[] = [
   },
 ];
 
-const offDutyChapters = [
-  { number: "请假第1天", date: "7月29日", title: "工位撤离", note: "把电脑合上，把高铁票打开。今天最重要的会议，是六个人在厦门北顺利集合。", image: "trip-images/day-1.jpg", day: 0 },
-  { number: "请假第2天", date: "7月30日", title: "消息免打扰", note: "轮渡一开，群消息先靠岸。只带过夜包去鼓浪屿，把注意力留给奶奶、孩子和海风。", image: "trip-images/day-2.jpg", day: 1 },
-  { number: "请假第3天", date: "7月31日", title: "脑子去散步", note: "午餐后睡足三小时，傍晚再吃小吃看夜景。今天不解决问题，只解决花生汤和沙茶面。", image: "trip-images/day-3.jpg", day: 2 },
-  { number: "请假第4天", date: "8月1日", title: "KPI只剩开心", note: "生日宴没有汇报材料，只有长寿面、蛋糕和全家照。今晚的唯一目标：奶奶开心。", image: "trip-images/day-4.jpg", day: 3 },
-  { number: "请假第5天", date: "8月2日", title: "彻底不安排", note: "睡到自然醒、玩水、午睡、发呆。日程表里最大的任务，就是没有任务。", image: "trip-images/day-5.jpg", day: 4 },
-  { number: "请假第6天", date: "8月3日", title: "电量已充满", note: "行李打包，照片收好，六个人平安返程。班味可能会回来，团聚的好心情先带回去。", image: "route-images/route-5.jpg", day: 5 },
+const futureChapters = [
+  { number: "序章 01", date: "7月29日", title: "从团聚出发", note: "四个人越过万里回家，两位长辈在厦门相迎。今天的抵达，是六个人共同写下的新起点。", image: "trip-images/day-1.jpg", day: 0 },
+  { number: "序章 02", date: "7月30日", title: "穿过一片海", note: "轮渡驶向鼓浪屿，孩子牵着爷爷奶奶。海风把一年未见的想念，吹成一路说不完的话。", image: "trip-images/day-2.jpg", day: 1 },
+  { number: "序章 03", date: "7月31日", title: "收藏城市星光", note: "从岛上晨光走到鹭江灯火，把今天的笑声收进照片，留给许多年后的我们慢慢回看。", image: "trip-images/day-3.jpg", day: 2 },
+  { number: "新章 70", date: "8月1日", title: "七十，向新而生", note: "长寿面、蛋糕和全家照不是句点，而是一家人祝奶奶健康长久、继续看世界的新约定。", image: "trip-images/day-4.jpg", day: 3 },
+  { number: "留白 05", date: "8月2日", title: "把时间留给喜欢", note: "睡到自然醒，玩水、午睡、看海。未来值得期待，今天也值得不慌不忙地好好经过。", image: "trip-images/day-5.jpg", day: 4 },
+  { number: "未完待续", date: "8月3日", title: "下一站，再相见", note: "带着照片与祝福回家。十年后的孩子已经长大，而我们的家庭旅行仍会一程接着一程。", image: "route-images/route-5.jpg", day: 5 },
 ];
 
-const offDutyStatuses = [
-  { mark: "奶", name: "奶奶", role: "康复模式", note: "优先级 P0 · 累了全队休息", value: "100% 被爱" },
-  { mark: "爷", name: "爷爷", role: "陪伴在线", note: "今天只接收孩子的消息", value: "100% 在场" },
-  { mark: "爸", name: "爸爸", role: "OOO 已开启", note: "工作消息：稍后再说", value: "0 次加班" },
-  { mark: "妈", name: "妈妈", role: "行程总监", note: "不处理临时加塞需求", value: "6 人舒适" },
-  { mark: "嘟", name: "嘟嘟", role: "暑假在线", note: "12岁 · 今日任务是陪奶奶", value: "快乐满格" },
-  { mark: "楚", name: "楚楚", role: "玩耍模式", note: "9岁 · 拒绝任何晨会", value: "活力满格" },
+const futureWishes = [
+  { mark: "奶", name: "奶奶", role: "健康长长久久", note: "十年后，还和大家一起看海", value: "下一程：更多风景" },
+  { mark: "爷", name: "爷爷", role: "陪伴岁岁年年", note: "把每次团聚都认真收藏", value: "下一程：一直同行" },
+  { mark: "爸", name: "爸爸", role: "让远方不再遥远", note: "再忙，也把回家写进日历", value: "下一程：常常回来" },
+  { mark: "妈", name: "妈妈", role: "把爱安排妥当", note: "照顾好今天，也期待明天", value: "下一程：六人出发" },
+  { mark: "嘟", name: "嘟嘟", role: "长成可靠少年", note: "12岁 · 以后带奶奶看世界", value: "下一程：我来带路" },
+  { mark: "楚", name: "楚楚", role: "带着好奇长大", note: "9岁 · 把笑声留在每一站", value: "下一程：继续发现" },
 ];
 
 const checklist = [
@@ -386,17 +386,17 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`off-duty-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`future-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>休</span> OUT OF OFFICE · 班味清零</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>光</span> NEXT CHAPTER · 向未来生长</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">已请假 · 已关机 · 已到厦门</p>
-          <h1>班先不上了，<br /><em>家人先见了。</em></h1>
-          <p className="hero-copy">一家四口从美国回来，不是为了换个地方看消息，而是陪大病初愈的奶奶过七十岁生日。六天里，电脑合上，工作群静音，爷爷奶奶和两个孩子排在日程最前面——毕竟工作永远做不完，这次团聚错过了，就真的要再等一年。</p>
-          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>本周唯一 KPI：全家开心</span><span>奶奶优先级 P0</span><span>午休必须完成</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
+          <p className="eyebrow">2026 厦门 · 2036 我们还要一起看海</p>
+          <h1>向海出发，<br /><em>向未来生长。</em></h1>
+          <p className="hero-copy">奶奶走过七十年，也刚刚走过一场大病。我们一家四口从美国回来，和爷爷奶奶重新站成完整的六个人。嘟嘟十二岁，楚楚九岁；等他们再长高一点，愿奶奶依然健康地坐在身边，听孩子讲更远的世界。未来不是很远的地方——它就从这次团聚、这顿生日饭和今天牵住的手开始。</p>
+          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>十年后的全家照，从今天开始</span><span>奶奶健康值持续上升</span><span>孩子未来可期</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -410,23 +410,23 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="off-duty-dashboard section" aria-labelledby="dashboard-title">
-        <div className="off-duty-dashboard-head"><div><p className="kicker">VACATION STATUS</p><h2 id="dashboard-title">班味清零仪表盘</h2></div><span><b>0%</b> 工作　<i>100%</i> 团聚</span></div>
-        <div className="off-duty-status-grid">
-          {offDutyStatuses.map((member, index) => <article key={member.name}>
-            <span className="status-dot">{index < 2 ? "陪伴中" : "已离线"}</span><i>{member.mark}</i><div><b>{member.name}</b><small>{member.role}</small><p>{member.note}</p><strong>{member.value}</strong></div>
+      <section className="future-dashboard section" aria-labelledby="dashboard-title">
+        <div className="future-dashboard-head"><div><p className="kicker">POSTCARDS TO 2036</p><h2 id="dashboard-title">写给十年后的六个人</h2></div><span><b>2026</b> 此刻　<i>2036</i> 再见</span></div>
+        <div className="future-wish-grid">
+          {futureWishes.map((member) => <article key={member.name}>
+            <span className="future-signal">心愿已点亮</span><i>{member.mark}</i><div><b>{member.name}</b><small>{member.role}</small><p>{member.note}</p><strong>{member.value}</strong></div>
           </article>)}
         </div>
       </section>
 
-      <section className="off-duty-album section" id="album" aria-labelledby="album-title">
-        <div className="section-heading"><div><p className="kicker">6 DAYS · ZERO WORK CHAT</p><h2 id="album-title">六天，把日历从会议切到海风</h2></div><p>从工位撤离到电量充满，一天清掉一点班味，一天找回一点生活。</p></div>
-        <div className="off-duty-story-grid">
-          {offDutyChapters.map((chapter) => (
+      <section className="future-album section" id="album" aria-labelledby="album-title">
+        <div className="section-heading"><div><p className="kicker">SIX DAYS · ONE BRIGHT BEGINNING</p><h2 id="album-title">六天，是旅程，也是未来的序章</h2></div><p>从茶山到海湾，每一天都不只是打卡，而是我们留给未来的一页共同记忆。</p></div>
+        <div className="future-story-grid">
+          {futureChapters.map((chapter) => (
             <button type="button" key={chapter.title} onClick={() => { setActive(chapter.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
               <img src={chapter.image} alt="" loading="lazy" decoding="async" />
-              <span className="off-duty-index">{chapter.number}</span>
-              <div><small>{chapter.date} · 今日离线计划</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>查看今天怎么休息 →</b></div>
+              <span className="future-index">{chapter.number}</span>
+              <div><small>{chapter.date} · 未来记忆坐标</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>打开这一天 →</b></div>
             </button>
           ))}
         </div>
@@ -434,8 +434,8 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">脑子放假 · 行程不乱</p><h2>行程照常清楚，脑子可以放假</h2></div>
-          <p>时间、交通和应急方案都替你排明白；不用临场开会，也不会让老人孩子跟着加班。</p>
+          <div><p className="kicker">安顿好此刻 · 才能看见远方</p><h2>把今天安排妥当，把未来交给想象</h2></div>
+          <p>时间、交通和应急方案依然清楚；让老人安心、孩子自在，六个人轻轻松松走向每一天。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -467,7 +467,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="off-duty-day-note"><small>今日班味清除任务</small><p>{offDutyChapters[active].note}</p></div>
+            <div className="future-day-note"><small>今日未来明信片</small><p>{futureChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -519,7 +519,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅行氛围图片画廊">
-        <div className="visual-title"><p className="kicker">下班后的世界</p><h2>把工位灰，慢慢换成海湾蓝</h2><span>茶山、红瓦、泳池和海风，比任何未读消息都值得点开</span></div>
+        <div className="visual-title"><p className="kicker">MEMORIES BECOME STARS</p><h2>今天的照片，是未来回望的星光</h2><span>茶山、红瓦、泳池与海风，会在很多年后重新照亮这一程</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -531,7 +531,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">强制休眠</p><h2>今晚不加班，只加一觉好眠</h2></div><p>相邻房、行李接送和午休都提前安排好；唯一允许的“在线”，是家人需要时随时在场。</p></div>
+        <div className="section-heading"><div><p className="kicker">REST · RESET · RISE</p><h2>今晚好好休息，明天继续发光</h2></div><p>相邻房、行李接送和午休都提前安排好；把每一晚睡好，也是对往后岁月温柔的投资。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -543,16 +543,16 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">反内卷公约</p><h2>不卷景点，不卷步数，不卷晚睡</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">OUR LONG-TERM PLAN</p><h2>慢一点，远一点，久一点</h2></div></div>
         <div className="principle-grid">
-          <article><span>停</span><h3>群消息静音</h3><p>紧急的事自然有人打电话，不紧急的事就等海风吹完再说。</p></article>
-          <article><span>躺</span><h3>午休算正事</h3><p>奶奶累了全队暂停，孩子玩水、大人发呆，谁也不拿步数做绩效。</p></article>
-          <article><span>笑</span><h3>快乐是唯一 KPI</h3><p>少打一个景点没有关系，六个人都舒服、都笑了，今天就算超额完成。</p></article>
+          <article><span>健</span><h3>健康是最长的远方</h3><p>奶奶累了全队暂停，认真吃饭、好好午睡，让下一次同行来得更从容。</p></article>
+          <article><span>伴</span><h3>陪伴是最好的计划</h3><p>孩子会长大，长辈会变老；把想见的人写进日历，未来才不会只剩“等有空”。</p></article>
+          <article><span>新</span><h3>每一岁都有新风景</h3><p>七十岁不是句点。只要六个人还愿意牵手出发，人生就永远有下一章。</p></article>
         </div>
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">今日唯一审批流</p><h2>唯一需要审批的，是加不加这道菜</h2></div><p>清淡、少辣、孩子爱吃都可以筛；六个人现场表决，预算系统自动计算。</p></div>
+        <div className="section-heading"><div><p className="kicker">A TABLE FOR TOMORROW</p><h2>这一桌，是七十岁的庆祝，也是往后岁月的约定</h2></div><p>清淡、少辣、孩子爱吃都可以筛；六个人一起挑菜，预算会实时计算。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -659,11 +659,11 @@ export default function Home() {
         <div className="tip-card"><span>💊</span><div><b>随身药品</b><p>常用药、晕船药、证件与儿童用品放过夜包，不进入寄存大箱。</p></div></div>
       </section>
 
-      <section className="birthday-wish" aria-label="班味清零寄语">
-        <div><p>OUT OF OFFICE · FAMILY ON</p><h2>工作永远做不完，<br />奶奶七十岁只有这一回。</h2><span>电脑可以晚几天打开，孩子长大的速度却不会暂停；消息可以稍后回复，奶奶康复后的每一次笑都值得当场看见。愿这六天没有催促、没有临时任务，只有六个人好好吃饭、好好睡觉、好好在一起。班味会回来，但这一程的海风也会一直留在心里。</span><a href="#top">回到封面 ↑</a></div>
+      <section className="birthday-wish" aria-label="写给未来的寄语">
+        <div><p>THE NEXT CHAPTER BEGINS HERE</p><h2>七十不是抵达，<br />是下一程的起点。</h2><span>愿十年后的奶奶依然爱笑，爷爷依然牵着她的手；愿嘟嘟和楚楚已经长成自己的模样，却还记得这一年厦门的海风。愿我们不只在重要的生日相见，也在每一个普通年份里继续出发。时间会把孩子带向远方，也会在照片里替我们保存今天——六个人，向着光，向着海，向着更长久的团聚。</span><a href="#top">回到序章 ↑</a></div>
       </section>
 
-      <footer><p>OUT OF OFFICE · 班味清零中文版</p><span>电脑已合上 · 家人已到齐 · 海风正在加载</span><a href="#top">回到封面 ↑</a></footer>
+      <footer><p>NEXT CHAPTER · 畅想未来中文版</p><span>此刻已珍藏 · 心愿已点亮 · 下一程正在靠近</span><a href="#top">回到序章 ↑</a></footer>
       <nav className="mobile-nav"><a href="#album">影集</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
