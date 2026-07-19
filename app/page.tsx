@@ -110,28 +110,13 @@ const days: Day[] = [
   },
 ];
 
-const baseChapters = [
-  { number: "01", date: "7月29日", title: "茶山入梦", note: "温泉洗尘，六个人从一张全家照重新相聚" },
-  { number: "02", date: "7月30日", title: "渡海听风", note: "轻装上岛，在红瓦、琴声与海风之间慢走" },
-  { number: "03", date: "7月31日", title: "骑楼寻味", note: "从岛上晨光走进闽南烟火与鹭江灯影" },
-  { number: "04", date: "8月1日", title: "海湾家宴", note: "夕阳落座，全家为奶奶的七十岁温柔举杯" },
-  { number: "05", date: "8月2日", title: "一日无事", note: "泳池、午睡、散步，把时间完整留给家人" },
-  { number: "06", date: "8月3日", title: "满载而归", note: "收好照片与笑声，沿着铁轨平安回家" },
-];
-
-const versionedEditions = [
-  { version: "V1", name: "原版 · 山海之间", note: "行程完整、沉稳清晰，是整个系列的内容底稿。", image: "trip-overview.webp", url: "https://liao-xiamen-birthday-trip-1.pages.dev/", tone: "classic" },
-  { version: "V2", name: "亲情叙事版", note: "加入奶奶病愈与一家六口跨洋重逢的故事。", image: "trip-images/day-4.jpg", url: "https://liao-xiamen-birthday-trip-2.pages.dev/", tone: "family" },
-  { version: "V3", name: "孩子英文版", note: "给嘟嘟和楚楚阅读的英文家庭旅行版本。", image: "trip-images/day-2.jpg", url: "https://liao-xiamen-birthday-trip-3.pages.dev/", tone: "english" },
-  { version: "V4", name: "清新英文版", note: "更轻盈、更明亮的英文亲子阅读体验。", image: "fresh-family-hero-v4.jpg", url: "https://liao-xiamen-birthday-trip-4.pages.dev/", tone: "fresh" },
-  { version: "V5", name: "古意中文版", note: "宋体、留白与山海画卷构成古雅行笺。", image: "ancient-family-hero-v5.jpg", url: "https://liao-xiamen-birthday-trip-5.pages.dev/", tone: "ancient" },
-  { version: "V6", name: "诗词中文版", note: "将六日行程写成一册温柔的家庭诗笺。", image: "poetry-family-hero-v6.jpg", url: "https://liao-xiamen-birthday-trip-6.pages.dev/", tone: "poetry" },
-  { version: "V7", name: "豪迈诗词版", note: "更开阔、更昂扬的山海诗程视觉。", image: "mao-poetry-family-hero-v7.jpg", url: "https://liao-xiamen-birthday-trip-7.pages.dev/", tone: "heroic" },
-  { version: "V8", name: "现代中文版", note: "清晰、克制、像一本当代旅行杂志。", image: "modern-family-hero-v8.jpg", url: "https://liao-xiamen-birthday-trip-8.pages.dev/", tone: "modern" },
-  { version: "V9", name: "年轻人中文版", note: "高饱和撞色、Bento 卡片与轻松语气。", image: "youth-family-hero-v9.jpg", url: "https://liao-xiamen-birthday-trip-9.pages.dev/", tone: "youth" },
-  { version: "V10", name: "南洋中文版", note: "骑楼、花砖、藤编与旧金铜的南洋气质。", image: "nanyang-family-hero-v10.jpg", url: "https://liao-xiamen-birthday-trip-10.pages.dev/", tone: "nanyang" },
-  { version: "V11", name: "小清新中文版", note: "薄荷绿、雾蓝与自然光里的轻盈团聚。", image: "fresh-family-hero-v11.jpg", url: "https://liao-xiamen-birthday-trip-11.pages.dev/", tone: "fresh-cn" },
-  { version: "V12", name: "厦门 Local 版", note: "红砖、榕树、街坊早餐与闽南生活气。", image: "xiamen-local-family-hero-v12.jpg", url: "https://liao-xiamen-birthday-trip-12.pages.dev/", tone: "local" },
+const fiftiesChapters = [
+  { number: "壹", date: "7月29日", title: "茶山来信", note: "像旧明信片一样，从茶雾与温泉寄出第一声问候。", image: "trip-images/day-1.jpg", day: 0 },
+  { number: "贰", date: "7月30日", title: "渡船开航", note: "提一只轻便旅行袋，向红瓦与琴声慢慢靠岸。", image: "trip-images/day-2.jpg", day: 1 },
+  { number: "叁", date: "7月31日", title: "骑楼小报", note: "沿廊避暑，吃一碗热汤，再看鹭江一点点亮灯。", image: "trip-images/day-3.jpg", day: 2 },
+  { number: "肆", date: "8月1日", title: "七旬家宴", note: "灯火围桌，把七十年的故事温温柔柔端上这一席。", image: "trip-images/day-4.jpg", day: 3 },
+  { number: "伍", date: "8月2日", title: "海湾星期日", note: "游水、午睡、晒照片，过一个没有任务的假日。", image: "trip-images/day-5.jpg", day: 4 },
+  { number: "陆", date: "8月3日", title: "归途留影", note: "车票收进相册，笑声跟着列车，一路回到广州。", image: "route-images/route-5.jpg", day: 5 },
 ];
 
 const checklist = [
@@ -383,17 +368,17 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`integrated-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`fifties-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>屿</span> 厦门家宴之旅 · 版本珍藏馆</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>鹭</span> 厦门留影 · 一九五〇年代画报</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">十二种风格 · 同一场团圆 · 2026</p>
-          <h1>山海之间，<br /><em>十二种讲法。</em></h1>
-          <p className="hero-copy">一家四口从美国回到广州，与爷爷奶奶相聚，再沿着茶山、海岛与鹭江慢慢前行。行程只有一份，心意也只有一个；我们却为这场七十岁生日，留下了十二种不同的颜色与语气。</p>
-          <div className="hero-tags"><span>✈️ 七月廿七 · 自美归穗</span><span>👨‍👩‍👧‍👦 三代六人 · 久别重逢</span><span>🌿 六日徐行</span><span>🎂 八月初一 · 奶奶寿宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
+          <p className="eyebrow">一九五〇年代画报 · 六人同行 · 七旬家宴</p>
+          <h1>从她出生的年代，<br /><em>走到今天的团圆。</em></h1>
+          <p className="hero-copy">奶奶出生在五十年代。七十年后，我们一家四口从美国回到广州，和爷爷奶奶一起去厦门。相片从旧胶片变成了手机，行李从木箱变成了拉杆箱；不变的，是六个人终于又围坐在一起。</p>
+          <div className="hero-tags"><span>✈️ 七月廿七 · 自美归穗</span><span>👨‍👩‍👧‍👦 三代六人 · 久别重逢</span><span>🎞️ 六日 · 六帧家庭胶片</span><span>🎂 八月初一 · 奶奶七旬</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -407,23 +392,23 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="edition-gallery section" id="versions" aria-labelledby="versions-title">
-        <div className="section-heading"><div><p className="kicker">选择你喜欢的版本</p><h2 id="versions-title">同一趟旅程，十二种观看方式</h2></div><p>每个版本都是独立保存的网站。点开新窗口阅读，随时可以回到这里继续挑选。</p></div>
-        <div className="edition-grid">
-          {versionedEditions.map((edition) => (
-            <a className={`edition-card ${edition.tone}`} href={edition.url} target="_blank" rel="noreferrer" key={edition.version} aria-label={`打开${edition.version}${edition.name}`}>
-              <img src={edition.image} alt="" loading="lazy" decoding="async" />
-              <span className="edition-version">{edition.version}</span>
-              <div><small>独立珍藏版</small><h3>{edition.name}</h3><p>{edition.note}</p><b>打开这个版本 ↗</b></div>
-            </a>
+      <section className="fifties-album section" id="album" aria-labelledby="album-title">
+        <div className="section-heading"><div><p className="kicker">六日家庭影集</p><h2 id="album-title">一程山海，六帧旧时光</h2></div><p>像翻开一册旧相簿：先看照片与大标题，再点进当天的时间、交通和照顾提醒。</p></div>
+        <div className="fifties-story-grid">
+          {fiftiesChapters.map((chapter) => (
+            <button type="button" key={chapter.title} onClick={() => { setActive(chapter.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
+              <img src={chapter.image} alt="" loading="lazy" decoding="async" />
+              <span className="fifties-stamp">第{chapter.number}页</span>
+              <div><small>{chapter.date} · 家庭胶片</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>翻到当天行程 →</b></div>
+            </button>
           ))}
         </div>
       </section>
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">六日徐行</p><h2>回到原点，看完整行程</h2></div>
-          <p>版本可以各有性格，时间、交通与照顾长辈的安排始终保持一致。</p>
+          <div><p className="kicker">旅行手册</p><h2>日子慢慢过，行程清楚看</h2></div>
+          <p>画报可以怀旧，时间、交通与照顾长辈的安排依然清楚可靠。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -455,7 +440,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="integrated-day-note"><small>今日一页</small><p>{baseChapters[active].note}</p></div>
+            <div className="fifties-day-note"><small>今日画外音</small><p>{fiftiesChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -648,11 +633,11 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>十二种风格 · 同一份心意</p><h2>页面会有不同，<br />团圆始终如一。</h2><span>奶奶安然坐在家人中间，爷爷在身旁，爸爸妈妈终于松一口气，嘟嘟和楚楚又能牵起奶奶的手。无论选择哪一种版本，记住的都会是六个人终于到齐。</span><a href="#versions">再选一个版本 ↑</a></div>
+        <div><p>一九五六 — 二〇二六 · 七十年家书</p><h2>七十年走过，<br />最珍贵的仍是同桌的人。</h2><span>奶奶安然坐在家人中间，爷爷在身旁，爸爸妈妈终于松一口气；一年未见的嘟嘟和楚楚，又能牵起奶奶的手。愿往后的相册里，仍有许多这样平常又明亮的日子。</span><a href="#top">回到相册封面 ↑</a></div>
       </section>
 
-      <footer><p>厦门家宴之旅 · 十二版本珍藏馆</p><span>同一场团圆，十二种颜色；所有旧版本独立保留</span><a href="#versions">选择版本 ↑</a></footer>
-      <nav className="mobile-nav"><a href="#versions">版本</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
+      <footer><p>厦门留影 · 一九五〇年代中文版</p><span>一册家庭画报，留住六个人的山海与笑声</span><a href="#top">回到封面 ↑</a></footer>
+      <nav className="mobile-nav"><a href="#album">影集</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
 }
