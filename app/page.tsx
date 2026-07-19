@@ -110,22 +110,22 @@ const days: Day[] = [
   },
 ];
 
-const futureChapters = [
-  { number: "序章 01", date: "7月29日", title: "从团聚出发", note: "四个人越过万里回家，两位长辈在厦门相迎。今天的抵达，是六个人共同写下的新起点。", image: "trip-images/day-1.jpg", day: 0 },
-  { number: "序章 02", date: "7月30日", title: "穿过一片海", note: "轮渡驶向鼓浪屿，孩子牵着爷爷奶奶。海风把一年未见的想念，吹成一路说不完的话。", image: "trip-images/day-2.jpg", day: 1 },
-  { number: "序章 03", date: "7月31日", title: "收藏城市星光", note: "从岛上晨光走到鹭江灯火，把今天的笑声收进照片，留给许多年后的我们慢慢回看。", image: "trip-images/day-3.jpg", day: 2 },
-  { number: "新章 70", date: "8月1日", title: "七十，向新而生", note: "长寿面、蛋糕和全家照不是句点，而是一家人祝奶奶健康长久、继续看世界的新约定。", image: "trip-images/day-4.jpg", day: 3 },
-  { number: "留白 05", date: "8月2日", title: "把时间留给喜欢", note: "睡到自然醒，玩水、午睡、看海。未来值得期待，今天也值得不慌不忙地好好经过。", image: "trip-images/day-5.jpg", day: 4 },
-  { number: "未完待续", date: "8月3日", title: "下一站，再相见", note: "带着照片与祝福回家。十年后的孩子已经长大，而我们的家庭旅行仍会一程接着一程。", image: "route-images/route-5.jpg", day: 5 },
+const overseasChapters = [
+  { number: "归航 · 壹", date: "7月29日", title: "万里归来，茶山洗尘", note: "一家四口从美国回到广州，再与爷爷奶奶同赴厦门。茶雾和温泉，先接住一路风尘。", image: "trip-images/day-1.jpg", day: 0 },
+  { number: "归航 · 贰", date: "7月30日", title: "渡海寻访，鼓浪侨韵", note: "轻装坐船上岛，在红瓦洋楼与老别墅之间慢走。旧时出洋的海风，也吹过今天归来的孩子。", image: "trip-images/day-2.jpg", day: 1 },
+  { number: "归航 · 叁", date: "7月31日", title: "骑楼灯火，乡味相迎", note: "从岛上晨光回到鹭江两岸，吃一桌闽南菜，再带孩子认识中山路骑楼下的人间烟火。", image: "trip-images/day-3.jpg", day: 2 },
+  { number: "家书 · 柒拾", date: "8月1日", title: "七十家宴，六人同席", note: "漂洋过海最珍贵的抵达，是围坐一桌。长寿面、蛋糕与全家照，把一年未见的想念轻轻补齐。", image: "trip-images/day-4.jpg", day: 3 },
+  { number: "慢叙 · 伍", date: "8月2日", title: "海风慢叙，不赶归期", note: "把一天留给泳池、树影和午睡。远方教人赶路，故乡提醒我们：相聚时可以慢一点。", image: "trip-images/day-5.jpg", day: 4 },
+  { number: "寄往远方", date: "8月3日", title: "带一封厦门家书回去", note: "照片装进行李，乡味留在记忆。回到美国以后，孩子仍会记得奶奶的笑和这片海的方向。", image: "route-images/route-5.jpg", day: 5 },
 ];
 
-const futureWishes = [
-  { mark: "奶", name: "奶奶", role: "健康长长久久", note: "十年后，还和大家一起看海", value: "下一程：更多风景" },
-  { mark: "爷", name: "爷爷", role: "陪伴岁岁年年", note: "把每次团聚都认真收藏", value: "下一程：一直同行" },
-  { mark: "爸", name: "爸爸", role: "让远方不再遥远", note: "再忙，也把回家写进日历", value: "下一程：常常回来" },
-  { mark: "妈", name: "妈妈", role: "把爱安排妥当", note: "照顾好今天，也期待明天", value: "下一程：六人出发" },
-  { mark: "嘟", name: "嘟嘟", role: "长成可靠少年", note: "12岁 · 以后带奶奶看世界", value: "下一程：我来带路" },
-  { mark: "楚", name: "楚楚", role: "带着好奇长大", note: "9岁 · 把笑声留在每一站", value: "下一程：继续发现" },
+const homecomingLetters = [
+  { mark: "奶", name: "奶奶", role: "家书第一封", note: "大病初愈，最盼一家人回来吃饭", value: "信末：平安就好" },
+  { mark: "爷", name: "爷爷", role: "家书第二封", note: "家门一直亮着，等孩子们回来", value: "信末：一路顺风" },
+  { mark: "爸", name: "爸爸", role: "越洋归航", note: "万里再远，也要带孩子常回家", value: "回信：我们到了" },
+  { mark: "妈", name: "妈妈", role: "把路接起来", note: "从美国到广州，再把六个人聚齐", value: "回信：一起出发" },
+  { mark: "嘟", name: "嘟嘟", role: "小小归乡客", note: "12岁 · 一年未见，陪奶奶多说说话", value: "回信：我长高了" },
+  { mark: "楚", name: "楚楚", role: "小小归乡客", note: "9岁 · 把厦门故事带回美国", value: "回信：我记住了" },
 ];
 
 const checklist = [
@@ -386,17 +386,17 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`future-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`overseas-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>光</span> NEXT CHAPTER · 向未来生长</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>侨</span> ROOTS & ROUTES · 万里归家</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">2026 厦门 · 2036 我们还要一起看海</p>
-          <h1>向海出发，<br /><em>向未来生长。</em></h1>
-          <p className="hero-copy">奶奶走过七十年，也刚刚走过一场大病。我们一家四口从美国回来，和爷爷奶奶重新站成完整的六个人。嘟嘟十二岁，楚楚九岁；等他们再长高一点，愿奶奶依然健康地坐在身边，听孩子讲更远的世界。未来不是很远的地方——它就从这次团聚、这顿生日饭和今天牵住的手开始。</p>
-          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>十年后的全家照，从今天开始</span><span>奶奶健康值持续上升</span><span>孩子未来可期</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
+          <p className="eyebrow">FROM AMERICA TO XIAMEN · 一封跨洋家书</p>
+          <h1>越过重洋，<br /><em>归来有家。</em></h1>
+          <p className="hero-copy">7月27日，我们一家四口从美国回到广州，再和爷爷奶奶一起去厦门。嘟嘟十二岁，楚楚九岁，他们已经一年没见奶奶了。她大病初愈，这次七十岁生日不求排场，只想让六个人重新坐在一张桌前。走得再远，家乡的方向始终没有改变；所谓华侨归心，就是孩子仍认得家门，长辈仍等得到一句“我们回来了”。</p>
+          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>美国 → 广州 → 厦门</span><span>一年未见 · 六人重逢</span><span>奶奶七十新岁</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -410,23 +410,23 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="future-dashboard section" aria-labelledby="dashboard-title">
-        <div className="future-dashboard-head"><div><p className="kicker">POSTCARDS TO 2036</p><h2 id="dashboard-title">写给十年后的六个人</h2></div><span><b>2026</b> 此刻　<i>2036</i> 再见</span></div>
-        <div className="future-wish-grid">
-          {futureWishes.map((member) => <article key={member.name}>
-            <span className="future-signal">心愿已点亮</span><i>{member.mark}</i><div><b>{member.name}</b><small>{member.role}</small><p>{member.note}</p><strong>{member.value}</strong></div>
+      <section className="homecoming-letters section" aria-labelledby="dashboard-title">
+        <div className="homecoming-letters-head"><div><p className="kicker">LETTERS ACROSS THE OCEAN</p><h2 id="dashboard-title">六封跨洋家书，终于有了回音</h2></div><span><b>万里</b> 去路　<i>一桌</i> 团圆</span></div>
+        <div className="homecoming-letter-grid">
+          {homecomingLetters.map((member) => <article key={member.name}>
+            <span className="letter-stamp">厦门 · 已抵达</span><i>{member.mark}</i><div><b>{member.name}</b><small>{member.role}</small><p>{member.note}</p><strong>{member.value}</strong></div>
           </article>)}
         </div>
       </section>
 
-      <section className="future-album section" id="album" aria-labelledby="album-title">
-        <div className="section-heading"><div><p className="kicker">SIX DAYS · ONE BRIGHT BEGINNING</p><h2 id="album-title">六天，是旅程，也是未来的序章</h2></div><p>从茶山到海湾，每一天都不只是打卡，而是我们留给未来的一页共同记忆。</p></div>
-        <div className="future-story-grid">
-          {futureChapters.map((chapter) => (
+      <section className="overseas-album section" id="album" aria-labelledby="album-title">
+        <div className="section-heading"><div><p className="kicker">SIX DAYS · ROOTS & ROUTES</p><h2 id="album-title">六天，把远方与故乡重新连起来</h2></div><p>茶山、轮渡、红瓦、骑楼与家宴，像六枚邮戳，盖在这一封写给家人的厦门长信上。</p></div>
+        <div className="overseas-story-grid">
+          {overseasChapters.map((chapter) => (
             <button type="button" key={chapter.title} onClick={() => { setActive(chapter.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
               <img src={chapter.image} alt="" loading="lazy" decoding="async" />
-              <span className="future-index">{chapter.number}</span>
-              <div><small>{chapter.date} · 未来记忆坐标</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>打开这一天 →</b></div>
+              <span className="overseas-index">{chapter.number}</span>
+              <div><small>{chapter.date} · 归乡邮戳</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>拆开这一天 →</b></div>
             </button>
           ))}
         </div>
@@ -434,8 +434,8 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">安顿好此刻 · 才能看见远方</p><h2>把今天安排妥当，把未来交给想象</h2></div>
-          <p>时间、交通和应急方案依然清楚；让老人安心、孩子自在，六个人轻轻松松走向每一天。</p>
+          <div><p className="kicker">归乡有诗意 · 行程要稳妥</p><h2>家书写得温柔，路也安排得明白</h2></div>
+          <p>时间、交通和应急方案都清清楚楚；让奶奶少劳累，让孩子在厦门慢慢认得故乡的模样。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -467,7 +467,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="future-day-note"><small>今日未来明信片</small><p>{futureChapters[active].note}</p></div>
+            <div className="overseas-day-note"><small>今日归乡家书</small><p>{overseasChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -519,7 +519,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅行氛围图片画廊">
-        <div className="visual-title"><p className="kicker">MEMORIES BECOME STARS</p><h2>今天的照片，是未来回望的星光</h2><span>茶山、红瓦、泳池与海风，会在很多年后重新照亮这一程</span></div>
+        <div className="visual-title"><p className="kicker">POSTCARDS FROM AMOY</p><h2>红砖、骑楼与海风，都是厦门寄来的家书</h2><span>让孩子在照片里记住祖辈、乡味，也记住自己从哪里归来</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -531,7 +531,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">REST · RESET · RISE</p><h2>今晚好好休息，明天继续发光</h2></div><p>相邻房、行李接送和午休都提前安排好；把每一晚睡好，也是对往后岁月温柔的投资。</p></div>
+        <div className="section-heading"><div><p className="kicker">A HOME BETWEEN JOURNEYS</p><h2>落脚之处，也是归家驿站</h2></div><p>相邻房、行李接送和午休都提前安排好；长途归来的每一晚，都让老人孩子住得安稳。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -543,16 +543,16 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">OUR LONG-TERM PLAN</p><h2>慢一点，远一点，久一点</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">ROOTS · ROUTES · REUNION</p><h2>走得再远，仍知归处</h2></div></div>
         <div className="principle-grid">
-          <article><span>健</span><h3>健康是最长的远方</h3><p>奶奶累了全队暂停，认真吃饭、好好午睡，让下一次同行来得更从容。</p></article>
-          <article><span>伴</span><h3>陪伴是最好的计划</h3><p>孩子会长大，长辈会变老；把想见的人写进日历，未来才不会只剩“等有空”。</p></article>
-          <article><span>新</span><h3>每一岁都有新风景</h3><p>七十岁不是句点。只要六个人还愿意牵手出发，人生就永远有下一章。</p></article>
+          <article><span>根</span><h3>乡音是一条看不见的路</h3><p>让孩子听奶奶讲从前，也在闽南味与骑楼间，慢慢认识家族来处。</p></article>
+          <article><span>信</span><h3>家书不必写在纸上</h3><p>一句报平安、一张全家照、一次准时归来，都是跨过重洋最温柔的回信。</p></article>
+          <article><span>归</span><h3>团圆是所有远行的岸</h3><p>不论生活把我们带去哪里，只要六个人还能围坐吃饭，故乡就从未走远。</p></article>
         </div>
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">A TABLE FOR TOMORROW</p><h2>这一桌，是七十岁的庆祝，也是往后岁月的约定</h2></div><p>清淡、少辣、孩子爱吃都可以筛；六个人一起挑菜，预算会实时计算。</p></div>
+        <div className="section-heading"><div><p className="kicker">A TASTE OF HOMECOMING</p><h2>一桌闽南味，接住万里归来的胃</h2></div><p>清淡、少辣、孩子爱吃都可以筛；六个人一起挑菜，让乡味与预算都心中有数。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -659,11 +659,11 @@ export default function Home() {
         <div className="tip-card"><span>💊</span><div><b>随身药品</b><p>常用药、晕船药、证件与儿童用品放过夜包，不进入寄存大箱。</p></div></div>
       </section>
 
-      <section className="birthday-wish" aria-label="写给未来的寄语">
-        <div><p>THE NEXT CHAPTER BEGINS HERE</p><h2>七十不是抵达，<br />是下一程的起点。</h2><span>愿十年后的奶奶依然爱笑，爷爷依然牵着她的手；愿嘟嘟和楚楚已经长成自己的模样，却还记得这一年厦门的海风。愿我们不只在重要的生日相见，也在每一个普通年份里继续出发。时间会把孩子带向远方，也会在照片里替我们保存今天——六个人，向着光，向着海，向着更长久的团聚。</span><a href="#top">回到序章 ↑</a></div>
+      <section className="birthday-wish" aria-label="华侨归乡寄语">
+        <div><p>HOME IS THE SHORE WE RETURN TO</p><h2>所谓故乡，<br />是走得再远，也有人等你回来吃饭。</h2><span>从广州到厦门，从厦门望向更远的海，几代华侨曾把家书寄过重洋。今天，我们把两个孩子带回来，把一年未见的拥抱补上，把奶奶七十岁的笑留在全家照里。愿嘟嘟和楚楚长大后仍记得：家不只是一处地址，也是爷爷奶奶的乡音、饭桌上的闽南味，以及无论走到哪里都有人盼你平安归来的那盏灯。</span><a href="#top">重读家书 ↑</a></div>
       </section>
 
-      <footer><p>NEXT CHAPTER · 畅想未来中文版</p><span>此刻已珍藏 · 心愿已点亮 · 下一程正在靠近</span><a href="#top">回到序章 ↑</a></footer>
+      <footer><p>ROOTS & ROUTES · 华侨归乡中文版</p><span>越过重洋 · 认得乡音 · 回来团圆</span><a href="#top">重读家书 ↑</a></footer>
       <nav className="mobile-nav"><a href="#album">影集</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );

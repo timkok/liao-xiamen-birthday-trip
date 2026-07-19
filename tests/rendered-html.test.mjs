@@ -23,21 +23,21 @@ async function render() {
   );
 }
 
-test("server-renders the Chinese imagining-the-future edition", async () => {
+test("server-renders the Chinese overseas-homecoming edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>向海出发，向未来生长 · 厦门七十岁家庭之旅<\/title>/i);
-  assert.match(html, /2026 厦门 · 2036 我们还要一起看海/);
-  assert.match(html, /向海出发/);
-  assert.match(html, /写给十年后的六个人/);
-  assert.match(html, /从团聚出发/);
-  assert.match(html, /七十，向新而生/);
-  assert.match(html, /下一站，再相见/);
-  assert.match(html, /七十不是抵达/);
-  assert.match(html, /一家四口从美国回来/);
+  assert.match(html, /<title>越过重洋，归来有家 · 厦门华侨归乡之旅<\/title>/i);
+  assert.match(html, /FROM AMERICA TO XIAMEN/);
+  assert.match(html, /越过重洋/);
+  assert.match(html, /六封跨洋家书/);
+  assert.match(html, /万里归来，茶山洗尘/);
+  assert.match(html, /七十家宴，六人同席/);
+  assert.match(html, /带一封厦门家书回去/);
+  assert.match(html, /有人等你回来吃饭/);
+  assert.match(html, /一家四口从美国回到广州/);
   assert.match(html, /嘟嘟/);
   assert.match(html, /楚楚/);
   assert.match(html, /三家餐厅 · 219 道风味/);
@@ -65,12 +65,12 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /futureChapters/);
-  assert.match(page, /futureWishes/);
-  assert.match(layout, /向海出发，向未来生长 · 厦门七十岁家庭之旅/);
-  assert.match(layout, /liao-xiamen-birthday-trip-21\.pages\.dev/);
+  assert.match(page, /overseasChapters/);
+  assert.match(page, /homecomingLetters/);
+  assert.match(layout, /越过重洋，归来有家 · 厦门华侨归乡之旅/);
+  assert.match(layout, /liao-xiamen-birthday-trip-22\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /future-story-grid/);
-  assert.match(css, /future-family-hero-v21\.jpg/);
+  assert.match(css, /overseas-story-grid/);
+  assert.match(css, /overseas-chinese-hero-v22\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });

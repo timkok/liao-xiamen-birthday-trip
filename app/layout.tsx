@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://liao-xiamen-birthday-trip-21.pages.dev"),
-  title: "向海出发，向未来生长 · 厦门七十岁家庭之旅",
-  description: "三代六人在厦门为奶奶庆祝七十岁，也写下给十年后全家的温暖明信片。",
+  metadataBase: new URL("https://liao-xiamen-birthday-trip-22.pages.dev"),
+  title: "越过重洋，归来有家 · 厦门华侨归乡之旅",
+  description: "一家四口从美国归来，与爷爷奶奶在厦门团聚，为奶奶庆祝七十岁生日。",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "向海出发，向未来生长 · 厦门七十岁家庭之旅",
-    description: "七十不是抵达，是一家人下一程的起点。三代六人的厦门未来序章。",
+    title: "越过重洋，归来有家 · 厦门华侨归乡之旅",
+    description: "从美国到广州再到厦门，六个人用一场旅行写成跨洋家书。",
     type: "website",
     locale: "zh_CN",
     images: [{
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "向海出发，向未来生长 · 厦门七十岁家庭之旅",
-    description: "七十不是抵达，是一家人下一程的起点。三代六人的厦门未来序章。",
+    title: "越过重洋，归来有家 · 厦门华侨归乡之旅",
+    description: "从美国到广州再到厦门，六个人用一场旅行写成跨洋家书。",
     images: ["og.png"],
   },
 };
