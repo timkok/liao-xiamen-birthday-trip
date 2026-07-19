@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://liao-xiamen-birthday-trip-19.pages.dev"),
-  title: "六个人，终于又在一起 · 厦门团聚之旅",
-  description: "爷爷、奶奶、爸爸、妈妈、嘟嘟和楚楚全员到齐，三代六人的厦门团聚行程。",
+  metadataBase: new URL("https://liao-xiamen-birthday-trip-20.pages.dev"),
+  title: "班先不上了，家人先见了 · 厦门班味清零之旅",
+  description: "合上电脑、静音工作群，三代六人在厦门陪奶奶过七十岁生日的班味清零行程。",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "六个人，终于又在一起 · 厦门团聚之旅",
-    description: "六个人，一个都不少。三代六人的厦门全员团聚之旅。",
+    title: "班先不上了，家人先见了 · 厦门班味清零之旅",
+    description: "工作永远做不完，奶奶七十岁只有这一回。三代六人的厦门离线假期。",
     type: "website",
     locale: "zh_CN",
     images: [{
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "六个人，终于又在一起 · 厦门团聚之旅",
-    description: "六个人，一个都不少。三代六人的厦门全员团聚之旅。",
+    title: "班先不上了，家人先见了 · 厦门班味清零之旅",
+    description: "工作永远做不完，奶奶七十岁只有这一回。三代六人的厦门离线假期。",
     images: ["og.png"],
   },
 };

@@ -23,20 +23,20 @@ async function render() {
   );
 }
 
-test("server-renders the Chinese six-person reunion edition", async () => {
+test("server-renders the Chinese off-duty edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>六个人，终于又在一起 · 厦门团聚之旅<\/title>/i);
-  assert.match(html, /从美国到广州 · 从广州到厦门/);
-  assert.match(html, /六个人/);
-  assert.match(html, /六个人，一个都不能少/);
-  assert.match(html, /同程出发/);
-  assert.match(html, /并肩上岛/);
-  assert.match(html, /全家举杯/);
-  assert.match(html, /一个都不少/);
+  assert.match(html, /<title>班先不上了，家人先见了 · 厦门班味清零之旅<\/title>/i);
+  assert.match(html, /已请假 · 已关机 · 已到厦门/);
+  assert.match(html, /班先不上了/);
+  assert.match(html, /班味清零仪表盘/);
+  assert.match(html, /工位撤离/);
+  assert.match(html, /消息免打扰/);
+  assert.match(html, /KPI只剩开心/);
+  assert.match(html, /奶奶七十岁只有这一回/);
   assert.match(html, /一家四口从美国回来/);
   assert.match(html, /嘟嘟/);
   assert.match(html, /楚楚/);
@@ -65,12 +65,12 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /reunionChapters/);
-  assert.match(page, /reunionMembers/);
-  assert.match(layout, /六个人，终于又在一起 · 厦门团聚之旅/);
-  assert.match(layout, /liao-xiamen-birthday-trip-19\.pages\.dev/);
+  assert.match(page, /offDutyChapters/);
+  assert.match(page, /offDutyStatuses/);
+  assert.match(layout, /班先不上了，家人先见了 · 厦门班味清零之旅/);
+  assert.match(layout, /liao-xiamen-birthday-trip-20\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /reunion-story-grid/);
-  assert.match(css, /six-reunion-hero-v19\.jpg/);
+  assert.match(css, /off-duty-story-grid/);
+  assert.match(css, /off-duty-hero-v20\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
