@@ -110,13 +110,22 @@ const days: Day[] = [
   },
 ];
 
-const familyChapters = [
-  { number: "相见", date: "7月29日", title: "回到身边", note: "一路从美国回到广州，再坐上去厦门的高铁。茶山是第一站，真正的目的地，是重新坐回彼此身边。", image: "trip-images/day-1.jpg", day: 0 },
-  { number: "牵手", date: "7月30日", title: "一起看海", note: "孩子走在奶奶两旁，爷爷慢慢跟着；红瓦与琴声很好看，牵在一起的手更值得记住。", image: "trip-images/day-2.jpg", day: 1 },
-  { number: "闲话", date: "7月31日", title: "边走边聊", note: "一碗花生汤、几段家常话，骑楼下不赶时间。错过的一年，就在这些小事里一点点补回来。", image: "trip-images/day-3.jpg", day: 2 },
-  { number: "团圆", date: "8月1日", title: "围桌而坐", note: "最珍贵的不是宴席多隆重，而是长寿面上桌时，六个人都在，奶奶抬眼便能看见全家。", image: "trip-images/day-4.jpg", day: 3 },
-  { number: "相伴", date: "8月2日", title: "慢慢在一起", note: "不安排景点的一天，孩子玩水，老人休息，爸爸妈妈整理照片；各自自在，也始终在彼此身边。", image: "trip-images/day-5.jpg", day: 4 },
-  { number: "珍藏", date: "8月3日", title: "把爱带回家", note: "照片会越来越多，孩子也会慢慢长大；带回家的，是这一程重新熟悉的笑声与拥抱。", image: "route-images/route-5.jpg", day: 5 },
+const reunionChapters = [
+  { number: "01 / 06", date: "7月29日", title: "同程出发", note: "四个人越过太平洋，两位老人从广州出发；六张车票连在一起，这趟团聚才算真正开始。", image: "trip-images/day-1.jpg", day: 0 },
+  { number: "02 / 06", date: "7月30日", title: "并肩上岛", note: "六个人轻装登船，老人走中间、孩子牵着手；海风一吹，久别便有了真实的形状。", image: "trip-images/day-2.jpg", day: 1 },
+  { number: "03 / 06", date: "7月31日", title: "围桌尝鲜", note: "从鲜承午餐到中山路小吃，六双筷子分享同一道菜，也分享这一年来各自的生活。", image: "trip-images/day-3.jpg", day: 2 },
+  { number: "04 / 06", date: "8月1日", title: "全家举杯", note: "奶奶七十岁的这一晚，一个座位都不少。长寿面、蛋糕与全家照，都因为六人到齐而圆满。", image: "trip-images/day-4.jpg", day: 3 },
+  { number: "05 / 06", date: "8月2日", title: "一日相守", note: "没有景点任务，六个人在同一间酒店各自休息、玩水、聊天；平常的一天，反而最像家。", image: "trip-images/day-5.jpg", day: 4 },
+  { number: "06 / 06", date: "8月3日", title: "满员归家", note: "六件行李、六张车票、六个人平安返程。厦门行结束了，下一次团聚已经开始被期待。", image: "route-images/route-5.jpg", day: 5 },
+];
+
+const reunionMembers = [
+  { mark: "奶", name: "奶奶", role: "七旬主角", note: "康复后的每一步，都有人陪" },
+  { mark: "爷", name: "爷爷", role: "稳稳同行", note: "陪奶奶看海，也听孩子说话" },
+  { mark: "爸", name: "爸爸", role: "路线担当", note: "把远方和家重新连在一起" },
+  { mark: "妈", name: "妈妈", role: "全程统筹", note: "让老人和孩子都走得舒服" },
+  { mark: "嘟", name: "嘟嘟", role: "12岁", note: "一年没见，长高也更会照顾奶奶" },
+  { mark: "楚", name: "楚楚", role: "9岁", note: "重新牵起奶奶熟悉的手" },
 ];
 
 const checklist = [
@@ -377,17 +386,17 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`family-bonds-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`six-reunion-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>家</span> 回家真好 · 六人厦门行</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>6</span> SIX TOGETHER · 六人到齐</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">隔山隔海 · 还是一家</p>
-          <h1>走得再远，<br /><em>牵挂总在身边。</em></h1>
-          <p className="hero-copy">一家四口从美国回到广州，嘟嘟和楚楚终于又能牵起一年未见的奶奶。她刚从一场大病中慢慢走出来，我们比从前更懂得：所谓旅行，不是去多远的地方，而是让爷爷奶奶、爸爸妈妈和两个孩子，有六天时间重新好好相处。</p>
-          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>三代六人 · 久别重逢</span><span>奶奶七旬 · 平安相伴</span><span>一起吃饭 · 一起看海</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
+          <p className="eyebrow">从美国到广州 · 从广州到厦门</p>
+          <h1>六个人，<br /><em>终于又在一起。</em></h1>
+          <p className="hero-copy">爷爷、奶奶、爸爸、妈妈、12岁的嘟嘟和9岁的楚楚——一家四口从美国回来，与一年未见的老人会合。奶奶大病初愈，这一次不追求走遍厦门，只想让六个人同坐一趟车、同看一片海、同围一张桌，把“全家到齐”过成六天踏踏实实的幸福。</p>
+          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>三代六人 · 全员到齐</span><span>4人归来 + 2人等候</span><span>6天5晚 · 1桌团圆</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -401,14 +410,23 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="family-album section" id="album" aria-labelledby="album-title">
-        <div className="section-heading"><div><p className="kicker">六天相伴 · 一生珍藏</p><h2 id="album-title">六天不只是行程，是一家人的相处</h2></div><p>从再次见面到一起回家，每一天都像家庭相册里新添的一页。</p></div>
-        <div className="family-story-grid">
-          {familyChapters.map((chapter) => (
+      <section className="reunion-rollcall section" aria-labelledby="rollcall-title">
+        <div className="reunion-rollcall-head"><div><p className="kicker">ALL SIX PRESENT</p><h2 id="rollcall-title">六个人，一个都不能少</h2></div><span><b>6 / 6</b> 全员到齐</span></div>
+        <div className="reunion-member-grid">
+          {reunionMembers.map((member, index) => <article key={member.name}>
+            <span className="member-number">0{index + 1}</span><i>{member.mark}</i><div><b>{member.name}</b><small>{member.role}</small><p>{member.note}</p></div>
+          </article>)}
+        </div>
+      </section>
+
+      <section className="reunion-album section" id="album" aria-labelledby="album-title">
+        <div className="section-heading"><div><p className="kicker">6 DAYS · 6 TOGETHER</p><h2 id="album-title">六日同行，每一程都是团聚</h2></div><p>六个人一起出发、登岛、围桌、举杯，再一起平安回家。</p></div>
+        <div className="reunion-story-grid">
+          {reunionChapters.map((chapter) => (
             <button type="button" key={chapter.title} onClick={() => { setActive(chapter.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
               <img src={chapter.image} alt="" loading="lazy" decoding="async" />
-              <span className="family-index">{chapter.number}</span>
-              <div><small>{chapter.date} · 家庭相册</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>翻开这一页 →</b></div>
+              <span className="reunion-index">{chapter.number}</span>
+              <div><small>{chapter.date} · 六人同行</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>查看六人今日安排 →</b></div>
             </button>
           ))}
         </div>
@@ -416,8 +434,8 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">一起出发 · 彼此照顾</p><h2>去哪儿不重要，一起走最重要</h2></div>
-          <p>先看图，再看时间；把路走清楚，是为了让老人安心、孩子轻松，全家都有余裕说说话。</p>
+          <div><p className="kicker">全员同行 · 清楚不掉队</p><h2>六个人怎么走，一眼就看明白</h2></div>
+          <p>先看图，再看时间；每段交通都明确集合点与照顾分工，让六个人始终一起、从容不掉队。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -449,7 +467,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="family-day-note"><small>今天想一起做的事</small><p>{familyChapters[active].note}</p></div>
+            <div className="reunion-day-note"><small>今日六人同框</small><p>{reunionChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -501,7 +519,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅行氛围图片画廊">
-        <div className="visual-title"><p className="kicker">家的相册</p><h2>风景会远去，笑脸会留下</h2><span>茶山、红瓦与海湾作背景，真正想记住的是一家人的表情</span></div>
+        <div className="visual-title"><p className="kicker">六人画卷</p><h2>六张笑脸，才是这趟旅行的全景</h2><span>茶山、红瓦、鹭江和海湾，都在等一张完整的六人合照</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -513,7 +531,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">安心住下</p><h2>住在一起，早晚都能多说几句话</h2></div><p>从鼓浪屿老别墅到七尚水院，既要睡得舒服，也要方便一家人彼此照应。</p></div>
+        <div className="section-heading"><div><p className="kicker">六人好眠</p><h2>房间彼此靠近，照应随时在线</h2></div><p>相邻房、行李接送和房账分工提前说清，让三代人住得舒服，也方便互相串门。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -525,16 +543,16 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">一家人的约定</p><h2>走慢一点，靠近一点，多聊一点</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">六人同行守则</p><h2>不掉队，不逞强，不错过合照</h2></div></div>
         <div className="principle-grid">
-          <article><span>慢</span><h3>不催奶奶</h3><p>午后完整休息，脚步慢一点，想停就停，舒服永远比打卡重要。</p></article>
-          <article><span>近</span><h3>彼此照应</h3><p>孩子牵奶奶，爷爷有人陪；两位成人分工，让每个人都安心。</p></article>
-          <article><span>聊</span><h3>把话说完</h3><p>少排一个景点，多留一顿饭的时间，听老人讲讲从前，也听孩子说说现在。</p></article>
+          <article><span>齐</span><h3>集合再出发</h3><p>车站、码头和酒店每次移动前都点齐六人，老人孩子始终有人陪。</p></article>
+          <article><span>稳</span><h3>体力不逞强</h3><p>奶奶累了全队就休息，天气不好就换方案，不让任何一人勉强赶路。</p></article>
+          <article><span>拍</span><h3>每天一张六人照</h3><p>不求姿势完美，只求六个人都在画面里，把难得的团聚认真留下。</p></article>
         </div>
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">一家人吃饭</p><h2>一桌菜的意义，是六个人都坐在这里</h2></div><p>为奶奶选清淡软和的，为孩子留熟悉好吃的；喜欢什么一起勾选，预算实时计算。</p></div>
+        <div className="section-heading"><div><p className="kicker">六双筷子 · 一张圆桌</p><h2>六个人都爱吃，才叫一桌好菜</h2></div><p>照顾奶奶的清淡、孩子的口味和大人的厦门风味；一起勾选，实时计算六人预算。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -641,11 +659,11 @@ export default function Home() {
         <div className="tip-card"><span>💊</span><div><b>随身药品</b><p>常用药、晕船药、证件与儿童用品放过夜包，不进入寄存大箱。</p></div></div>
       </section>
 
-      <section className="birthday-wish" aria-label="亲情寄语">
-        <div><p>隔山隔海 · 还是一家</p><h2>所谓团圆，不过是抬眼时，<br />想念的人都在身边。</h2><span>奶奶坐在中间，爷爷就在身旁；爸爸妈妈从远方回来，嘟嘟和楚楚又能靠着奶奶说话。一年的分别很长，六天的相聚却能留下许多温暖。愿孩子记得奶奶手心的温度，愿奶奶记得孩子笑起来的样子，也愿一家六口无论相隔多远，都知道彼此永远牵挂。</span><a href="#top">回到封面 ↑</a></div>
+      <section className="birthday-wish" aria-label="六人团聚寄语">
+        <div><p>SIX TOGETHER · 六人到齐</p><h2>最圆满的数字不是七十，<br />是六个人，一个都不少。</h2><span>爷爷和奶奶在广州等候，爸爸妈妈带着嘟嘟和楚楚跨过太平洋回来。六个人一起坐高铁、乘轮渡、吃饭、看海，也一起庆祝奶奶的七十岁。愿这张六人合照以后常常更新，愿每一次相聚都平安，愿下一次“全员到齐”不必等得太久。</span><a href="#top">回到封面 ↑</a></div>
       </section>
 
-      <footer><p>走得再远 · 牵挂总在身边</p><span>三代六人 · 久别重逢 · 厦门亲情中文版</span><a href="#top">回到封面 ↑</a></footer>
+      <footer><p>SIX TOGETHER · 六人终于又在一起</p><span>爷爷 · 奶奶 · 爸爸 · 妈妈 · 嘟嘟 · 楚楚</span><a href="#top">回到封面 ↑</a></footer>
       <nav className="mobile-nav"><a href="#album">影集</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );

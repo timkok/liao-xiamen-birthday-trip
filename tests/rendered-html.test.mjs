@@ -23,21 +23,23 @@ async function render() {
   );
 }
 
-test("server-renders the Chinese family bonds edition", async () => {
+test("server-renders the Chinese six-person reunion edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>走得再远，牵挂总在身边 · 厦门亲情之旅<\/title>/i);
-  assert.match(html, /隔山隔海 · 还是一家/);
-  assert.match(html, /牵挂总在身边/);
-  assert.match(html, /六天不只是行程，是一家人的相处/);
-  assert.match(html, /回到身边/);
-  assert.match(html, /一起看海/);
-  assert.match(html, /围桌而坐/);
-  assert.match(html, /想念的人都在身边/);
-  assert.match(html, /一家四口从美国回到广州/);
+  assert.match(html, /<title>六个人，终于又在一起 · 厦门团聚之旅<\/title>/i);
+  assert.match(html, /从美国到广州 · 从广州到厦门/);
+  assert.match(html, /六个人/);
+  assert.match(html, /六个人，一个都不能少/);
+  assert.match(html, /同程出发/);
+  assert.match(html, /并肩上岛/);
+  assert.match(html, /全家举杯/);
+  assert.match(html, /一个都不少/);
+  assert.match(html, /一家四口从美国回来/);
+  assert.match(html, /嘟嘟/);
+  assert.match(html, /楚楚/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
@@ -63,11 +65,12 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /familyChapters/);
-  assert.match(layout, /走得再远，牵挂总在身边 · 厦门亲情之旅/);
-  assert.match(layout, /liao-xiamen-birthday-trip-18\.pages\.dev/);
+  assert.match(page, /reunionChapters/);
+  assert.match(page, /reunionMembers/);
+  assert.match(layout, /六个人，终于又在一起 · 厦门团聚之旅/);
+  assert.match(layout, /liao-xiamen-birthday-trip-19\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /family-story-grid/);
-  assert.match(css, /family-bonds-hero-v18\.jpg/);
+  assert.match(css, /reunion-story-grid/);
+  assert.match(css, /six-reunion-hero-v19\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
