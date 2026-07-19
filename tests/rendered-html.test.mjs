@@ -23,21 +23,21 @@ async function render() {
   );
 }
 
-test("server-renders the relaxed resort Chinese family edition", async () => {
+test("server-renders the Chinese longevity birthday edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>慢享厦门 · 奶奶七十岁家庭假期<\/title>/i);
-  assert.match(html, /SIX DAYS OF SUN, SEA &amp; FAMILY/);
-  assert.match(html, /这一程，不赶风景/);
-  assert.match(html, /六天，把时间还给家人/);
-  assert.match(html, /茶山舒展/);
-  assert.match(html, /海岛散步/);
-  assert.match(html, /家宴时光/);
-  assert.match(html, /六个人都笑得很轻松/);
-  assert.match(html, /一家四口从美国回到广州/);
+  assert.match(html, /<title>山海为寿 · 奶奶七十岁厦门祝寿之旅<\/title>/i);
+  assert.match(html, /山海同寿 · 六人同欢/);
+  assert.match(html, /山海为寿/);
+  assert.match(html, /六日成一卷，处处皆是寿礼/);
+  assert.match(html, /茶山添福/);
+  assert.match(html, /渡海迎欢/);
+  assert.match(html, /七旬华宴/);
+  assert.match(html, /笑语盈堂/);
+  assert.match(html, /一家四口从美国回来/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
@@ -63,11 +63,11 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /resortChapters/);
-  assert.match(layout, /慢享厦门 · 奶奶七十岁家庭假期/);
-  assert.match(layout, /liao-xiamen-birthday-trip-16\.pages\.dev/);
+  assert.match(page, /longevityChapters/);
+  assert.match(layout, /山海为寿 · 奶奶七十岁厦门祝寿之旅/);
+  assert.match(layout, /liao-xiamen-birthday-trip-17\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /resort-story-grid/);
-  assert.match(css, /resort-family-hero-v16\.jpg/);
+  assert.match(css, /longevity-story-grid/);
+  assert.match(css, /longevity-family-hero-v17\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
