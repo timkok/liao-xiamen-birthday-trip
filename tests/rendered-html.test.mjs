@@ -23,20 +23,21 @@ async function render() {
   );
 }
 
-test("server-renders the Chinese overseas-homecoming edition", async () => {
+test("server-renders the final Chinese integrated archive edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>越过重洋，归来有家 · 厦门华侨归乡之旅<\/title>/i);
-  assert.match(html, /FROM AMERICA TO XIAMEN/);
-  assert.match(html, /越过重洋/);
-  assert.match(html, /六封跨洋家书/);
-  assert.match(html, /万里归来，茶山洗尘/);
-  assert.match(html, /七十家宴，六人同席/);
-  assert.match(html, /带一封厦门家书回去/);
-  assert.match(html, /有人等你回来吃饭/);
+  assert.match(html, /<title>山海之间，万般皆是团圆 · 厦门二十二版本集成馆<\/title>/i);
+  assert.match(html, /V01 — V22/);
+  assert.match(html, /山海之间/);
+  assert.match(html, /同一趟旅程，二十二种观看方式/);
+  assert.match(html, /原版 · 山海之间/);
+  assert.match(html, /十二版本集成馆/);
+  assert.match(html, /班味清零版/);
+  assert.match(html, /畅想未来版/);
+  assert.match(html, /华侨归乡版/);
   assert.match(html, /一家四口从美国回到广州/);
   assert.match(html, /嘟嘟/);
   assert.match(html, /楚楚/);
@@ -44,7 +45,7 @@ test("server-renders the Chinese overseas-homecoming edition", async () => {
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
   assert.match(html, /id="itinerary"/);
-  assert.match(html, /id="album"/);
+  assert.match(html, /id="versions"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /id="checklist"/);
   assert.doesNotMatch(html, /Your site is taking shape|Codex is working/);
@@ -65,12 +66,12 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /overseasChapters/);
-  assert.match(page, /homecomingLetters/);
-  assert.match(layout, /越过重洋，归来有家 · 厦门华侨归乡之旅/);
-  assert.match(layout, /liao-xiamen-birthday-trip-22\.pages\.dev/);
+  assert.match(page, /versionedEditions/);
+  assert.match(page, /baseChapters/);
+  assert.match(layout, /山海之间，万般皆是团圆 · 厦门二十二版本集成馆/);
+  assert.match(layout, /liao-xiamen-birthday-trip-23\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /overseas-story-grid/);
-  assert.match(css, /overseas-chinese-hero-v22\.jpg/);
+  assert.match(css, /edition-grid/);
+  assert.match(css, /final-archive-theme/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });

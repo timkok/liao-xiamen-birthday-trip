@@ -110,22 +110,38 @@ const days: Day[] = [
   },
 ];
 
-const overseasChapters = [
-  { number: "归航 · 壹", date: "7月29日", title: "万里归来，茶山洗尘", note: "一家四口从美国回到广州，再与爷爷奶奶同赴厦门。茶雾和温泉，先接住一路风尘。", image: "trip-images/day-1.jpg", day: 0 },
-  { number: "归航 · 贰", date: "7月30日", title: "渡海寻访，鼓浪侨韵", note: "轻装坐船上岛，在红瓦洋楼与老别墅之间慢走。旧时出洋的海风，也吹过今天归来的孩子。", image: "trip-images/day-2.jpg", day: 1 },
-  { number: "归航 · 叁", date: "7月31日", title: "骑楼灯火，乡味相迎", note: "从岛上晨光回到鹭江两岸，吃一桌闽南菜，再带孩子认识中山路骑楼下的人间烟火。", image: "trip-images/day-3.jpg", day: 2 },
-  { number: "家书 · 柒拾", date: "8月1日", title: "七十家宴，六人同席", note: "漂洋过海最珍贵的抵达，是围坐一桌。长寿面、蛋糕与全家照，把一年未见的想念轻轻补齐。", image: "trip-images/day-4.jpg", day: 3 },
-  { number: "慢叙 · 伍", date: "8月2日", title: "海风慢叙，不赶归期", note: "把一天留给泳池、树影和午睡。远方教人赶路，故乡提醒我们：相聚时可以慢一点。", image: "trip-images/day-5.jpg", day: 4 },
-  { number: "寄往远方", date: "8月3日", title: "带一封厦门家书回去", note: "照片装进行李，乡味留在记忆。回到美国以后，孩子仍会记得奶奶的笑和这片海的方向。", image: "route-images/route-5.jpg", day: 5 },
+const baseChapters = [
+  { number: "01", date: "7月29日", title: "茶山入梦", note: "温泉洗尘，六个人从一张全家照重新相聚" },
+  { number: "02", date: "7月30日", title: "渡海听风", note: "轻装上岛，在红瓦、琴声与海风之间慢走" },
+  { number: "03", date: "7月31日", title: "骑楼寻味", note: "从岛上晨光走进闽南烟火与鹭江灯影" },
+  { number: "04", date: "8月1日", title: "海湾家宴", note: "夕阳落座，全家为奶奶的七十岁温柔举杯" },
+  { number: "05", date: "8月2日", title: "一日无事", note: "泳池、午睡、散步，把时间完整留给家人" },
+  { number: "06", date: "8月3日", title: "满载而归", note: "收好照片与笑声，沿着铁轨平安回家" },
 ];
 
-const homecomingLetters = [
-  { mark: "奶", name: "奶奶", role: "家书第一封", note: "大病初愈，最盼一家人回来吃饭", value: "信末：平安就好" },
-  { mark: "爷", name: "爷爷", role: "家书第二封", note: "家门一直亮着，等孩子们回来", value: "信末：一路顺风" },
-  { mark: "爸", name: "爸爸", role: "越洋归航", note: "万里再远，也要带孩子常回家", value: "回信：我们到了" },
-  { mark: "妈", name: "妈妈", role: "把路接起来", note: "从美国到广州，再把六个人聚齐", value: "回信：一起出发" },
-  { mark: "嘟", name: "嘟嘟", role: "小小归乡客", note: "12岁 · 一年未见，陪奶奶多说说话", value: "回信：我长高了" },
-  { mark: "楚", name: "楚楚", role: "小小归乡客", note: "9岁 · 把厦门故事带回美国", value: "回信：我记住了" },
+const versionedEditions = [
+  { version: "V1", name: "原版 · 山海之间", note: "行程完整、沉稳清晰，是整个系列的内容底稿。", image: "trip-overview.webp", url: "https://liao-xiamen-birthday-trip-1.pages.dev/", tone: "classic", badge: "中文 · 原点" },
+  { version: "V2", name: "亲情叙事初版", note: "加入奶奶病愈与一家六口跨洋重逢的故事。", image: "trip-images/day-4.jpg", url: "https://liao-xiamen-birthday-trip-2.pages.dev/", tone: "family", badge: "中文 · 故事" },
+  { version: "V3", name: "孩子英文版", note: "给嘟嘟和楚楚阅读的英文家庭旅行版本。", image: "trip-images/day-2.jpg", url: "https://liao-xiamen-birthday-trip-3.pages.dev/", tone: "english", badge: "English · Kids" },
+  { version: "V4", name: "清新英文版", note: "更轻盈、更明亮的英文亲子阅读体验。", image: "fresh-family-hero-v4.jpg", url: "https://liao-xiamen-birthday-trip-4.pages.dev/", tone: "fresh", badge: "English · Fresh" },
+  { version: "V5", name: "古意中文版", note: "宋体、留白与山海画卷构成古雅行笺。", image: "ancient-family-hero-v5.jpg", url: "https://liao-xiamen-birthday-trip-5.pages.dev/", tone: "ancient", badge: "中文 · 古意" },
+  { version: "V6", name: "诗词中文版", note: "将六日行程写成一册温柔的家庭诗笺。", image: "poetry-family-hero-v6.jpg", url: "https://liao-xiamen-birthday-trip-6.pages.dev/", tone: "poetry", badge: "中文 · 诗词" },
+  { version: "V7", name: "豪迈诗词版", note: "更开阔、更昂扬的山海诗程视觉。", image: "mao-poetry-family-hero-v7.jpg", url: "https://liao-xiamen-birthday-trip-7.pages.dev/", tone: "heroic", badge: "中文 · 豪迈" },
+  { version: "V8", name: "现代中文版", note: "清晰、克制，像一本当代旅行杂志。", image: "modern-family-hero-v8.jpg", url: "https://liao-xiamen-birthday-trip-8.pages.dev/", tone: "modern", badge: "中文 · 现代" },
+  { version: "V9", name: "年轻人中文版", note: "高饱和撞色、Bento 卡片与轻松语气。", image: "youth-family-hero-v9.jpg", url: "https://liao-xiamen-birthday-trip-9.pages.dev/", tone: "youth", badge: "中文 · 年轻" },
+  { version: "V10", name: "南洋中文版", note: "骑楼、花砖、藤编与旧金铜的南洋气质。", image: "nanyang-family-hero-v10.jpg", url: "https://liao-xiamen-birthday-trip-10.pages.dev/", tone: "nanyang", badge: "中文 · 南洋" },
+  { version: "V11", name: "小清新中文版", note: "薄荷绿、雾蓝与自然光里的轻盈团聚。", image: "fresh-family-hero-v11.jpg", url: "https://liao-xiamen-birthday-trip-11.pages.dev/", tone: "fresh-cn", badge: "中文 · 清新" },
+  { version: "V12", name: "厦门 Local 版", note: "红砖、榕树、街坊早餐与闽南生活气。", image: "xiamen-local-family-hero-v12.jpg", url: "https://liao-xiamen-birthday-trip-12.pages.dev/", tone: "local", badge: "中文 · 在地" },
+  { version: "V13", name: "十二版本集成馆", note: "第一代版本展厅，记录系列最初十二种样貌。", image: "trip-overview.webp", url: "https://liao-xiamen-birthday-trip-13.pages.dev/", tone: "archive", badge: "中文 · 旧集成" },
+  { version: "V14", name: "五十年代版", note: "老画报、旅行社海报与朴素年代美学。", image: "fifties-family-hero-v14.jpg", url: "https://liao-xiamen-birthday-trip-14.pages.dev/", tone: "fifties", badge: "中文 · 1950s" },
+  { version: "V15", name: "洋气中文版", note: "国际酒店画册般的克制、高级与都会感。", image: "cosmopolitan-family-hero-v15.jpg", url: "https://liao-xiamen-birthday-trip-15.pages.dev/", tone: "cosmopolitan", badge: "中文 · 洋气" },
+  { version: "V16", name: "度假休闲版", note: "海湾、泳池与松弛午后组成轻奢假期。", image: "resort-family-hero-v16.jpg", url: "https://liao-xiamen-birthday-trip-16.pages.dev/", tone: "resort", badge: "中文 · 度假" },
+  { version: "V17", name: "祝寿中文版", note: "寿桃红、鎏金与海棠纹，专为七十寿宴而作。", image: "longevity-family-hero-v17.jpg", url: "https://liao-xiamen-birthday-trip-17.pages.dev/", tone: "longevity", badge: "中文 · 祝寿" },
+  { version: "V18", name: "亲情中文版", note: "用拥抱、等候和相伴，讲一年未见的思念。", image: "family-bonds-hero-v18.jpg", url: "https://liao-xiamen-birthday-trip-18.pages.dev/", tone: "bonds", badge: "中文 · 亲情" },
+  { version: "V19", name: "六人团聚版", note: "六个人、六张角色卡，一起成为旅程主角。", image: "six-reunion-hero-v19.jpg", url: "https://liao-xiamen-birthday-trip-19.pages.dev/", tone: "reunion", badge: "中文 · 团聚" },
+  { version: "V20", name: "班味清零版", note: "合上电脑，把唯一 KPI 改成全家开心。", image: "off-duty-hero-v20.jpg", url: "https://liao-xiamen-birthday-trip-20.pages.dev/", tone: "offduty", badge: "中文 · 班味" },
+  { version: "V21", name: "畅想未来版", note: "七十不是抵达，而是一家人下一程的起点。", image: "future-family-hero-v21.jpg", url: "https://liao-xiamen-birthday-trip-21.pages.dev/", tone: "future", badge: "中文 · 未来" },
+  { version: "V22", name: "华侨归乡版", note: "从美国到厦门，把跨洋归来写成一封家书。", image: "overseas-chinese-hero-v22.jpg", url: "https://liao-xiamen-birthday-trip-22.pages.dev/", tone: "overseas", badge: "中文 · 归乡" },
 ];
 
 const checklist = [
@@ -386,17 +402,17 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`overseas-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`integrated-theme final-archive-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>侨</span> ROOTS & ROUTES · 万里归家</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>屿</span> 厦门家宴之旅 · 最终集成珍藏馆</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">FROM AMERICA TO XIAMEN · 一封跨洋家书</p>
-          <h1>越过重洋，<br /><em>归来有家。</em></h1>
-          <p className="hero-copy">7月27日，我们一家四口从美国回到广州，再和爷爷奶奶一起去厦门。嘟嘟十二岁，楚楚九岁，他们已经一年没见奶奶了。她大病初愈，这次七十岁生日不求排场，只想让六个人重新坐在一张桌前。走得再远，家乡的方向始终没有改变；所谓华侨归心，就是孩子仍认得家门，长辈仍等得到一句“我们回来了”。</p>
-          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>美国 → 广州 → 厦门</span><span>一年未见 · 六人重逢</span><span>奶奶七十新岁</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
+          <p className="eyebrow">V01 — V22 · 同一场团圆的二十二种讲法</p>
+          <h1>山海之间，<br /><em>万般皆是团圆。</em></h1>
+          <p className="hero-copy">一家四口从美国回到广州，与爷爷奶奶相聚，再沿着茶山、海岛与鹭江慢慢前行。行程只有一份，心意也只有一个；从原版、小清新、古意和诗词，到祝寿、亲情、班味、未来与华侨归乡，我们为奶奶的七十岁生日留下了二十二种颜色与语气。</p>
+          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>22 个独立版本</span><span>三代六人 · 久别重逢</span><span>完整行程 · 全部互动</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -410,32 +426,24 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="homecoming-letters section" aria-labelledby="dashboard-title">
-        <div className="homecoming-letters-head"><div><p className="kicker">LETTERS ACROSS THE OCEAN</p><h2 id="dashboard-title">六封跨洋家书，终于有了回音</h2></div><span><b>万里</b> 去路　<i>一桌</i> 团圆</span></div>
-        <div className="homecoming-letter-grid">
-          {homecomingLetters.map((member) => <article key={member.name}>
-            <span className="letter-stamp">厦门 · 已抵达</span><i>{member.mark}</i><div><b>{member.name}</b><small>{member.role}</small><p>{member.note}</p><strong>{member.value}</strong></div>
-          </article>)}
-        </div>
-      </section>
-
-      <section className="overseas-album section" id="album" aria-labelledby="album-title">
-        <div className="section-heading"><div><p className="kicker">SIX DAYS · ROOTS & ROUTES</p><h2 id="album-title">六天，把远方与故乡重新连起来</h2></div><p>茶山、轮渡、红瓦、骑楼与家宴，像六枚邮戳，盖在这一封写给家人的厦门长信上。</p></div>
-        <div className="overseas-story-grid">
-          {overseasChapters.map((chapter) => (
-            <button type="button" key={chapter.title} onClick={() => { setActive(chapter.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
-              <img src={chapter.image} alt="" loading="lazy" decoding="async" />
-              <span className="overseas-index">{chapter.number}</span>
-              <div><small>{chapter.date} · 归乡邮戳</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>拆开这一天 →</b></div>
-            </button>
+      <section className="edition-gallery section" id="versions" aria-labelledby="versions-title">
+        <div className="section-heading"><div><p className="kicker">THE COMPLETE EDITION ARCHIVE</p><h2 id="versions-title">同一趟旅程，二十二种观看方式</h2></div><p>每个版本都是独立保存的网站。点开新窗口阅读，随时可以回到这里继续挑选。</p></div>
+        <div className="archive-summary" aria-label="版本统计"><span><b>22</b>独立版本</span><span><b>20</b>中文风格</span><span><b>2</b>英文版本</span><span><b>1</b>完整行程</span></div>
+        <div className="edition-grid">
+          {versionedEditions.map((edition) => (
+            <a className={`edition-card ${edition.tone}`} href={edition.url} target="_blank" rel="noreferrer" key={edition.version} aria-label={`打开${edition.version}${edition.name}`}>
+              <img src={edition.image} alt="" loading="lazy" decoding="async" />
+              <span className="edition-version">{edition.version}</span>
+              <div><small>{edition.badge}</small><h3>{edition.name}</h3><p>{edition.note}</p><b>打开这个版本 ↗</b></div>
+            </a>
           ))}
         </div>
       </section>
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">归乡有诗意 · 行程要稳妥</p><h2>家书写得温柔，路也安排得明白</h2></div>
-          <p>时间、交通和应急方案都清清楚楚；让奶奶少劳累，让孩子在厦门慢慢认得故乡的模样。</p>
+          <div><p className="kicker">六日徐行 · 回到内容原点</p><h2>版本可以不同，完整行程始终在这里</h2></div>
+          <p>时间、交通、餐饮和应急方案保持一致；无论喜欢哪种风格，老人孩子都能安心出发。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -467,7 +475,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="overseas-day-note"><small>今日归乡家书</small><p>{overseasChapters[active].note}</p></div>
+            <div className="integrated-day-note"><small>今日一页 · {baseChapters[active].number}</small><p>{baseChapters[active].title}：{baseChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -519,7 +527,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅行氛围图片画廊">
-        <div className="visual-title"><p className="kicker">POSTCARDS FROM AMOY</p><h2>红砖、骑楼与海风，都是厦门寄来的家书</h2><span>让孩子在照片里记住祖辈、乡味，也记住自己从哪里归来</span></div>
+        <div className="visual-title"><p className="kicker">旅途画卷 · 全部收录</p><h2>茶山、红瓦、海湾，都在同一本家庭相册里</h2><span>版本有不同滤镜，真正留下来的始终是六个人的笑</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -531,7 +539,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">A HOME BETWEEN JOURNEYS</p><h2>落脚之处，也是归家驿站</h2></div><p>相邻房、行李接送和午休都提前安排好；长途归来的每一晚，都让老人孩子住得安稳。</p></div>
+        <div className="section-heading"><div><p className="kicker">四晚四种气质</p><h2>酒店各有风景，照顾家人始终如一</h2></div><p>相邻房、行李接送和午休都提前安排好，让老人孩子每一晚都住得安稳。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -543,16 +551,16 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">ROOTS · ROUTES · REUNION</p><h2>走得再远，仍知归处</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">二十二种风格 · 三条不变原则</p><h2>内容要清楚，老人要舒服，团圆要尽兴</h2></div></div>
         <div className="principle-grid">
-          <article><span>根</span><h3>乡音是一条看不见的路</h3><p>让孩子听奶奶讲从前，也在闽南味与骑楼间，慢慢认识家族来处。</p></article>
-          <article><span>信</span><h3>家书不必写在纸上</h3><p>一句报平安、一张全家照、一次准时归来，都是跨过重洋最温柔的回信。</p></article>
-          <article><span>归</span><h3>团圆是所有远行的岸</h3><p>不论生活把我们带去哪里，只要六个人还能围坐吃饭，故乡就从未走远。</p></article>
+          <article><span>清</span><h3>关键节点一眼看懂</h3><p>船票、取车、午餐和寿宴时间都突出显示，老人模式还可一键放大。</p></article>
+          <article><span>稳</span><h3>体力与天气都有备选</h3><p>每天保留午休和应急方案，不因版本漂亮就牺牲实际可用性。</p></article>
+          <article><span>聚</span><h3>所有设计都指向团圆</h3><p>风格可以千变万化，奶奶、爷爷、爸爸妈妈和两个孩子始终是主角。</p></article>
         </div>
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">A TASTE OF HOMECOMING</p><h2>一桌闽南味，接住万里归来的胃</h2></div><p>清淡、少辣、孩子爱吃都可以筛；六个人一起挑菜，让乡味与预算都心中有数。</p></div>
+        <div className="section-heading"><div><p className="kicker">菜单互动 · 完整保留</p><h2>风格可以慢慢选，今晚吃什么现在就能勾</h2></div><p>三家餐厅菜品、服务费和预计消费实时计算；所有版本里最实用的功能都集中在这里。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -659,12 +667,12 @@ export default function Home() {
         <div className="tip-card"><span>💊</span><div><b>随身药品</b><p>常用药、晕船药、证件与儿童用品放过夜包，不进入寄存大箱。</p></div></div>
       </section>
 
-      <section className="birthday-wish" aria-label="华侨归乡寄语">
-        <div><p>HOME IS THE SHORE WE RETURN TO</p><h2>所谓故乡，<br />是走得再远，也有人等你回来吃饭。</h2><span>从广州到厦门，从厦门望向更远的海，几代华侨曾把家书寄过重洋。今天，我们把两个孩子带回来，把一年未见的拥抱补上，把奶奶七十岁的笑留在全家照里。愿嘟嘟和楚楚长大后仍记得：家不只是一处地址，也是爷爷奶奶的乡音、饭桌上的闽南味，以及无论走到哪里都有人盼你平安归来的那盏灯。</span><a href="#top">重读家书 ↑</a></div>
+      <section className="birthday-wish" aria-label="集成版寄语">
+        <div><p>二十二种风格 · 同一份心意</p><h2>页面会有不同，<br />团圆始终如一。</h2><span>奶奶安然坐在家人中间，爷爷在身旁，爸爸妈妈终于松一口气，嘟嘟和楚楚又能牵起奶奶的手。无论选择原版、诗词版、祝寿版、班味版还是华侨版，最后记住的都会是：一年未见之后，六个人终于又在一起。</span><a href="#versions">再选一个版本 ↑</a></div>
       </section>
 
-      <footer><p>ROOTS & ROUTES · 华侨归乡中文版</p><span>越过重洋 · 认得乡音 · 回来团圆</span><a href="#top">重读家书 ↑</a></footer>
-      <nav className="mobile-nav"><a href="#album">影集</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
+      <footer><p>厦门家宴之旅 · 二十二版本最终集成馆</p><span>同一场团圆，二十二种颜色；V1–V22 全部独立保留</span><a href="#versions">选择版本 ↑</a></footer>
+      <nav className="mobile-nav"><a href="#versions">版本</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
 }
