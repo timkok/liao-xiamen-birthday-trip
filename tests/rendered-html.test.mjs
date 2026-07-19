@@ -23,21 +23,21 @@ async function render() {
   );
 }
 
-test("server-renders the Chinese longevity birthday edition", async () => {
+test("server-renders the Chinese family bonds edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>山海为寿 · 奶奶七十岁厦门祝寿之旅<\/title>/i);
-  assert.match(html, /山海同寿 · 六人同欢/);
-  assert.match(html, /山海为寿/);
-  assert.match(html, /六日成一卷，处处皆是寿礼/);
-  assert.match(html, /茶山添福/);
-  assert.match(html, /渡海迎欢/);
-  assert.match(html, /七旬华宴/);
-  assert.match(html, /笑语盈堂/);
-  assert.match(html, /一家四口从美国回来/);
+  assert.match(html, /<title>走得再远，牵挂总在身边 · 厦门亲情之旅<\/title>/i);
+  assert.match(html, /隔山隔海 · 还是一家/);
+  assert.match(html, /牵挂总在身边/);
+  assert.match(html, /六天不只是行程，是一家人的相处/);
+  assert.match(html, /回到身边/);
+  assert.match(html, /一起看海/);
+  assert.match(html, /围桌而坐/);
+  assert.match(html, /想念的人都在身边/);
+  assert.match(html, /一家四口从美国回到广州/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
@@ -63,11 +63,11 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /longevityChapters/);
-  assert.match(layout, /山海为寿 · 奶奶七十岁厦门祝寿之旅/);
-  assert.match(layout, /liao-xiamen-birthday-trip-17\.pages\.dev/);
+  assert.match(page, /familyChapters/);
+  assert.match(layout, /走得再远，牵挂总在身边 · 厦门亲情之旅/);
+  assert.match(layout, /liao-xiamen-birthday-trip-18\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /longevity-story-grid/);
-  assert.match(css, /longevity-family-hero-v17\.jpg/);
+  assert.match(css, /family-story-grid/);
+  assert.match(css, /family-bonds-hero-v18\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
