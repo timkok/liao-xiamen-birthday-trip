@@ -110,13 +110,13 @@ const days: Day[] = [
   },
 ];
 
-const cosmopolitanChapters = [
-  { number: "01", date: "7月29日", title: "茶山序曲", note: "先把城市留在身后，让茶雾、温泉与一顿家常晚餐接住风尘。", image: "trip-images/day-1.jpg", day: 0 },
-  { number: "02", date: "7月30日", title: "海上登场", note: "轻装登船，红瓦、琴声与海风，把鼓浪屿写成盛夏的开场。", image: "trip-images/day-2.jpg", day: 1 },
-  { number: "03", date: "7月31日", title: "城市漫游", note: "从岛上晨光走进骑楼烟火，晚风里再看一次鹭江亮灯。", image: "trip-images/day-3.jpg", day: 2 },
-  { number: "04", date: "8月1日", title: "盛夏家宴", note: "今晚奶奶是唯一的主角，海湾、烛光与六个人都为她而来。", image: "trip-images/day-4.jpg", day: 3 },
-  { number: "05", date: "8月2日", title: "海湾慢调", note: "泳池、午睡与树影，把时间调成最舒服的度假速度。", image: "trip-images/day-5.jpg", day: 4 },
-  { number: "06", date: "8月3日", title: "归途余韵", note: "照片装进行李，笑声留在心里；列车向广州，盛夏仍在继续。", image: "route-images/route-5.jpg", day: 5 },
+const resortChapters = [
+  { number: "01", date: "7月29日", title: "茶山舒展", note: "下高铁后不赶景点，让温泉、茶雾和一顿热饭把一路疲惫慢慢放下。", image: "trip-images/day-1.jpg", day: 0 },
+  { number: "02", date: "7月30日", title: "海岛散步", note: "大箱子留在城里，只带轻便过夜包，跟着海风去看红瓦与老别墅。", image: "trip-images/day-2.jpg", day: 1 },
+  { number: "03", date: "7月31日", title: "鹭江闲游", note: "午餐后睡足三小时，傍晚再去骑楼下吃小吃、看江面亮灯。", image: "trip-images/day-3.jpg", day: 2 },
+  { number: "04", date: "8月1日", title: "家宴时光", note: "白天好好休息，晚上穿得漂亮一点，只为奶奶的七十岁举杯。", image: "trip-images/day-4.jpg", day: 3 },
+  { number: "05", date: "8月2日", title: "一日无事", note: "睡到自然醒、玩水、午睡、整理照片；没有任务，就是今天最好的安排。", image: "trip-images/day-5.jpg", day: 4 },
+  { number: "06", date: "8月3日", title: "从容归家", note: "最后看一眼海湾，逐项收好证件与药品，带着好精神回广州。", image: "route-images/route-5.jpg", day: 5 },
 ];
 
 const checklist = [
@@ -368,17 +368,17 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`cosmopolitan-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`resort-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>XM</span> AMOY ÉTÉ · 厦门盛夏</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>慢</span> SLOW XIA MEN · 慢享厦门</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">XIA MEN · SUMMER EDITION · FAMILY OF SIX</p>
-          <h1>山海正盛，<br /><em>我们恰好团圆。</em></h1>
-          <p className="hero-copy">一家四口从美国回到广州，与爷爷奶奶重逢，再一起去厦门过一个有海风的生日。六天不必追赶名胜，只需把茶山、红瓦、酒店与家宴，过成全家共同收藏的盛夏特刊。</p>
-          <div className="hero-tags"><span>JUL 29 — AUG 03</span><span>三代六人 · 久别重逢</span><span>六日海岸假期</span><span>奶奶七旬 · 盛夏家宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
+          <p className="eyebrow">SIX DAYS OF SUN, SEA & FAMILY</p>
+          <h1>这一程，不赶风景，<br /><em>只享团圆。</em></h1>
+          <p className="hero-copy">一家四口从美国回到广州，与爷爷奶奶重逢，再一起去厦门住几间舒服的酒店、吹几场海风、吃一桌生日家宴。六天不追求“去过多少地方”，只希望奶奶不累、孩子开心，六个人都能好好享受相聚。</p>
+          <div className="hero-tags"><span>7月29日 — 8月3日</span><span>三代六人 · 久别重逢</span><span>午休优先 · 少走慢游</span><span>奶奶七旬 · 海湾家宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
       </header>
@@ -392,14 +392,14 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="cosmopolitan-album section" id="album" aria-labelledby="album-title">
-        <div className="section-heading"><div><p className="kicker">THE SIX-DAY EDIT</p><h2 id="album-title">一场旅行，六幕风景</h2></div><p>像翻阅一本海岸度假刊：先选今天的风景，再查看时间、交通与照顾提醒。</p></div>
-        <div className="cosmopolitan-story-grid">
-          {cosmopolitanChapters.map((chapter) => (
+      <section className="resort-album section" id="album" aria-labelledby="album-title">
+        <div className="section-heading"><div><p className="kicker">SLOW DAYS · HAPPY STAY</p><h2 id="album-title">六天，把时间还给家人</h2></div><p>先选一张舒服的风景，再看今天怎么走；每一天都给午睡、天气和体力留下余地。</p></div>
+        <div className="resort-story-grid">
+          {resortChapters.map((chapter) => (
             <button type="button" key={chapter.title} onClick={() => { setActive(chapter.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
               <img src={chapter.image} alt="" loading="lazy" decoding="async" />
-              <span className="cosmopolitan-index">{chapter.number}</span>
-              <div><small>{chapter.date} · COASTAL DIARY</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>查看当天行程 →</b></div>
+              <span className="resort-index">DAY {chapter.number}</span>
+              <div><small>{chapter.date} · 慢慢度假</small><h3>{chapter.title}</h3><p>{chapter.note}</p><b>查看今天怎么走 →</b></div>
             </button>
           ))}
         </div>
@@ -407,8 +407,8 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">DAILY EDIT</p><h2>好看，也要好用</h2></div>
-          <p>度假感写在画面里，时间、交通与照顾长辈的安排依然清楚可靠。</p>
+          <div><p className="kicker">EASY DAY PLAN</p><h2>慢慢玩，也明明白白</h2></div>
+          <p>看图先懂今天，再展开详细时间；交通、休息和照顾长辈的安排一项不少。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -440,7 +440,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="cosmopolitan-day-note"><small>TODAY'S MOOD</small><p>{cosmopolitanChapters[active].note}</p></div>
+            <div className="resort-day-note"><small>今日松弛提醒</small><p>{resortChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -633,10 +633,10 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>THE BIRTHDAY ISSUE · 七旬盛夏特刊</p><h2>把海风、笑声与这一桌灯火，<br />都留给七十岁的盛夏。</h2><span>奶奶坐在家人中间，爷爷在身旁，爸爸妈妈终于松一口气；一年未见的嘟嘟和楚楚，又能牵起奶奶的手。真正的洋气，不是去多远的地方，而是一家人从容、体面、欢欢喜喜地在一起。</span><a href="#top">回到封面 ↑</a></div>
+        <div><p>SLOW TRIP · HAPPY FAMILY</p><h2>最好的假期，不是去了多少地方，<br />是六个人都笑得很轻松。</h2><span>奶奶坐在家人中间，爷爷在身旁，爸爸妈妈不用赶路；一年未见的嘟嘟和楚楚，又能牵起奶奶的手。愿这六天有充足的午睡、温柔的海风、好好吃完的每一顿饭，还有许多不必安排的快乐。</span><a href="#top">回到封面 ↑</a></div>
       </section>
 
-      <footer><p>AMOY ÉTÉ · 厦门盛夏中文版</p><span>三代六人，一场有海风的七旬家宴</span><a href="#top">回到封面 ↑</a></footer>
+      <footer><p>SLOW XIA MEN · 度假休闲中文版</p><span>三代六人，慢慢走，好好住，轻松团圆</span><a href="#top">回到封面 ↑</a></footer>
       <nav className="mobile-nav"><a href="#album">影集</a><a href="#itinerary">行程</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );

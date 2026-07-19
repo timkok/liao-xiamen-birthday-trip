@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://liao-xiamen-birthday-trip-15.pages.dev"),
-  title: "厦门盛夏 · 奶奶七十岁海岸假期",
-  description: "一册有国际海岸度假感的中文家庭旅行特刊：三代六人，在厦门共度奶奶七十岁生日。",
+  metadataBase: new URL("https://liao-xiamen-birthday-trip-16.pages.dev"),
+  title: "慢享厦门 · 奶奶七十岁家庭假期",
+  description: "三代六人的厦门度假休闲行程：少走慢游、午休优先，在茶山、海岛与海湾共度奶奶七十岁生日。",
   icons: { icon: "favicon.svg" },
   openGraph: {
-    title: "厦门盛夏 · 奶奶七十岁海岸假期",
-    description: "山海正盛，我们恰好团圆。三代六人的厦门盛夏家宴。",
+    title: "慢享厦门 · 奶奶七十岁家庭假期",
+    description: "这一程，不赶风景，只享团圆。三代六人的轻松厦门假期。",
     type: "website",
     locale: "zh_CN",
     images: [{
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "厦门盛夏 · 奶奶七十岁海岸假期",
-    description: "山海正盛，我们恰好团圆。三代六人的厦门盛夏家宴。",
+    title: "慢享厦门 · 奶奶七十岁家庭假期",
+    description: "这一程，不赶风景，只享团圆。三代六人的轻松厦门假期。",
     images: ["og.png"],
   },
 };
