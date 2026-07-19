@@ -110,13 +110,13 @@ const days: Day[] = [
   },
 ];
 
-const nanyangChapters = [
-  { number: "壹", date: "7月29日", title: "茶山洗尘", note: "一盏新茶，一池暖汤，慢慢接住归来的风尘" },
-  { number: "贰", date: "7月30日", title: "渡海入梦", note: "轻装过海，在红瓦、琴声与花影之间落脚" },
-  { number: "叁", date: "7月31日", title: "骑楼寻味", note: "沿廊避暑，尝闽南烟火，再看鹭江灯起" },
-  { number: "肆", date: "8月1日", title: "海湾家宴", note: "藤影摇风，灯火围桌，为奶奶七十岁举杯" },
-  { number: "伍", date: "8月2日", title: "水院闲日", note: "晨光、泳池、午睡，把一整天还给从容" },
-  { number: "陆", date: "8月3日", title: "满载归家", note: "收好花影与合照，把一路笑声带回广州" },
+const freshChapters = [
+  { number: "01", date: "7月29日", title: "茶山慢下来", note: "温泉、绿意和久别后的第一张全家照" },
+  { number: "02", date: "7月30日", title: "去岛上吹风", note: "只带轻轻的行李，走进红瓦与琴声" },
+  { number: "03", date: "7月31日", title: "沿骑楼散步", note: "尝一点闽南味，等鹭江亮起晚灯" },
+  { number: "04", date: "8月1日", title: "奶奶的好日子", note: "海湾、晚霞和一桌温柔的七十岁家宴" },
+  { number: "05", date: "8月2日", title: "把时间留白", note: "泳池、午睡、慢慢整理一家人的照片" },
+  { number: "06", date: "8月3日", title: "带着海风回家", note: "行李多了一点，都是照片和笑声" },
 ];
 
 const checklist = [
@@ -368,16 +368,16 @@ export default function Home() {
   const money = (value: number) => `¥${value.toLocaleString("zh-CN", { minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <main className={`nanyang-theme ${elderMode ? "elder-mode" : ""}`}>
+    <main className={`fresh-theme fresh-v11-theme ${elderMode ? "elder-mode" : ""}`}>
       <header className="hero">
         <nav className="topbar">
-          <a className="brand" href="#top" aria-label="返回顶部"><span>厦</span> 南洋花影 · 家庭纪行</a>
+          <a className="brand" href="#top" aria-label="返回顶部"><span>厦</span> 海风轻轻 · 家庭旅行</a>
           <div className="nav-actions"><a className="pdf-link" href="xiamen-family-trip-picture.pdf" download>下载图文 PDF ↓</a><a className="map-link" href="trip-overview.png" target="_blank">查看原行程图 ↗</a></div>
         </nav>
         <div className="hero-content" id="top">
-          <p className="eyebrow">山海有信 · 六人同行 · 七旬家宴</p>
-          <h1>南洋花影，<br /><em>一席团圆。</em></h1>
-          <p className="hero-copy">奶奶病愈初安，一家四口自美国归来，与爷爷奶奶在广州重逢，再往厦门去。嘟嘟十二岁，楚楚九岁，已经一年没有牵过奶奶的手。于是这一程，不求匆匆看尽，只愿穿过茶雾与骑楼，在海风里陪她慢慢过一个七十岁生日。</p>
+          <p className="eyebrow">六个人 · 六天 · 一次久别重逢</p>
+          <h1>海风轻轻，<br /><em>我们慢慢相聚。</em></h1>
+          <p className="hero-copy">奶奶病愈初安，一家四口从美国回到广州，再和爷爷奶奶一起去厦门。嘟嘟十二岁，楚楚九岁，已经一年没有见过奶奶。这一次不用赶着打卡，只想在茶山、岛风和海湾之间，好好陪她过一个轻松明亮的七十岁生日。</p>
           <div className="hero-tags"><span>✈️ 七月廿七 · 自美归穗</span><span>👨‍👩‍👧‍👦 三代六人 · 久别重逢</span><span>🌿 六日徐行</span><span>🎂 八月初一 · 奶奶寿宴</span><button type="button" className={elderMode ? "active" : ""} onClick={toggleElderMode} aria-pressed={elderMode}>👓 {elderMode ? "大字已启" : "老人阅读模式"}</button></div>
         </div>
         <div className="sea" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -392,10 +392,10 @@ export default function Home() {
         <div><b>8/3 · 按车次</b><span>厦门北返广州</span></div>
       </section>
 
-      <section className="nanyang-overview section" aria-labelledby="nanyang-title">
-        <div className="section-heading"><div><p className="kicker">六日南洋纪</p><h2 id="nanyang-title">沿花砖与海风，翻开六页行旅</h2></div><p>茶山、渡海、骑楼、家宴、闲日与归程——轻点一页，便抵达那一天。</p></div>
-        <div className="nanyang-story-grid">
-          {nanyangChapters.map((chapter, index) => (
+      <section className="fresh-overview section" aria-labelledby="fresh-title">
+        <div className="section-heading"><div><p className="kicker">六日轻旅行</p><h2 id="fresh-title">一天一张小卡，轻轻看完这趟旅程</h2></div><p>茶山、海岛、骑楼、生日、放空与归程——点开喜欢的一天慢慢看。</p></div>
+        <div className="fresh-story-grid">
+          {freshChapters.map((chapter, index) => (
             <button key={chapter.number} className={active === index ? "active" : ""} onClick={() => { setActive(index); document.getElementById("itinerary")?.scrollIntoView({ behavior: "smooth" }); }} aria-label={`查看${chapter.date}${chapter.title}行程`}>
               <img src={days[index].image} alt="" loading="lazy" decoding="async" /><span>{chapter.number}</span><div><small>{chapter.date}</small><h3>{chapter.title}</h3><p>{chapter.note}</p></div>
             </button>
@@ -405,8 +405,8 @@ export default function Home() {
 
       <section className="itinerary section" id="itinerary">
         <div className="section-heading">
-          <div><p className="kicker">逐日行止</p><h2>一日一景，步步从容</h2></div>
-          <p>时辰、交通、体力与风雨备选都收在一处，临行不必再翻聊天记录。</p>
+          <div><p className="kicker">每天怎么走</p><h2>看清时间，也给心情留一点空白</h2></div>
+          <p>交通、体力和天气备选都放在一起，到了现场也不用着急。</p>
         </div>
         <div className="day-tabs" role="tablist" aria-label="选择日期">
           {days.map((item, index) => (
@@ -438,7 +438,7 @@ export default function Home() {
             <p className="day-number">DAY {active + 1}</p>
             <h3>{day.place}</h3>
             <p>{day.theme}</p>
-            <div className="nanyang-day-note"><small>今日小笺</small><p>{nanyangChapters[active].note}</p></div>
+            <div className="fresh-day-note"><small>今天的小期待</small><p>{freshChapters[active].note}</p></div>
             <div className="hotel-card"><span>今晚入住</span><b>{day.hotel}</b></div>
             <span className="intensity">☀ {day.strength}</span>
           </div>
@@ -460,7 +460,7 @@ export default function Home() {
       </section>
 
       <section className="section map-guide" id="maps">
-        <div className="section-heading"><div><p className="kicker">随身舆图</p><h2>一指启程，不教家人久候</h2></div><p>车站、码头、酒店与餐厅皆已标妥；轻点一下，便由高德地图引路。</p></div>
+        <div className="section-heading"><div><p className="kicker">轻轻一点</p><h2>地点都收好了，直接打开导航</h2></div><p>车站、码头、酒店和餐厅都在这里，少一点寻找，多一点从容。</p></div>
         <div className="map-stop-grid">
           {mapStops.map((stop) => (
             <a key={stop.name} href={`https://uri.amap.com/search?keyword=${encodeURIComponent(stop.query)}&city=厦门&view=map&src=xiamen-family-trip`} target="_blank" rel="noreferrer">
@@ -472,7 +472,7 @@ export default function Home() {
 
       <section className="section picture-guide" id="pictures">
         <div className="section-heading">
-          <div><p className="kicker">图说行程</p><h2>一图一日，长幼都看得明白</h2></div>
+          <div><p className="kicker">看图出发</p><h2>一图一天，全家都容易看懂</h2></div>
           <p>一图藏一日行止；依日期徐徐观之，来路归途皆清楚可见。</p>
         </div>
         <div className="picture-grid">
@@ -490,7 +490,7 @@ export default function Home() {
       </section>
 
       <section className="visual-journey" aria-label="旅行氛围图片画廊">
-        <div className="visual-title"><p className="kicker">南洋画卷</p><h2>花影未至，心已先行</h2><span>茶山、红瓦、花砖、海湾与家宴灯火</span></div>
+        <div className="visual-title"><p className="kicker">旅途画卷</p><h2>还没出发，先收藏一点好天气</h2><span>茶山、红瓦、海湾与生日晚霞</span></div>
         <div className="photo-mosaic">
           {journeyMoments.map((item) => (
             <button className={item.shape || ""} key={`${item.date}-${item.title}`} onClick={() => { setActive(item.day); document.getElementById("itinerary")?.scrollIntoView(); }} aria-label={`查看${item.date}行程`}>
@@ -502,7 +502,7 @@ export default function Home() {
       </section>
 
       <section className="section hotel-gallery" aria-label="酒店实景图片">
-        <div className="section-heading"><div><p className="kicker">枕水而居</p><h2>好眠一夜，才有明日好光景</h2></div><p>从鼓浪屿老别墅到七尚水院，庭院可赏，安睡更要紧。</p></div>
+        <div className="section-heading"><div><p className="kicker">今晚住这里</p><h2>睡得舒服，明天才有轻松的笑脸</h2></div><p>从鼓浪屿老别墅到七尚水院，好看，也要好好休息。</p></div>
         <div className="hotel-photo-grid">
           {hotelGallery.map((photo, index) => (
             <figure key={photo.image} className={index === 0 ? "featured" : ""}>
@@ -514,7 +514,7 @@ export default function Home() {
       </section>
 
       <section className="principles section">
-        <div className="section-heading light"><div><p className="kicker">徐行有度</p><h2>不赶一程，只惜相伴</h2></div></div>
+        <div className="section-heading light"><div><p className="kicker">慢一点刚刚好</p><h2>旅途不用排满，陪伴才是正事</h2></div></div>
         <div className="principle-grid">
           <article><span>01</span><h3>把午后留白</h3><p>日头最盛时回酒店，让孩子亲水，让老人安睡。</p></article>
           <article><span>02</span><h3>轻装去听海</h3><p>大件寄存华尔道夫，只带一只过夜包登上鼓浪屿。</p></article>
@@ -523,7 +523,7 @@ export default function Home() {
       </section>
 
       <section className="section dining" id="dining">
-        <div className="section-heading"><div><p className="kicker">一席闽南味</p><h2>细选家宴，算清一桌欢喜</h2></div><p>勾选菜品即可实时合计；既照顾长幼口味，也不辜负厦门风物。</p></div>
+        <div className="section-heading"><div><p className="kicker">今天吃什么</p><h2>喜欢的菜慢慢选，预算自动算好</h2></div><p>照顾老人和孩子的口味，也留住一点厦门的鲜甜。</p></div>
         <div className="menu-tabs" role="tablist" aria-label="选择正餐菜单">
           {menus.map((menu) => <button key={menu.id} className={activeMenu.id === menu.id ? "active" : ""} onClick={() => setActiveMenuId(menu.id)} role="tab" aria-selected={activeMenu.id === menu.id}>{menu.name}</button>)}
         </div>
@@ -595,7 +595,7 @@ export default function Home() {
       </section>
 
       <section className="section contact-helper" id="contact">
-        <div className="section-heading"><div><p className="kicker">行前尺素</p><h2>给酒店的话，已经替你写好</h2></div><p>奶奶休息、孩子便利与寿宴安排皆已写妥，一键复制即可发送。</p></div>
+        <div className="section-heading"><div><p className="kicker">一键发给酒店</p><h2>该说的话，已经温柔地写好了</h2></div><p>奶奶休息、孩子便利和生日安排都在里面，复制即可发送。</p></div>
         <div className="message-grid">
           {hotelMessages.map((message) => (
             <article key={message.id}>
@@ -610,7 +610,7 @@ export default function Home() {
       </section>
 
       <section className="section checklist" id="checklist">
-        <div className="section-heading"><div><p className="kicker">整装小记</p><h2>临行再看一遍，从容不落一物</h2><span className="check-count">{checked.length} / {checklist.length} 项已准备</span></div><p>勾选状态会留存在这台设备上；刷新页面也不会清空。</p></div>
+        <div className="section-heading"><div><p className="kicker">出发前的小清单</p><h2>一项一项准备好，安心去看海</h2><span className="check-count">{checked.length} / {checklist.length} 项已准备</span></div><p>勾选状态会保存在这台设备上，刷新页面也不会清空。</p></div>
         <div className="progress"><i style={{ width: `${checked.length / checklist.length * 100}%` }} /></div>
         <div className="check-category-grid">
           {checklistCategories.map((category) => (
@@ -631,10 +631,10 @@ export default function Home() {
       </section>
 
       <section className="birthday-wish" aria-label="生日祝福">
-        <div><p>花影满庭 · 人间团圆</p><h2>山海有期，<br />相聚便是好光景。</h2><span>奶奶安然坐在花影中央，爷爷仍在身旁，爸爸妈妈终于舒展眉头，嘟嘟与楚楚又牵起了她的手。七十岁以后，愿每一程都有好风，也总有人相伴看海。</span><a href="#top">重温这一程 ↑</a></div>
+        <div><p>风很轻 · 人都在</p><h2>最好的风景，<br />是我们又在一起。</h2><span>奶奶笑着坐在中间，爷爷陪在身边，爸爸妈妈终于放松下来，嘟嘟和楚楚又能牵起奶奶的手。愿七十岁以后的每一年，都有好天气，也有家人在身旁。</span><a href="#top">再看一遍行程 ↑</a></div>
       </section>
 
-      <footer><p>南洋花影 · 奶奶七十岁家庭纪行</p><span>六人同游：爷爷奶奶 · 爸爸妈妈 · 嘟嘟楚楚</span><a href="#top">回到卷首 ↑</a></footer>
+      <footer><p>海风轻轻 · 奶奶七十岁家庭旅行</p><span>爷爷奶奶 · 爸爸妈妈 · 嘟嘟楚楚</span><a href="#top">回到开场 ↑</a></footer>
       <nav className="mobile-nav"><a href="#itinerary">行程</a><a href="#maps">导航</a><a href="#pictures">看图</a><a href="#contact">联系</a><a href="#checklist">清单</a></nav>
     </main>
   );
