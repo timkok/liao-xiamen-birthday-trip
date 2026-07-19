@@ -23,26 +23,26 @@ async function render() {
   );
 }
 
-test("server-renders the Xiamen local Chinese trip experience", async () => {
+test("server-renders the integrated version archive", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>厦门慢慢来 · 奶奶七十岁 LOCAL 家庭旅行<\/title>/i);
-  assert.match(html, /厦门慢慢来/);
-  assert.match(html, /一家人好好呷饭/);
-  assert.match(html, /不看打卡榜，照本地人的节奏过六天/);
-  assert.match(html, /入山呷茶/);
-  assert.match(html, /毋免赶，慢慢来/);
-  assert.match(html, /团圆毋通等/);
-  assert.match(html, /奶奶病愈初安/);
-  assert.match(html, /嘟嘟十二岁，楚楚九岁/);
+  assert.match(html, /<title>厦门家宴之旅 · 十二版本珍藏馆<\/title>/i);
+  assert.match(html, /山海之间/);
+  assert.match(html, /十二种讲法/);
+  assert.match(html, /同一趟旅程，十二种观看方式/);
+  assert.match(html, /原版 · 山海之间/);
+  assert.match(html, /现代中文版/);
+  assert.match(html, /厦门 Local 版/);
+  assert.match(html, /页面会有不同/);
   assert.match(html, /一家四口从美国回到广州/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
   assert.doesNotMatch(html, /最后一晚|候选方案|待确认住宿/);
   assert.match(html, /id="itinerary"/);
+  assert.match(html, /id="versions"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /id="checklist"/);
   assert.doesNotMatch(html, /Your site is taking shape|Codex is working/);
@@ -63,9 +63,11 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(layout, /厦门慢慢来 · 奶奶七十岁 LOCAL 家庭旅行/);
-  assert.match(layout, /liao-xiamen-birthday-trip-12\.pages\.dev/);
+  assert.match(page, /liao-xiamen-birthday-trip-1\.pages\.dev/);
+  assert.match(page, /liao-xiamen-birthday-trip-12\.pages\.dev/);
+  assert.match(layout, /厦门家宴之旅 · 十二版本珍藏馆/);
+  assert.match(layout, /liao-xiamen-birthday-trip-13\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /xiamen-local-family-hero-v12\.jpg/);
+  assert.match(css, /edition-grid/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
