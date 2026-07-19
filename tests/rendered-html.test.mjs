@@ -23,20 +23,20 @@ async function render() {
   );
 }
 
-test("server-renders the 1950s Chinese family edition", async () => {
+test("server-renders the cosmopolitan Chinese family edition", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>厦门留影 · 奶奶七十岁家庭旅行<\/title>/i);
-  assert.match(html, /一九五〇年代画报/);
-  assert.match(html, /从她出生的年代/);
-  assert.match(html, /一程山海，六帧旧时光/);
-  assert.match(html, /茶山来信/);
-  assert.match(html, /渡船开航/);
-  assert.match(html, /七旬家宴/);
-  assert.match(html, /七十年走过/);
+  assert.match(html, /<title>厦门盛夏 · 奶奶七十岁海岸假期<\/title>/i);
+  assert.match(html, /SUMMER EDITION/);
+  assert.match(html, /山海正盛/);
+  assert.match(html, /一场旅行，六幕风景/);
+  assert.match(html, /茶山序曲/);
+  assert.match(html, /海上登场/);
+  assert.match(html, /盛夏家宴/);
+  assert.match(html, /都留给七十岁的盛夏/);
   assert.match(html, /一家四口从美国回到广州/);
   assert.match(html, /三家餐厅 · 219 道风味/);
   assert.match(html, /8\/2 · 慢度假/);
@@ -63,11 +63,11 @@ test("keeps travel interactions and mobile image safeguards in source", async ()
   assert.match(page, /decoding="async"/);
   assert.match(page, /trip-overview\.webp/);
   assert.match(page, /href="trip-overview\.png" target="_blank"/);
-  assert.match(page, /fiftiesChapters/);
-  assert.match(layout, /厦门留影 · 奶奶七十岁家庭旅行/);
-  assert.match(layout, /liao-xiamen-birthday-trip-14\.pages\.dev/);
+  assert.match(page, /cosmopolitanChapters/);
+  assert.match(layout, /厦门盛夏 · 奶奶七十岁海岸假期/);
+  assert.match(layout, /liao-xiamen-birthday-trip-15\.pages\.dev/);
   assert.match(layout, /og\.png/);
-  assert.match(css, /fifties-story-grid/);
-  assert.match(css, /fifties-family-hero-v14\.jpg/);
+  assert.match(css, /cosmopolitan-story-grid/);
+  assert.match(css, /cosmopolitan-family-hero-v15\.jpg/);
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
